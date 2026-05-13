@@ -1,0 +1,107 @@
+/* css/tokens.css */
+:root {
+  /* Colors */
+  --color-primary: #0057b7;
+  --color-primary-dark: #004088;
+  --color-secondary: #001a40;
+  --color-bg-light: #f5f7fa;
+  --color-bg-white: #ffffff;
+  
+  --color-text-main: #222222;
+  --color-text-muted: #555555;
+  --color-text-light: #999999;
+  --color-text-white: #ffffff;
+  
+  --color-border: #e0e0e0;
+  
+  --color-tag-corporate-bg: #e6f0fa;
+  --color-tag-corporate-text: #0057b7;
+  --color-tag-sustainability-bg: #e6f5ea;
+  --color-tag-sustainability-text: #00882b;
+
+  /* Typography */
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Responsive typography scale
+     - Body text shrinks gently from 1920px down to 768px
+     - Display text shrinks more aggressively to avoid oversized headings on compact desktop widths */
+  --font-size-xs: clamp(10.5px, calc(0.130208vw + 9.5px), 12px);
+  --font-size-sm: clamp(12.25px, calc(0.15191vw + 11.08333px), 14px);
+  --font-size-base: clamp(14px, calc(0.173611vw + 12.66667px), 16px);
+  --font-size-md: clamp(15.75px, calc(0.195313vw + 14.25px), 18px);
+  --font-size-lg: clamp(17.5px, calc(0.217014vw + 15.83333px), 20px);
+  --font-size-xl: clamp(21px, calc(0.260417vw + 19px), 24px);
+  --font-size-2xl: clamp(23.04px, calc(0.777778vw + 17.06667px), 32px);
+  --font-size-3xl: clamp(28.8px, calc(0.972222vw + 21.33333px), 40px);
+  --font-size-4xl: clamp(34.56px, calc(1.166667vw + 25.6px), 48px);
+
+  --font-size-13-fluid: clamp(11.375px, calc(0.141059vw + 10.29167px), 13px);
+  --font-size-15-fluid: clamp(13.125px, calc(0.16276vw + 11.875px), 15px);
+  --font-size-16-fluid: clamp(14px, calc(0.173611vw + 12.66667px), 16px);
+  --font-size-18-fluid: clamp(15.75px, calc(0.195313vw + 14.25px), 18px);
+  --font-size-20-fluid: clamp(17.5px, calc(0.217014vw + 15.83333px), 20px);
+  --font-size-22-fluid: clamp(19.25px, calc(0.238715vw + 17.41667px), 22px);
+  --font-size-36-fluid: clamp(25.92px, calc(0.875vw + 19.2px), 36px);
+  --font-size-54-fluid: clamp(38.88px, calc(1.3125vw + 28.8px), 54px);
+  --font-size-64-fluid: clamp(46.08px, calc(1.555556vw + 34.13333px), 64px);
+  --font-size-96-fluid: clamp(69.12px, calc(2.333333vw + 51.2px), 96px);
+
+  /* Fluid line-height tokens
+     line-height follows font size and stays slightly larger than the type size */
+  --line-height-13-fluid: calc(var(--font-size-13-fluid) * 1.3846);
+  --line-height-15-fluid: calc(var(--font-size-15-fluid) * 1.2667);
+  --line-height-16-fluid-base: calc(var(--font-size-16-fluid) * 1.375);
+  --line-height-16-fluid-loose: calc(var(--font-size-16-fluid) * 1.5);
+  --line-height-18-fluid: calc(var(--font-size-18-fluid) * 1.5);
+  --line-height-20-fluid: calc(var(--font-size-20-fluid) * 1.4);
+  --line-height-22-fluid: calc(var(--font-size-22-fluid) * 1.3182);
+  --line-height-36-fluid: calc(var(--font-size-36-fluid) * 1.1111);
+  --line-height-54-fluid: calc(var(--font-size-54-fluid) * 1.2963);
+  --line-height-64-fluid: calc(var(--font-size-64-fluid) * 1.2969);
+  --line-height-96-fluid: calc(var(--font-size-96-fluid) * 1.08);
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.2;
+  --line-height-base: 1.5;
+  --line-height-relaxed: 1.6;
+
+  /* Spacing */
+  --spacing-1: 0.25rem;   /* 4px */
+  --spacing-2: 0.5rem;    /* 8px */
+  --spacing-3: 0.75rem;   /* 12px */
+  --spacing-4: 1rem;      /* 16px */
+  --spacing-5: 1.25rem;   /* 20px */
+  --spacing-6: 1.5rem;    /* 24px */
+  --spacing-8: 2rem;      /* 32px */
+  --spacing-10: 2.5rem;   /* 40px */
+  --spacing-12: 3rem;     /* 48px */
+  --spacing-16: 4rem;     /* 64px */
+  --spacing-20: 5rem;     /* 80px */
+  --spacing-24: 6rem;     /* 96px */
+  --spacing-32: 8rem;     /* 128px */
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+
+  /* Transitions & Animations */
+  --transition-speed-fast: 150ms;
+  --transition-speed-base: 300ms;
+  --transition-speed-slow: 500ms;
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Layout */
+  --container-max-width: 1200px;
+  --header-height: 80px;
+}

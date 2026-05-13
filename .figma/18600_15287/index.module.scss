@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-width: 0px 0px 1px;
+  border-style: solid;
+  border-color: #dddddd;
+  box-shadow: 0px 0px 4px 0px #44444440;
+  background: #ffffff;
+  padding-right: 80px;
+  padding-left: 80px;
+  width: 1440px;
+  height: 73px;
+
+  .container {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    align-self: stretch;
+    justify-content: space-between;
+    border-width: 0px 0px 1px;
+    border-style: solid;
+    border-color: #eeeeee;
+
+    .logo {
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+      align-self: stretch;
+      column-gap: 24px;
+
+      .uLvaclogoBlue1 {
+        flex-shrink: 0;
+        width: 157px;
+        height: 24px;
+      }
+
+      .global {
+        flex-shrink: 0;
+        line-height: 22px;
+        letter-spacing: 0;
+        color: var(--color-neutral-solid-gray-500);
+        font-family: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+      }
+    }
+
+    .navigation {
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+      column-gap: 16px;
+      padding-top: 24px;
+
+      .home {
+        flex-shrink: 0;
+        align-self: stretch;
+        padding: 0px 12px 24px;
+        width: 119px;
+        line-height: 24px;
+        letter-spacing: 0;
+        color: var(--color-neutral-black);
+        font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 16px;
+      }
+
+      .home2 {
+        flex-shrink: 0;
+        align-self: stretch;
+        padding: 0px 12px 24px;
+        width: 65px;
+        text-align: center;
+        line-height: 24px;
+        letter-spacing: 0;
+        color: var(--color-neutral-black);
+        font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 16px;
+      }
+
+      .home3 {
+        flex-shrink: 0;
+        align-self: stretch;
+        padding: 0px 12px 24px;
+        width: 152px;
+        text-align: center;
+        line-height: 24px;
+        letter-spacing: 0;
+        color: var(--color-neutral-black);
+        font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 16px;
+      }
+
+      .home4 {
+        flex-shrink: 0;
+        align-self: stretch;
+        padding: 0px 12px 24px;
+        width: 81px;
+        text-align: center;
+        line-height: 24px;
+        letter-spacing: 0;
+        color: var(--color-neutral-black);
+        font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 16px;
+      }
+    }
+
+    .buttonLanguage {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--color-neutral-solid-gray-200);
+      border-radius: 4px;
+      background: var(--color-neutral-white);
+      padding: 3px 7px;
+      width: 130px;
+      min-width: 130px;
+
+      .title {
+        display: inline-flex;
+        flex-shrink: 0;
+        align-items: center;
+        column-gap: 4px;
+
+        .icon {
+          display: flex;
+          flex-shrink: 0;
+          align-items: center;
+          padding: 3px;
+
+          .language {
+            width: 18px;
+            height: 18px;
+            overflow: hidden;
+          }
+        }
+
+        .text {
+          flex-shrink: 0;
+          line-height: 23px;
+          letter-spacing: 0;
+          color: var(--color-neutral-solid-gray-900);
+          font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+          font-size: 15px;
+          font-weight: 700;
+        }
+      }
+
+      .expandMore {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        overflow: hidden;
+      }
+    }
+  }
+}

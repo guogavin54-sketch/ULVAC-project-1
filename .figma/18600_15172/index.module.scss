@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+}
+
+.contents {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 48px;
+  background: var(--color-neutral-white);
+  padding: 120px 80px;
+  width: 1440px;
+  height: 988px;
+
+  .containerTitle {
+    display: inline-flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: flex-start;
+    row-gap: 48px;
+
+    .uLvacOperatesBusines {
+      flex-shrink: 0;
+      width: 334px;
+      line-height: 70px;
+      letter-spacing: 0;
+      color: #1a1a1a;
+      font-family: "Dunbar Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+      font-size: 54px;
+      font-weight: 700;
+    }
+
+    .button {
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+      align-self: stretch;
+      justify-content: center;
+      column-gap: 4px;
+      margin-right: 94px;
+      border: 1px solid var(--Ulvac---main, #1c7dcd);
+      border-radius: 4px;
+      background: var(--Ulvac---main, #1c7dcd);
+      padding: 9px 19px 9px 23px;
+
+      .superMiniaturization {
+        flex-shrink: 0;
+        line-height: 24px;
+        letter-spacing: 0;
+        color: var(--color-neutral-white);
+        font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .chevronRight {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-start;
+    row-gap: 16px;
+
+    .containerCard {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      align-self: stretch;
+      column-gap: 16px;
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        align-items: flex-start;
+        outline-width: 1px;
+        outline-style: solid;
+        outline-color: var(--color-neutral-solid-gray-200);
+        border-radius: 8px;
+        box-shadow: var(--card, 0px 2px 4px 0px #00000014);
+
+        .maskGroup {
+          flex-shrink: 0;
+          width: 289px;
+          height: 163px;
+        }
+
+        .text {
+          display: flex;
+          flex-direction: column;
+          flex-shrink: 0;
+          align-items: flex-start;
+          align-self: stretch;
+          border-radius: 0px 0px 8px 8px;
+          background: #ffffff;
+          padding: 16px 24px;
+          row-gap: 8px;
+
+          .semiconductorAndElec {
+            flex-shrink: 0;
+            align-self: stretch;
+            width: 241px;
+            height: 87px;
+            line-height: 29px;
+            letter-spacing: 0;
+            color: var(--color-neutral-solid-gray-900);
+            font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+          }
+
+          .superMiniaturization2 {
+            flex-shrink: 0;
+            align-self: stretch;
+            width: 241px;
+            height: 76px;
+            line-height: 19px;
+            letter-spacing: 0;
+            color: var(--color-neutral-solid-gray-900);
+            font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}

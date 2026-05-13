@@ -1,0 +1,202 @@
+/* Base layout with clamp for fluid responsive scaling 1280px-1920px */
+.contents {
+  display: flex;
+  align-items: flex-start;
+  column-gap: clamp(24px, calc(100vw * (48 / 1440)), 64px);
+  background: #ffffff;
+  padding: clamp(80px, calc(100vw * (120 / 1440)), 160px) clamp(40px, calc(100vw * (80 / 1440)), 106.67px);
+  width: 100%;
+  max-width: 1920px;
+  min-height: calc(100vw * (988 / 1440));
+  margin: 0 auto;
+  box-sizing: border-box;
+  opacity: 0; /* For animation */
+  transform: translateY(30px);
+}
+
+.contents.isVisible {
+  animation: slideFadeIn 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.containerTitle {
+  display: inline-flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  row-gap: clamp(32px, calc(100vw * (48 / 1440)), 64px);
+  width: clamp(250px, calc(100vw * (334 / 1440)), 445.33px);
+}
+
+.uLvacOperatesBusines {
+  flex-shrink: 0;
+  width: 100%;
+  line-height: clamp(48px, calc(100vw * (70 / 1440)), 93.33px);
+  color: #1a1a1a;
+  font-family: "Dunbar Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: clamp(36px, calc(100vw * (54 / 1440)), 72px);
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  column-gap: 4px;
+  border: 1px solid #1c7dcd;
+  border-radius: 4px;
+  background: #1c7dcd;
+  padding: clamp(6px, calc(100vw * (9 / 1440)), 12px) clamp(12px, calc(100vw * (23 / 1440)), 30px);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  height: clamp(36px, calc(100vw * (44 / 1440)), 58.67px);
+}
+
+.button:hover, .button:focus {
+  background-color: #155a96;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(28, 125, 205, 0.3);
+}
+
+.superMiniaturization {
+  flex-shrink: 0;
+  line-height: 24px;
+  color: #ffffff;
+  font-family: Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: clamp(14px, calc(100vw * (16 / 1440)), 21.33px);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.chevronRight {
+  flex-shrink: 0;
+  width: clamp(16px, calc(100vw * (24 / 1440)), 32px);
+  height: clamp(16px, calc(100vw * (24 / 1440)), 32px);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: flex-start;
+  row-gap: clamp(12px, calc(100vw * (16 / 1440)), 21.33px);
+  width: clamp(600px, calc(100vw * (899 / 1440)), 1198.67px);
+}
+
+.containerCard {
+  display: flex;
+  flex-shrink: 0;
+  align-items: stretch;
+  align-self: stretch;
+  column-gap: clamp(12px, calc(100vw * (16 / 1440)), 21.33px);
+  height: clamp(240px, calc(100vw * (335 / 1440)), 446.67px);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+  align-items: flex-start;
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: #e5e7eb;
+  border-radius: clamp(4px, calc(100vw * (8 / 1440)), 10.67px);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  background: #ffffff;
+  height: 100%;
+}
+
+.card:hover, .card:focus {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.maskGroup {
+  width: 100%;
+  aspect-ratio: 289 / 163;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+  border-radius: clamp(4px, calc(100vw * (8 / 1440)), 10.67px) clamp(4px, calc(100vw * (8 / 1440)), 10.67px) 0 0;
+}
+
+.text {
+  padding: clamp(12px, calc(100vw * (16 / 1440)), 21.33px) clamp(16px, calc(100vw * (24 / 1440)), 32px);
+  display: flex;
+  flex-direction: column;
+  row-gap: clamp(4px, calc(100vw * (8 / 1440)), 10.67px);
+  background: #ffffff;
+  flex-grow: 1;
+  border-radius: 0 0 clamp(4px, calc(100vw * (8 / 1440)), 10.67px) clamp(4px, calc(100vw * (8 / 1440)), 10.67px);
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.cardTitle {
+  align-self: stretch;
+  line-height: clamp(22px, calc(100vw * (29 / 1440)), 38.67px);
+  color: #1a1a1a;
+  font-family: Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: clamp(16px, calc(100vw * (22 / 1440)), 29.33px);
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0;
+  flex-shrink: 0;
+}
+
+.cardDesc {
+  align-self: stretch;
+  line-height: clamp(16px, calc(100vw * (19 / 1440)), 25.33px);
+  color: #1a1a1a;
+  font-family: Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: clamp(12px, calc(100vw * (15 / 1440)), 20px);
+  margin: 0;
+  letter-spacing: 0;
+  flex-shrink: 0;
+}
+
+/* Media queries for smaller screens (< 1024px) */
+@media (max-width: 1024px) {
+  .contents {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+  }
+  .containerTitle {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .button {
+    align-self: center;
+    margin-right: 0;
+  }
+  .containerCard {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card {
+    flex: 1 1 calc(50% - 16px);
+  }
+}
+
+@media (max-width: 768px) {
+  .contents { padding: 40px 20px; }
+  .uLvacOperatesBusines { font-size: 40px; line-height: 52px; }
+  .containerCard { flex-direction: column; height: auto; row-gap: 16px; }
+  .card {
+    flex: 1 1 100%;
+  }
+}

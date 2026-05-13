@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+}
+
+.section {
+  position: relative;
+  background: #ffffff;
+  width: 1440px;
+  height: 400px;
+  overflow: hidden;
+
+  .bG {
+    position: absolute;
+    top: -490px;
+    left: 1px;
+    width: 1440px;
+    height: 1294px;
+    overflow: hidden;
+    backdrop-filter: blur(0px);
+
+    .eclipse {
+      position: absolute;
+      top: -248px;
+      left: 54px;
+      border-radius: 50%;
+      width: 1025px;
+      height: 1804px;
+      rotate: -66deg;
+      background-image: linear-gradient(180deg, #1c7dcd00 0%, #055da4 100%);
+      filter: blur(100px);
+    }
+
+    .rectangle29 {
+      position: absolute;
+      top: -381px;
+      left: 424px;
+      width: 494px;
+      height: 2112px;
+      rotate: -66deg;
+      background-image: linear-gradient(180deg, #1c7dcd00 0%, #44a4f4 100%);
+      filter: blur(100px);
+    }
+  }
+
+  .image40 {
+    position: absolute;
+    top: 19px;
+    left: 465px;
+    width: 882px;
+    height: 455px;
+    rotate: -44deg;
+  }
+
+  .texture {
+    position: absolute;
+    top: -663px;
+    left: -691px;
+    width: 2571px;
+    height: 1929px;
+    rotate: 55deg;
+  }
+
+  .container {
+    display: flex;
+    position: absolute;
+    top: 120px;
+    left: 80px;
+    align-items: center;
+    column-gap: 48px;
+    width: 1280px;
+    height: 105px;
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      align-items: flex-start;
+      row-gap: 16px;
+
+      .uLvacvaluereport2025 {
+        flex-shrink: 0;
+        align-self: stretch;
+        line-height: 70px;
+        letter-spacing: 0;
+        color: var(--color-neutral-white);
+        font-family: "Dunbar Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 54px;
+        font-weight: 700;
+      }
+
+      .superMiniaturization {
+        flex-shrink: 0;
+        align-self: stretch;
+        line-height: 19px;
+        letter-spacing: 0;
+        color: var(--color-neutral-white);
+        font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 15px;
+      }
+    }
+
+    .button {
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      column-gap: 4px;
+      border: 1px solid var(--Ulvac---main, #1c7dcd);
+      border-radius: 4px;
+      background: var(--color-neutral-white);
+      padding: 9px 19px 9px 23px;
+
+      .superMiniaturization2 {
+        flex-shrink: 0;
+        line-height: 24px;
+        letter-spacing: 0;
+        color: var(--Ulvac---main, #1c7dcd);
+        font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .chevronRight {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        overflow: hidden;
+      }
+    }
+  }
+}

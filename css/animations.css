@@ -1,0 +1,67 @@
+/* css/animations.css */
+
+/* Fade in up animation for scroll */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Base class for elements that will be animated on scroll */
+.animate-on-scroll {
+  opacity: 0; /* Hidden by default until JS adds .is-visible */
+  transform: translateY(30px);
+  transition: opacity var(--transition-speed-slow) var(--ease-out-cubic),
+              transform var(--transition-speed-slow) var(--ease-out-cubic);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for multiple items */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Interactive Hover Effects */
+.hover-card-effect {
+  transition: transform var(--transition-speed-base) var(--ease-out-cubic),
+              box-shadow var(--transition-speed-base) var(--ease-out-cubic);
+}
+
+.hover-card-effect:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hover-color-effect {
+  transition: color var(--transition-speed-fast) var(--ease-in-out),
+              background-color var(--transition-speed-fast) var(--ease-in-out),
+              border-color var(--transition-speed-fast) var(--ease-in-out);
+}
+
+/* Accessibility: Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

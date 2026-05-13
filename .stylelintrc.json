@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "rules": {
+    "no-duplicate-selectors": true,
+    "declaration-block-no-shorthand-property-overrides": true
+  },
+  "ignoreFiles": [
+    "node_modules/**/*"
+  ]
+}

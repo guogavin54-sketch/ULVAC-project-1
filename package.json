@@ -1,0 +1,39 @@
+{
+  "name": "ulvac-project",
+  "version": "1.0.0",
+  "description": "本项目为 ULVAC Global 官方网站 PC/TOP 页面的 1:1 像素级静态重构，基于提供的 Figma 截图实现。",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:mobile-styles": "node tests/mobile-style-assert.js",
+    "test:font-scale": "node tests/font-scale-report.js",
+    "lint:css": "stylelint \"css/**/*.css\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "pdfkit": "^0.18.0",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "puppeteer": "^24.43.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.29.5",
+    "@babel/preset-react": "^7.28.5",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "babel-jest": "^30.4.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "stylelint": "^17.11.0",
+    "stylelint-config-standard": "^40.0.0"
+  }
+}
