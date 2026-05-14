@@ -12,9 +12,14 @@
   body.is-mobile.mobile-nav-open {
     overflow: hidden;
   }
-
+.container{
+          width: 100% !important;
+}
   body.is-mobile .container {
-    width: calc(100% - 32px) !important;
+    /* Bootstrap handles mobile container width */
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   body.is-mobile .global-header {
@@ -229,7 +234,7 @@
   }
 
   body.is-mobile .hero .hero-content h1 {
-    max-width: 358px;
+
     font-size: 34px;
     line-height: 44px;
     letter-spacing: -0.34px;
@@ -242,7 +247,7 @@
   }
 
   body.is-mobile .hero .hero-description {
-    max-width: 358px;
+
     font-size: 16px;
     line-height: 24px;
     text-align: center;
@@ -268,14 +273,14 @@
   }
 
   body.is-mobile .business-section {
-    padding: 80px 16px;
+    padding: 80px 0;
   }
 
   body.is-mobile .business-section .business-mobile {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    padding: 0;
+    padding: 0 16px;
   }
 
   body.is-mobile .business-section .business-mobile-title {
@@ -346,10 +351,11 @@
   body.is-mobile .business-section .business-accordion-item.is-open .business-accordion-panel {
     opacity: 1;
     padding: 0 15px 15px;
+            max-height: max-content !important;
   }
 
   body.is-mobile .business-section .business-accordion-panel p {
-    margin: 0 0 12px;
+    margin: 0 0 16px;
     color: #1a1a1a;
     font-family: Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
     font-size: 15px;
@@ -400,17 +406,16 @@
   }
 
   body.is-mobile .profile-section {
-    padding: 80px 16px;
+    padding: 80px 0;
   }
 
-  body.is-mobile .profile-container,
-  body.is-mobile .news-container,
   body.is-mobile .bases-container {
     width: 100%;
+    padding: 0 16px;
   }
 
-  body.is-mobile .profile-section .profile-container h2,
-  body.is-mobile .news-container h2,
+  body.is-mobile .profile-section h2,
+  body.is-mobile .news-section h2,
   body.is-mobile .bases-container h2,
   body.is-mobile .value-report-section .report-text h2 {
     font-size: 28px;
@@ -459,7 +464,7 @@
   }
 
   body.is-mobile .news-section {
-    padding: 80px 16px;
+    padding: 80px 0;
   }
 
   body.is-mobile .news-grid {
@@ -484,7 +489,7 @@
   body.is-mobile .news-card.small .news-img-wrap,
   body.is-mobile .news-card.large .news-img-wrap {
     width: 100%;
-    height: 174px;
+    height: 250px;
     padding-right: 0;
     border: 1px solid #f3f3f3;
     border-radius: 8px;
@@ -511,7 +516,7 @@
   }
 
   body.is-mobile .news-image-sk {
-    object-position: center 24%;
+    object-position: center;
   }
 
   body.is-mobile .news-image-cdp {
@@ -551,7 +556,7 @@
   }
 
   body.is-mobile .bases-section {
-    padding: 64px 16px;
+    padding: 64px 0;
     min-height: auto;
     background-image: linear-gradient(308.6deg, #0d5895 0.06%, #1164a7 50%, #4da8f5 99.94%);
   }
@@ -624,19 +629,20 @@
 
   body.is-mobile .value-report-section {
     aspect-ratio: auto;
-    min-height: 326px;
-    height: 326px;
+    min-height: 350px;
+    height: auto;
   }
 
-  body.is-mobile .value-report-section .report-container {
-    position: relative;
-    z-index: 2;
+  body.is-mobile .value-report-section .container {
     padding: 64px 16px;
-    height: 100%;
+  }
+
+  body.is-mobile .value-report-section .report-content {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 24px;
+    gap: 48px;
+    width: 100%;
   }
 
   body.is-mobile .value-report-section .report-text {
@@ -644,8 +650,8 @@
   }
 
   body.is-mobile .value-report-section .report-text h2 {
-    font-size: 32px;
-    line-height: 42px;
+    font-size: 28px;
+    line-height: 36px;
     color: #ffffff;
     text-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
   }
@@ -676,15 +682,14 @@
     display: none;
   }
 
-  body.is-mobile .global-footer .footer-shell {
+  body.is-mobile .global-footer .container {
     padding: 64px 16px;
-    gap: 32px;
-    min-height: auto;
   }
 
   body.is-mobile .global-footer .footer-top {
-    flex-direction: column;
+    padding-bottom: 32px;
     gap: 32px;
+        padding: 0px 0 32px 0;
   }
 
   body.is-mobile .global-footer .footer-brand-block {
@@ -709,6 +714,7 @@
     padding-top: 16px;
     border-top: 1px solid rgba(214, 219, 227, 0.4);
     gap: 16px;
+    margin-bottom: 0;
   }
 
   body.is-mobile .global-footer .footer-legal {
@@ -739,7 +745,7 @@
     display: block;
     font-size: 16px;
     line-height: 22px;
-    padding: 6px 0;
+    
   }
 
   body.is-mobile .global-footer .footer-bottom p {
@@ -750,12 +756,23 @@
   body.is-mobile .global-footer .footer-legal a {
     font-size: 13px;
     line-height: 21px;
+    width: 100%;
   }
 
   body.is-mobile .text-spotlight::after {
     bottom: -10px;
     width: min(112px, 48%);
   }
+  .news-footer .btn-business{
+      width: 100%;
+}
+.news-footer {
+    align-self: flex-start;
+    width: 100%;
+}
+.news-footer .btn-business span{
+  font-size: 15px;
+}
 }
 
 @media (max-width: 480px) {
@@ -769,8 +786,8 @@
   }
 
   body.is-mobile .business-section .business-mobile-title,
-  body.is-mobile .profile-section .profile-container h2,
-  body.is-mobile .news-container h2,
+  body.is-mobile .profile-section h2,
+  body.is-mobile .news-section h2,
   body.is-mobile .bases-container h2,
   body.is-mobile .value-report-section .report-text h2 {
     font-size: 28px;

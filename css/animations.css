@@ -135,6 +135,67 @@
   transform-origin: center center;
 }
 
+/* Gradient text effect for card h3 titles on hover */
+@keyframes text-gradient-flow {
+  0% {
+    background-position: -100% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Glowing text effect for card h3 titles on hover */
+@keyframes text-ray-sweep {
+  0% {
+    background-position: -100% 50%;
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    background-position: 100% 50%;
+    opacity: 0.8;
+  }
+}
+
+.text-glow-effect {
+  position: relative;
+  display: inline-block;
+}
+
+.text-glow-effect::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(15, 102, 173, 0.7),
+    rgba(28, 125, 205, 0.9),
+    rgba(15, 102, 173, 0.7),
+    transparent
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transform: scaleX(0.3);
+  transform-origin: left center;
+  transition:
+    opacity 480ms var(--ease-out-cubic),
+    transform 480ms var(--ease-out-cubic);
+}
+
+.business-card:hover .text-glow-effect::after,
+.news-card:hover .text-glow-effect::after {
+  opacity: 1;
+  transform: scaleX(1);
+  animation: text-ray-sweep 0.8s ease-out forwards;
+}
+
 /* Accessibility: Prefers Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *,
