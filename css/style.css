@@ -535,7 +535,7 @@ h1, h2, h3, h4 {
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  filter: brightness(0.72);
+  filter: brightness(0.9);
 }
 
 .profile-overlay {
@@ -888,95 +888,272 @@ h1, h2, h3, h4 {
 /* Bases Section */
 .bases-section {
   position: relative;
-  padding: var(--spacing-20) 0;
-  background-color: var(--color-bg-light);
+  width: 100%;
+  padding: 80px 0;
+  background-image: linear-gradient(308.6deg, #0d5895 0.06%, #1164a7 50%, #4da8f5 99.94%);
   overflow: hidden;
-}
-
-.bases-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-}
-
-.bases-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .bases-container {
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: none;
+  padding: 0 clamp(24px, 5.56vw, 80px);
+  box-sizing: border-box;
+}
+
+.bases-map-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 48px;
+}
+
+.bases-map-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .bases-container h2 {
-  font-size: var(--font-size-2xl);
-  color: var(--color-bg-white);
-  margin-bottom: var(--spacing-4);
-  /* The design has white text for ULVAC Main Bases, but wait, screenshot shows light grey background and white text? Actually the screenshot shows a light grey section with "ULVAC Main Bases" in white text? No, it looks like white text on a very light background, probably a mistake in my interpretation. Let's make it dark text if the background is light. Ah, the image has a white "ULVAC Main Bases" on a light background? No, it might be a blue background section. Let me check the screenshot again.
-     Actually, "ULVAC Main Bases" is in white, and the background looks like it fades into blue at the bottom. 
-     Let's use primary color for the text if the background is light. */
-  color: var(--color-text-light); 
+  margin: 0;
+  color: #ffffff;
+  font-family: "Dunbar Text", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: var(--font-size-54-fluid);
+  font-weight: 700;
+  line-height: var(--line-height-54-fluid);
 }
 
-.bases-title-large {
-  font-size: var(--font-size-96-fluid);
-  font-weight: var(--font-weight-bold);
-  color: #000;
-  line-height: var(--line-height-96-fluid);
-  margin-bottom: var(--spacing-10);
-}
-
-.base-card {
-  background: var(--color-bg-white);
-  padding: var(--spacing-6);
-  width: 300px;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-lg);
-}
-
-.base-card img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  margin-bottom: var(--spacing-4);
-}
-
-.base-info h3 {
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--spacing-2);
-}
-
-.base-info ul {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  margin-bottom: var(--spacing-4);
-}
-
-.base-info li {
-  margin-bottom: var(--spacing-1);
-}
-
-.base-controls {
-  display: flex;
-  gap: var(--spacing-2);
-  margin-bottom: var(--spacing-4);
-}
-
-.control-btn {
-  width: 32px;
-  height: 32px;
-  display: flex;
+.btn-map-bases {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg-light);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  gap: 4px;
+  padding: 9px 19px 9px 23px;
+  border: 1px solid #1c7dcd;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #1c7dcd;
+  text-decoration: none;
+  transition: transform 0.24s ease, box-shadow 0.24s ease, background-color 0.24s ease;
+}
+
+.btn-map-bases span {
+  font-family: Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: var(--font-size-16-fluid);
+  font-weight: 700;
+  line-height: var(--line-height-16-fluid-loose);
+}
+
+.btn-map-bases svg {
+  width: 24px;
+  height: 24px;
+}
+
+.btn-map-bases:hover {
+  background: #f0f7fd;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.bases-map-stage {
+  position: relative;
+  width: 100%;
+}
+
+.bases-map-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1280 / 783;
+  min-height: min(783px, 61.17vw);
+}
+
+.bases-map-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+}
+
+.bases-map-hotspots {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.bases-hotspot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transform: translate(-50%, -50%) translateZ(0);
+  transition: transform 0.2s ease;
+}
+
+.bases-hotspot:hover,
+.bases-hotspot:focus-visible {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.bases-hotspot:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.88);
+  outline-offset: 4px;
+}
+
+.bases-hotspot-pulse,
+.bases-hotspot-core {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+}
+
+.bases-hotspot-pulse {
+  background: rgba(255, 125, 0, 0.34);
+  animation: bases-hotspot-pulse 0.6667s ease-out infinite;
+}
+
+.bases-hotspot-core {
+  inset: 8px;
+  background: #ff7f00;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.24);
+}
+
+.bases-hotspot.is-active .bases-hotspot-pulse {
+  background: rgba(255, 125, 0, 0.48);
+  animation-duration: 0.6667s;
+}
+
+.bases-hotspot.is-active .bases-hotspot-core {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.38), 0 0 0 9px rgba(255, 125, 0, 0.16);
+}
+
+.bases-region-card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 292px;
+  min-height: 235px;
+  overflow: hidden;
+  border: 1px solid rgba(214, 223, 231, 0.96);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: left 0.28s ease, top 0.28s ease, opacity 0.28s ease, transform 0.28s ease;
+  will-change: left, top, opacity, transform;
+}
+
+.bases-region-card.is-switching {
+  opacity: 0;
+  transform: translate3d(0, 10px, 0);
+}
+
+.bases-region-card-media {
+  width: 100%;
+  height: 134px;
+  overflow: hidden;
+}
+
+.bases-region-card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bases-region-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 16px 18px;
+}
+
+.bases-region-title {
+  margin: 0;
+  color: #333333;
+  font-family: Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.bases-region-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 12px 16px;
+  list-style: none;
+  border-radius: 6px;
+  background: #eef3f7;
+}
+
+.bases-region-stats li {
+  color: #333333;
+  font-family: Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+@media (max-width: 1280px) {
+  .bases-region-card {
+    width: 280px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .bases-container {
+    padding: 0 clamp(20px, 3.125vw, 32px);
+  }
+
+  .bases-region-card {
+    width: 260px;
+  }
+}
+
+.bases-region-stats strong {
+  font-weight: 700;
+}
+
+@keyframes bases-hotspot-pulse {
+  0% {
+    transform: scale(0.72);
+    opacity: 0.54;
+  }
+  45% {
+    transform: scale(1.08);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bases-hotspot-pulse {
+    animation: none;
+    opacity: 0.24;
+  }
+
+  .bases-region-card,
+  .btn-map-bases,
+  .bases-hotspot {
+    transition: none;
+  }
 }
 
 /* Value Report Section */

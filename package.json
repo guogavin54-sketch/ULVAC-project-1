@@ -10,6 +10,7 @@
     "test": "jest",
     "test:mobile-styles": "node tests/mobile-style-assert.js",
     "test:font-scale": "node tests/font-scale-report.js",
+    "test:bases-map": "node tests/bases-map-verify.js",
     "lint:css": "stylelint \"css/**/*.css\""
   },
   "keywords": [],

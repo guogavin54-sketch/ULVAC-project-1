@@ -336,38 +336,121 @@
 
     <!-- Main Bases Section -->
     <section class="bases-section">
-      <div class="bases-bg">
-        <img src="assets/images/world_map_bg.png" alt="World Map">
-      </div>
-      <div class="container bases-container">
-        <h2 class="animate-on-scroll">ULVAC Main Bases</h2>
-        <div class="bases-title-large animate-on-scroll delay-100">In Progress</div>
-        
-        <div class="base-card hover-card-effect animate-on-scroll delay-200">
-          <img src="assets/images/japan_base.png" alt="Japan">
-          <div class="base-info">
-            <h3>Japan</h3>
-            <ul>
-              <li>Sales & Service: 35</li>
-              <li>R&D: 4</li>
-              <li>Manufacturing: 11</li>
-            </ul>
+      <div class="bases-container">
+        <div class="bases-map-shell">
+          <div class="bases-map-header">
+            <h2>ULVAC Main Bases</h2>
+            <a href="#" class="btn-map-bases hover-card-effect">
+              <span>See All Group Companies</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M10 6L16 12L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
           </div>
-          <div class="base-controls">
-            <button class="control-btn" aria-label="Previous">&lt;</button>
-            <button class="control-btn" aria-label="Next">&gt;</button>
+
+          <div class="bases-map-stage">
+            <div class="bases-map-visual">
+              <img
+                src="assets/images/Dot_japan 1.png"
+                alt="Global map showing ULVAC main bases"
+                class="bases-map-image"
+              >
+
+              <div class="bases-map-hotspots" aria-label="ULVAC Main Bases Regions">
+                <button
+                  type="button"
+                  class="bases-hotspot is-active"
+                  data-region="japan"
+                  data-x="0.512"
+                  data-y="0.438"
+                  aria-label="Switch to Japan region"
+                  aria-controls="bases-region-card"
+                  aria-pressed="true"
+                >
+                  <span class="bases-hotspot-pulse"></span>
+                  <span class="bases-hotspot-core"></span>
+                </button>
+                <button
+                  type="button"
+                  class="bases-hotspot"
+                  data-region="asia"
+                  data-x="0.464"
+                  data-y="0.429"
+                  aria-label="Switch to Asia region"
+                  aria-controls="bases-region-card"
+                  aria-pressed="false"
+                >
+                  <span class="bases-hotspot-pulse"></span>
+                  <span class="bases-hotspot-core"></span>
+                </button>
+                <button
+                  type="button"
+                  class="bases-hotspot"
+                  data-region="europe"
+                  data-x="0.354"
+                  data-y="0.474"
+                  aria-label="Switch to Europe region"
+                  aria-controls="bases-region-card"
+                  aria-pressed="false"
+                >
+                  <span class="bases-hotspot-pulse"></span>
+                  <span class="bases-hotspot-core"></span>
+                </button>
+                <button
+                  type="button"
+                  class="bases-hotspot"
+                  data-region="north-america"
+                  data-x="0.161"
+                  data-y="0.395"
+                  aria-label="Switch to North America region"
+                  aria-controls="bases-region-card"
+                  aria-pressed="false"
+                >
+                  <span class="bases-hotspot-pulse"></span>
+                  <span class="bases-hotspot-core"></span>
+                </button>
+                <button
+                  type="button"
+                  class="bases-hotspot"
+                  data-region="south-east-asia"
+                  data-x="0.447"
+                  data-y="0.574"
+                  aria-label="Switch to South East Asia region"
+                  aria-controls="bases-region-card"
+                  aria-pressed="false"
+                >
+                  <span class="bases-hotspot-pulse"></span>
+                  <span class="bases-hotspot-core"></span>
+                </button>
+              </div>
+            </div>
+
+            <article
+              id="bases-region-card"
+              class="bases-region-card hover-card-effect"
+              aria-live="polite"
+              data-active-region="japan"
+            >
+              <div class="bases-region-card-media">
+                <img src="assets/images/Images_map.png" alt="Japan region overview" class="bases-region-card-image">
+              </div>
+              <div class="bases-region-card-body">
+                <h3 class="bases-region-title">Japan</h3>
+                <ul class="bases-region-stats">
+                  <li><span>Sales &amp; Service:</span> <strong>35</strong></li>
+                  <li><span>R&amp;D:</span> <strong>4</strong></li>
+                  <li><span>Manufacturing:</span> <strong>11</strong></li>
+                </ul>
+              </div>
+            </article>
           </div>
-          <a href="#" class="btn btn-outline hover-color-effect">See All Group Companies &gt;</a>
         </div>
       </div>
     </section>
 
     <!-- Value Report Section -->
     <section class="report-section">
-      <div class="container report-container animate-on-scroll">
-      
-  
-      </div>
+     
     </section>
     <!-- Value Report Section -->
     <section class="value-report-section">
