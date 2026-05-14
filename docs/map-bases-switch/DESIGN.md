@@ -28,7 +28,7 @@
 
 - 优先使用本地地图资源：
   - [world_map_bg.png](file:///c:/Users/gavin.guo/Desktop/ULVAC%20project/assets/images/world_map_bg.png)
-  - 或 Figma 导出的 [mp4y06ci-ufa9rxw.png](file:///c:/Users/gavin.guo/Desktop/ULVAC%20project/.figma/image/mp4y06ci-ufa9rxw.png)
+  - 或 Figma 导出的 [mp4y06ci-ufa9rxw.png](file:///c:/Users/gavin.guo/Desktop/ULVAC%20project/assets/images/mp4y06ci-ufa9rxw.png)
 
 ## 结构设计
 

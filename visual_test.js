@@ -43,7 +43,7 @@ const PDFDocument = require('pdfkit');
 
         console.log('Comparing images...');
         const img1 = PNG.sync.read(fs.readFileSync('current_section.png'));
-        const img2 = PNG.sync.read(fs.readFileSync('.figma/image/screenshot_18600_15172.png'));
+        const img2 = PNG.sync.read(fs.readFileSync('assets/images/screenshot_18600_15172.png'));
         
         console.log(`img1 dimensions: ${img1.width}x${img1.height}`);
         console.log(`img2 dimensions: ${img2.width}x${img2.height}`);
