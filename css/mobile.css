@@ -202,6 +202,22 @@
     padding: 0;
   }
 
+  body.is-mobile .hero::before,
+  body.is-mobile .profile-section::before,
+  body.is-mobile .news-section::before,
+  body.is-mobile .bases-section::before,
+  body.is-mobile .bases-section::after,
+  body.is-mobile .value-report-section::after,
+  body.is-mobile .global-footer::before {
+    opacity: 0.52;
+  }
+
+  body.is-mobile .hero::before {
+    width: 78vw;
+    top: -14%;
+    right: -22%;
+  }
+
   body.is-mobile .hero .hero-content {
     width: 100% !important;
     min-height: 620px;
@@ -218,6 +234,7 @@
     line-height: 44px;
     letter-spacing: -0.34px;
     text-align: center;
+    text-shadow: 0 10px 26px rgba(0, 0, 0, 0.24);
   }
 
   body.is-mobile .hero .hero-content h1 br {
@@ -229,6 +246,7 @@
     font-size: 16px;
     line-height: 24px;
     text-align: center;
+    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
   }
 
   body.is-mobile .hero .btn-hero-white {
@@ -267,6 +285,7 @@
     font-size: 28px;
     font-weight: 700;
     line-height: 36px;
+    text-shadow: 0 8px 20px rgba(17, 100, 167, 0.08);
   }
 
   body.is-mobile .business-section .business-accordion-list {
@@ -628,6 +647,7 @@
     font-size: 32px;
     line-height: 42px;
     color: #ffffff;
+    text-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
   }
 
   body.is-mobile .value-report-section .report-text p {
@@ -635,6 +655,7 @@
     font-size: 15px;
     line-height: 19px;
     color: #ffffff;
+    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
   }
 
   body.is-mobile .value-report-section .btn-report {
@@ -729,6 +750,11 @@
   body.is-mobile .global-footer .footer-legal a {
     font-size: 13px;
     line-height: 21px;
+  }
+
+  body.is-mobile .text-spotlight::after {
+    bottom: -10px;
+    width: min(112px, 48%);
   }
 }
 

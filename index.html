@@ -80,18 +80,18 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-bg">
-        <!-- 视频首帧作为占位图(poster)，配合 preload="none" 优化加载 -->
-        <video autoplay muted loop playsinline poster="assets/images/hero_bg.png" class="hero-video scanner-effect">
+        <!-- 首屏视频主动预加载，避免远端缓存恢复时出现明显延迟 -->
+        <video autoplay muted loop playsinline preload="auto" poster="assets/images/hero_bg.png" class="hero-video scanner-effect">
           <source src="assets/video/ulvac_2.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         <!-- 扫描光束线 -->
         <div class="scanner-line"></div>
       </div>
-      <div class="container hero-content animate-on-scroll">
-        <h1>ULVAC, Global Leader in Vacuum<br>Technology for Over 70 Years</h1>
-        <p class="hero-description">Our advanced technologies support industrial manufacturers with solutions centered around our proprietary vacuum technology, playing an important role in areas of global strategic significance, including advanced semiconductor electronics, rare earth magnet manufacturing, and extreme cooling technologies for quantum computing.</p>
-        <button class="btn-hero-white">
+      <div class="container hero-content">
+        <h1 class="animate-on-scroll reveal-pop text-spotlight">ULVAC, Global Leader in Vacuum<br>Technology for Over 70 Years</h1>
+        <p class="hero-description animate-on-scroll reveal-soft delay-100 text-readable">Our advanced technologies support industrial manufacturers with solutions centered around our proprietary vacuum technology, playing an important role in areas of global strategic significance, including advanced semiconductor electronics, rare earth magnet manufacturing, and extreme cooling technologies for quantum computing.</p>
+        <button class="btn-hero-white hover-lift animate-on-scroll reveal-tight delay-200">
           <span>Learn More About ULVAC</span>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 6L16 12L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -103,9 +103,9 @@
     <!-- Business Areas Section -->
     <section class="business-section">
       <div class="container business-container">
-        <div class="business-header animate-on-scroll">
-          <h2>ULVAC Operates Businesses in Six Areas</h2>
-          <button class="btn-business">
+        <div class="business-header">
+          <h2 class="animate-on-scroll reveal-pop text-spotlight">ULVAC Operates Businesses in Six Areas</h2>
+          <button class="btn-business hover-lift animate-on-scroll reveal-tight delay-100">
             <span>See Business Overview</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 6L16 12L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -115,21 +115,21 @@
         <div class="business-grid">
           <div class="business-card-container">
             <div class="business-card hover-card-effect animate-on-scroll delay-100">
-              <img src="assets/images/card1_semiconductor.svg" alt="Semiconductor and Electronic Device Production Equipment">
+              <img src="assets/images/card1_semiconductor.svg" alt="Semiconductor and Electronic Device Production Equipment" loading="lazy" decoding="async">
               <div class="card-content">
                 <h3 class="title-semiconductor">Semiconductor and Electronic Device Production Equipment</h3>
                 <p>Super-miniaturization technologies delivering products that support societal progress through high-performance devices</p>
               </div>
             </div>
             <div class="business-card hover-card-effect animate-on-scroll delay-200">
-              <img src="assets/images/card2_industrial.svg" alt="Industrial Equipment">
+              <img src="assets/images/card2_industrial.svg" alt="Industrial Equipment" loading="lazy" decoding="async">
               <div class="card-content">
                 <h3>Industrial Equipment</h3>
                 <p>Solutions across wide-ranging industries, including automobile, pharmaceutical, and food</p>
               </div>
             </div>
             <div class="business-card hover-card-effect animate-on-scroll delay-300">
-              <img src="assets/images/card3_display.svg" alt="Display and Energy-Related Production Equipment">
+              <img src="assets/images/card3_display.svg" alt="Display and Energy-Related Production Equipment" loading="lazy" decoding="async">
               <div class="card-content">
                 <h3 class="title-display">Display and Energy-Related Production Equipment</h3>
                 <p>Coating and processing solutions for various materials including glass substrates, plastics, and films</p>
@@ -138,21 +138,21 @@
           </div>
           <div class="business-card-container">
             <div class="business-card hover-card-effect animate-on-scroll delay-400">
-              <img src="assets/images/card4_components.svg" alt="Components">
+              <img src="assets/images/card4_components.svg" alt="Components" loading="lazy" decoding="async">
               <div class="card-content">
                 <h3>Components</h3>
                 <p>Vacuum pumps, measurement and analysis equipment, power generators, and vacuum valves</p>
               </div>
             </div>
             <div class="business-card hover-card-effect animate-on-scroll delay-500">
-              <img src="assets/images/card5_materials.svg" alt="Materials">
+              <img src="assets/images/card5_materials.svg" alt="Materials" loading="lazy" decoding="async">
               <div class="card-content">
                 <h3>Materials</h3>
                 <p>Electric materials, such as sputtering targets, and precision-processed metals for diverse applications</p>
               </div>
             </div>
             <div class="business-card hover-card-effect animate-on-scroll delay-600">
-              <img src="assets/images/card6_vacuum.svg" alt="Vacuum Application Business">
+              <img src="assets/images/card6_vacuum.svg" alt="Vacuum Application Business" loading="lazy" decoding="async">
               <div class="card-content">
                 <h3 class="title-vacuum">Vacuum Application Business (Surface analysis • Coating)</h3>
                 <p>Surface analysis and coating — technology derived from vacuum-based production equipment for diverse industries</p>
@@ -171,7 +171,7 @@
             </button>
             <div id="business-panel-1" class="business-accordion-panel">
               <p>Super-miniaturization technologies delivering products that support societal progress through high-performance devices</p>
-              <img src="assets/images/card1_semiconductor.svg" alt="Semiconductor and Electronic Device Production Equipment">
+              <img src="assets/images/card1_semiconductor.svg" alt="Semiconductor and Electronic Device Production Equipment" loading="lazy" decoding="async">
             </div>
           </article>
           <article class="business-accordion-item">
@@ -181,7 +181,7 @@
             </button>
             <div id="business-panel-2" class="business-accordion-panel">
               <p>Solutions across wide-ranging industries, including automobile, pharmaceutical, and food</p>
-              <img src="assets/images/card2_industrial.svg" alt="Industrial Equipment">
+              <img src="assets/images/card2_industrial.svg" alt="Industrial Equipment" loading="lazy" decoding="async">
             </div>
           </article>
           <article class="business-accordion-item">
@@ -191,7 +191,7 @@
             </button>
             <div id="business-panel-3" class="business-accordion-panel">
               <p>Coating and processing solutions for various materials including glass substrates, plastics, and films</p>
-              <img src="assets/images/card3_display.svg" alt="Display and Energy-Related Production Equipment">
+              <img src="assets/images/card3_display.svg" alt="Display and Energy-Related Production Equipment" loading="lazy" decoding="async">
             </div>
           </article>
           <article class="business-accordion-item">
@@ -201,7 +201,7 @@
             </button>
             <div id="business-panel-4" class="business-accordion-panel">
               <p>Vacuum pumps, measurement and analysis equipment, power generators, and vacuum valves</p>
-              <img src="assets/images/card4_components.svg" alt="Components">
+              <img src="assets/images/card4_components.svg" alt="Components" loading="lazy" decoding="async">
             </div>
           </article>
           <article class="business-accordion-item">
@@ -211,7 +211,7 @@
             </button>
             <div id="business-panel-5" class="business-accordion-panel">
               <p>Electric materials, such as sputtering targets, and precision-processed metals for diverse applications</p>
-              <img src="assets/images/card5_materials.svg" alt="Materials">
+              <img src="assets/images/card5_materials.svg" alt="Materials" loading="lazy" decoding="async">
             </div>
           </article>
           <article class="business-accordion-item">
@@ -221,7 +221,7 @@
             </button>
             <div id="business-panel-6" class="business-accordion-panel">
               <p>Surface analysis and coating — technology derived from vacuum-based production equipment for diverse industries</p>
-              <img src="assets/images/card6_vacuum.svg" alt="Vacuum Application Business">
+              <img src="assets/images/card6_vacuum.svg" alt="Vacuum Application Business" loading="lazy" decoding="async">
             </div>
           </article>
         </div>
@@ -235,15 +235,15 @@
     <!-- Company Profile Section -->
     <section class="profile-section">
       <div class="profile-bg">
-        <img src="assets/images/1_ULVAC_honsha_0512%201.jpg" alt="Company Profile">
+        <img src="assets/images/1_ULVAC_honsha_0512%201.jpg" alt="Company Profile" loading="lazy" decoding="async">
         <div class="profile-overlay"></div>
       </div>
       <div class="container profile-container">
-        <h2 class="animate-on-scroll">Company Profile</h2>
+        <h2 class="animate-on-scroll reveal-pop text-spotlight">Company Profile</h2>
         <div class="profile-stats">
           <div class="stat-card stat-card-sales hover-card-effect animate-on-scroll delay-100">
             <div class="stat-period">FY2025 (ended June 2025)</div>
-            <div class="stat-icon"><img src="assets/images/stat1_laptop.svg" alt="Laptop"></div>
+            <div class="stat-icon"><img src="assets/images/stat1_laptop.svg" alt="Laptop" loading="lazy" decoding="async"></div>
             <div class="stat-title">
               <div class="stat-value-row">
                 <span class="stat-currency">¥</span>
@@ -254,7 +254,7 @@
           </div>
           <div class="stat-card stat-card-employees hover-card-effect animate-on-scroll delay-200">
             <div class="stat-period">Group employees worldwide</div>
-            <div class="stat-icon"><img src="assets/images/stat2_person.svg" alt="Employees"></div>
+            <div class="stat-icon"><img src="assets/images/stat2_person.svg" alt="Employees" loading="lazy" decoding="async"></div>
             <div class="stat-title">
               <span class="stat-value">6,132</span>
               <div class="stat-label">employees</div>
@@ -262,7 +262,7 @@
           </div>
           <div class="stat-card stat-card-companies hover-card-effect animate-on-scroll delay-300">
             <div class="stat-period">FY2025 (ended June 2025)</div>
-            <div class="stat-icon"><img src="assets/images/stat3_building.svg" alt="Group Companies"></div>
+            <div class="stat-icon"><img src="assets/images/stat3_building.svg" alt="Group Companies" loading="lazy" decoding="async"></div>
             <div class="stat-title">
               <span class="stat-value">41</span>
               <div class="stat-label">group companies</div>
@@ -270,7 +270,7 @@
           </div>
           <div class="stat-card stat-card-rnd hover-card-effect animate-on-scroll delay-400">
             <div class="stat-period">R&D cost</div>
-            <div class="stat-icon"><img src="assets/images/stat4_yen.svg" alt="R&D Cost"></div>
+            <div class="stat-icon"><img src="assets/images/stat4_yen.svg" alt="R&D Cost" loading="lazy" decoding="async"></div>
             <div class="stat-title">
               <div class="stat-value-row stat-value-row-rnd">
                 <span class="stat-currency">¥</span>
@@ -286,12 +286,12 @@
     <!-- Featured News Section -->
     <section class="news-section">
       <div class="container news-container">
-        <h2 class="animate-on-scroll">Featured News</h2>
+        <h2 class="animate-on-scroll reveal-pop text-spotlight">Featured News</h2>
         <div class="news-grid">
           <!-- Large News Item -->
           <div class="news-card large animate-on-scroll delay-100 hover-card-effect">
             <div class="news-img-wrap">
-              <img src="assets/images/Thumbnail-01.png" alt="News Image" class="news-image-large">
+              <img src="assets/images/Thumbnail-01.png" alt="News Image" class="news-image-large" loading="lazy" decoding="async">
             </div>
             <div class="news-content">
               <span class="news-date">2025.12.25</span>
@@ -303,7 +303,7 @@
           <div class="news-column">
             <div class="news-card small animate-on-scroll delay-200 hover-card-effect">
               <div class="news-img-wrap">
-                <img src="assets/images/Thumbnail-11.png" alt="SK Hynix" class="news-image-sk">
+                <img src="assets/images/Thumbnail-11.png" alt="SK Hynix" class="news-image-sk" loading="lazy" decoding="async">
               </div>
               <div class="news-content">
                 <span class="news-date">2025.11.21</span>
@@ -313,7 +313,7 @@
             </div>
             <div class="news-card small animate-on-scroll delay-300 hover-card-effect">
               <div class="news-img-wrap">
-                <img src="assets/images/Thumbnail-22.png" alt="CDP" class="news-image-cdp">
+                <img src="assets/images/Thumbnail-22.png" alt="CDP" class="news-image-cdp" loading="lazy" decoding="async">
               </div>
               <div class="news-content">
                 <span class="news-date">2025.04.01</span>
@@ -324,7 +324,7 @@
           </div>
         </div>
         <div class="news-footer animate-on-scroll delay-400">
-          <a href="#" class="btn-business">
+            <a href="#" class="btn-business hover-lift">
             <span>See All News</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 6L16 12L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -335,12 +335,12 @@
     </section>
 
     <!-- Main Bases Section -->
-    <section class="bases-section">
+    <!-- <section class="bases-section">
       <div class="bases-container">
         <div class="bases-map-shell">
           <div class="bases-map-header">
-            <h2>ULVAC Main Bases</h2>
-            <a href="#" class="btn-map-bases hover-card-effect">
+            <h2 class="animate-on-scroll reveal-pop text-spotlight">ULVAC Main Bases</h2>
+            <a href="#" class="btn-map-bases hover-card-effect animate-on-scroll reveal-tight delay-100">
               <span>See All Group Companies</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M10 6L16 12L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -354,6 +354,8 @@
                 src="assets/images/Dot_japan 1.png"
                 alt="Global map showing ULVAC main bases"
                 class="bases-map-image"
+                loading="lazy"
+                decoding="async"
               >
 
               <div class="bases-map-hotspots" aria-label="ULVAC Main Bases Regions">
@@ -432,7 +434,7 @@
               data-active-region="japan"
             >
               <div class="bases-region-card-media">
-                <img src="assets/images/Images_map.png" alt="Japan region overview" class="bases-region-card-image">
+                <img src="assets/images/Images_map.png" alt="Japan region overview" class="bases-region-card-image" loading="lazy" decoding="async">
               </div>
               <div class="bases-region-card-body">
                 <h3 class="bases-region-title">Japan</h3>
@@ -446,7 +448,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Value Report Section -->
     <section class="report-section">
@@ -455,14 +457,14 @@
     <!-- Value Report Section -->
     <section class="value-report-section">
       <div class="report-bg">
-        <img src="assets/images/Section-bg.png" alt="" class="report-bg-img">
+        <img src="assets/images/Section-bg.png" alt="" class="report-bg-img" loading="lazy" decoding="async">
       </div>
-      <div class="report-container animate-on-scroll">
-        <div class="report-text">
-          <h2>ULVAC VALUE REPORT 2025</h2>
-          <p>Our approach to sustainable growth and long-term value creation</p>
+      <div class="report-container">
+        <div class="report-text animate-on-scroll reveal-pop">
+          <h2 class="text-spotlight">ULVAC VALUE REPORT 2025</h2>
+          <p class="text-readable">Our approach to sustainable growth and long-term value creation</p>
         </div>
-        <a href="#" class="btn-report hover-color-effect" aria-label="View ULVAC Value Report">
+        <a href="#" class="btn-report hover-color-effect hover-lift animate-on-scroll reveal-tight delay-100" aria-label="View ULVAC Value Report">
           <span>View Report</span>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M10 6L16 12L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -477,21 +479,21 @@
 
     <div class="footer-shell">
       <div class="footer-top">
-        <div class="footer-brand-block">
-          <img src="assets/images/mp3quxx8-izeqmh7.png" alt="ULVAC" class="footer-logo-img">
+        <div class="footer-brand-block animate-on-scroll reveal-soft">
+          <img src="assets/images/mp3quxx8-izeqmh7.png" alt="ULVAC" class="footer-logo-img" loading="lazy" decoding="async">
           <address class="footer-contact">
             <div class="footer-contact-row">
-              <img src="assets/images/mp3quxx6-gfqbb6v.svg" alt="" class="footer-contact-icon">
+              <img src="assets/images/mp3quxx6-gfqbb6v.svg" alt="" class="footer-contact-icon" loading="lazy" decoding="async">
               <p>ULVAC, Inc.<br>2500 Hagisono, Chigasaki, Kanagawa 253-8543, Japan</p>
             </div>
             <div class="footer-contact-row footer-phone-row">
-              <img src="assets/images/mp3quxx6-qxfyz5g.svg" alt="" class="footer-contact-icon">
+              <img src="assets/images/mp3quxx6-qxfyz5g.svg" alt="" class="footer-contact-icon" loading="lazy" decoding="async">
               <p>0467-89-2033</p>
             </div>
           </address>
         </div>
         <div class="footer-nav-columns">
-          <div class="footer-nav-group">
+          <div class="footer-nav-group animate-on-scroll reveal-soft delay-100">
             <h4>SITEMAP</h4>
             <ul>
               <li><a href="#" class="hover-color-effect">Home</a></li>
@@ -501,7 +503,7 @@
               <li><a href="#" class="hover-color-effect">Contact</a></li>
             </ul>
           </div>
-          <div class="footer-nav-group footer-sites-group">
+          <div class="footer-nav-group footer-sites-group animate-on-scroll reveal-soft delay-200">
             <h4>ULVAC Sites</h4>
             <ul>
               <li><a href="#" class="hover-color-effect">Corporate Site (EN)</a></li>
@@ -510,7 +512,7 @@
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
+      <div class="footer-bottom animate-on-scroll reveal-soft delay-300">
         <p>&copy; 2026 ULVAC, Inc. All Rights Reserved.</p>
         <div class="footer-legal">
           <a href="#" class="hover-color-effect">Privacy Policy</a>

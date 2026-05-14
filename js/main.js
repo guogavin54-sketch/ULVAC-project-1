@@ -2,53 +2,70 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMode();
-
-  // Intersection Observer for scroll animations
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.2 // Trigger when 20% of the element is visible
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Add class to trigger animation
-        entry.target.classList.add('is-visible');
-        // Unobserve after animating once to keep it static
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  // Select all elements with the animate-on-scroll class
-  const animatedElements = document.querySelectorAll('.animate-on-scroll');
-  animatedElements.forEach(el => observer.observe(el));
-
-  // Check for prefers-reduced-motion to disable observer if necessary
-  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (mediaQuery.matches) {
-    animatedElements.forEach(el => {
-      el.classList.add('is-visible');
-      observer.unobserve(el);
-    });
-  }
-
-  // Header sticky effect (optional, based on design it might just sit on top of the hero)
-  const header = document.querySelector('.global-header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.style.boxShadow = 'var(--shadow-sm)';
-      header.style.transition = 'box-shadow 0.3s ease';
-    } else {
-      header.style.boxShadow = 'none';
-    }
-  });
+  initScrollAnimations();
+  initHeaderScrollState();
 
   initMobileNav();
   initBusinessAccordion();
   initBasesMapSwitcher();
 });
+
+function initScrollAnimations() {
+  const animatedElements = Array.from(document.querySelectorAll('.animate-on-scroll'));
+  if (!animatedElements.length) return;
+
+  const markVisible = (element) => {
+    element.classList.add('is-visible');
+    if (element.classList.contains('text-spotlight')) {
+      element.classList.add('is-visible');
+    }
+    element.querySelectorAll('.text-spotlight').forEach((child) => {
+      child.classList.add('is-visible');
+    });
+  };
+
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (mediaQuery.matches || typeof IntersectionObserver !== 'function') {
+    animatedElements.forEach((element) => {
+      markVisible(element);
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, currentObserver) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      markVisible(entry.target);
+      currentObserver.unobserve(entry.target);
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -10% 0px',
+    threshold: 0.16
+  });
+
+  animatedElements.forEach((element) => observer.observe(element));
+}
+
+function initHeaderScrollState() {
+  const header = document.querySelector('.global-header');
+  if (!header) return;
+
+  let frameId = null;
+  const syncHeaderState = () => {
+    header.classList.toggle('is-scrolled', window.scrollY > 36);
+    frameId = null;
+  };
+
+  const requestSync = () => {
+    if (frameId !== null) return;
+    frameId = window.requestAnimationFrame(syncHeaderState);
+  };
+
+  syncHeaderState();
+  window.addEventListener('scroll', requestSync, { passive: true });
+}
 
 const BASES_REGION_DATA = {
   japan: {

@@ -1,51 +1,138 @@
 /* css/animations.css */
 
-/* Fade in up animation for scroll */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+@keyframes ambient-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  50% {
+    transform: translate3d(0, -14px, 0) scale(1.03);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes ambient-orbit {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(10px, -10px, 0) rotate(5deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
   }
 }
 
 /* Base class for elements that will be animated on scroll */
 .animate-on-scroll {
-  opacity: 0; /* Hidden by default until JS adds .is-visible */
-  transform: translateY(30px);
-  transition: opacity var(--transition-speed-slow) var(--ease-out-cubic),
-              transform var(--transition-speed-slow) var(--ease-out-cubic);
+  --reveal-offset-y: 24px;
+  --reveal-scale: 1;
+  --reveal-duration: 880ms;
+  --reveal-delay: 0ms;
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-offset-y), 0) scale(var(--reveal-scale));
+  transform-origin: center center;
+  transition:
+    opacity var(--reveal-duration) var(--ease-out-cubic) var(--reveal-delay),
+    transform var(--reveal-duration) var(--ease-out-cubic) var(--reveal-delay);
+  will-change: opacity, transform;
 }
 
 .animate-on-scroll.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.reveal-soft {
+  --reveal-offset-y: 16px;
+}
+
+.reveal-pop {
+  --reveal-offset-y: 18px;
+  --reveal-scale: 0.98;
+}
+
+.reveal-tight {
+  --reveal-offset-y: 10px;
+  --reveal-scale: 0.99;
 }
 
 /* Stagger delays for multiple items */
-.delay-100 { transition-delay: 100ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-300 { transition-delay: 300ms; }
-.delay-400 { transition-delay: 400ms; }
+.delay-100 { --reveal-delay: 140ms; }
+.delay-200 { --reveal-delay: 240ms; }
+.delay-300 { --reveal-delay: 340ms; }
+.delay-400 { --reveal-delay: 440ms; }
+.delay-500 { --reveal-delay: 540ms; }
+.delay-600 { --reveal-delay: 640ms; }
+.delay-700 { --reveal-delay: 740ms; }
 
 /* Interactive Hover Effects */
-.hover-card-effect {
-  transition: transform var(--transition-speed-base) var(--ease-out-cubic),
-              box-shadow var(--transition-speed-base) var(--ease-out-cubic);
+.hover-card-effect,
+.hover-lift {
+  transition:
+    transform var(--transition-speed-base) var(--ease-out-cubic),
+    box-shadow var(--transition-speed-base) var(--ease-out-cubic),
+    border-color var(--transition-speed-base) var(--ease-out-cubic);
+  will-change: transform;
 }
 
-.hover-card-effect:hover {
-  transform: translateY(-2px);
+.hover-card-effect:hover,
+.hover-card-effect:focus-visible,
+.hover-lift:hover,
+.hover-lift:focus-visible {
+  transform: translate3d(0, -4px, 0);
   box-shadow: var(--shadow-lg);
 }
 
 .hover-color-effect {
-  transition: color var(--transition-speed-fast) var(--ease-in-out),
-              background-color var(--transition-speed-fast) var(--ease-in-out),
-              border-color var(--transition-speed-fast) var(--ease-in-out);
+  transition:
+    color var(--transition-speed-fast) var(--ease-in-out),
+    background-color var(--transition-speed-fast) var(--ease-in-out),
+    border-color var(--transition-speed-fast) var(--ease-in-out),
+    opacity var(--transition-speed-fast) var(--ease-in-out);
+}
+
+.text-spotlight {
+  position: relative;
+}
+
+.text-spotlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  width: min(148px, 42%);
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(28, 125, 205, 0.95), rgba(77, 168, 245, 0.3));
+  opacity: 0;
+  transform: scaleX(0.3);
+  transform-origin: left center;
+  transition:
+    opacity 720ms var(--ease-out-cubic),
+    transform 720ms var(--ease-out-cubic);
+}
+
+.text-spotlight.is-visible::after {
+  opacity: 1;
+  transform: scaleX(1);
+  display: none;
+}
+
+.text-readable {
+  position: relative;
+  z-index: 1;
+}
+
+.ambient-float {
+  animation: ambient-drift 12s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.ambient-orbit {
+  animation: ambient-orbit 16s ease-in-out infinite;
+  transform-origin: center center;
 }
 
 /* Accessibility: Prefers Reduced Motion */
@@ -58,10 +145,21 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
+
   .animate-on-scroll {
     opacity: 1;
     transform: none;
     transition: none;
+    will-change: auto;
+  }
+
+  .text-spotlight::after {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hover-card-effect,
+  .hover-lift {
+    will-change: auto;
   }
 }

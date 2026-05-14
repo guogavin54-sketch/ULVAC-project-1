@@ -1,7 +1,7 @@
 const fs = require('fs');
 const PNG = require('pngjs').PNG;
 
-const data = fs.readFileSync('.figma/image/screenshot_18600_15172.png');
+const data = fs.readFileSync('assets/images/screenshot_18600_15172.png');
 const png = PNG.sync.read(data);
 
 // The button is below the title. Let's sample a few pixels around x: 100-200, y: 300-500
