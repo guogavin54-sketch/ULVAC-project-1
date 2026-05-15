@@ -8,7 +8,7 @@ const Component = () => {
       <p className={styles.uLvacMainBases}>ULVAC Main Bases</p>
       <div className={styles.button}>
         <p className={styles.superMiniaturization}>See All Group Companies</p>
-        <img src="../image/mp6qv0zi-nmdm113.svg" className={styles.chevronRight} />
+        <img src="../image/mp6qsde0-dhjakds.svg" className={styles.chevronRight} />
       </div>
       <div className={styles.mapJapan}>
         <div className={styles.dotJapan1}>
@@ -51,7 +51,7 @@ const Component = () => {
           <div className={styles.cardMap}>
             <div className={styles.imagesMapSection}>
               <img
-                src="../image/mp6qv0zl-jl5dunj.png"
+                src="../image/mp6qsde3-wcwowq2.png"
                 className={styles.adobeStock179685887P}
               />
             </div>
@@ -81,7 +81,7 @@ const Component = () => {
           <div className={styles.cardMap2}>
             <div className={styles.imagesMapSection2}>
               <img
-                src="../image/mp6qv0zl-7klg8a3.png"
+                src="../image/mp6qsde3-wyvxe9k.png"
                 className={styles.adobeStock414844872P}
               />
             </div>
@@ -111,7 +111,7 @@ const Component = () => {
           <div className={styles.cardMap3}>
             <div className={styles.imagesMapSection3}>
               <img
-                src="../image/mp6qv0zl-2weohlk.png"
+                src="../image/mp6qsde3-k9k7gvh.png"
                 className={styles.adobeStock174716684P}
               />
             </div>
@@ -141,7 +141,7 @@ const Component = () => {
             <div className={styles.imagesMapSection4}>
               <div className={styles.imagesMap}>
                 <img
-                  src="../image/mp6qv0zl-l0i209m.png"
+                  src="../image/mp6qsde3-vcwmff6.png"
                   className={styles.adobeStock231159056P}
                 />
               </div>
@@ -171,7 +171,7 @@ const Component = () => {
           <div className={styles.cardMap5}>
             <div className={styles.imagesMapSection3}>
               <img
-                src="../image/mp6qv0zl-ol48rtb.png"
+                src="../image/mp6qsde3-u93fijx.png"
                 className={styles.adobeStock174716684P}
               />
             </div>
@@ -191,7 +191,7 @@ const Component = () => {
             <div className={styles.imagesMapSection5}>
               <div className={styles.imagesMap2}>
                 <img
-                  src="../image/mp6qv0zl-dbcn1k5.png"
+                  src="../image/mp6qsde3-bb5qofx.png"
                   className={styles.adobeStock209824591P}
                 />
               </div>

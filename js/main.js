@@ -67,55 +67,50 @@ function initHeaderScrollState() {
   window.addEventListener('scroll', requestSync, { passive: true });
 }
 
-const BASES_REGION_DATA = {
-  japan: {
+var BASES_DOT_DATA = {
+  1: {
     title: 'Japan',
-    image: 'assets/images/Images_map.png',
-    alt: 'Japan region overview',
+    image: 'assets/images/card-japan.png',
     stats: [
       { label: 'Sales & Service', value: '35' },
       { label: 'R&D', value: '4' },
       { label: 'Manufacturing', value: '11' }
     ]
   },
-  asia: {
-    title: 'Asia',
-    image: 'assets/images/Images_map.png',
-    alt: 'Asia region overview',
+  2: {
+    title: 'Korea',
+    image: 'assets/images/card-korea.png',
     stats: [
-      { label: 'Sales & Service', value: '18' },
-      { label: 'R&D', value: '3' },
-      { label: 'Manufacturing', value: '6' }
-    ]
-  },
-  europe: {
-    title: 'Europe',
-    image: 'assets/images/Images_map.png',
-    alt: 'Europe region overview',
-    stats: [
-      { label: 'Sales & Service', value: '12' },
+      { label: 'Sales & Service', value: '8' },
       { label: 'R&D', value: '2' },
       { label: 'Manufacturing', value: '3' }
     ]
   },
-  'north-america': {
-    title: 'North America',
-    image: 'assets/images/Images_map.png',
-    alt: 'North America region overview',
+  3: {
+    title: 'China',
+    image: 'assets/images/card-china.png',
     stats: [
-      { label: 'Sales & Service', value: '14' },
-      { label: 'R&D', value: '2' },
-      { label: 'Manufacturing', value: '2' }
+      { label: 'Sales & Service', value: '22' },
+      { label: 'R&D', value: '5' },
+      { label: 'Manufacturing', value: '8' }
     ]
   },
-  'south-east-asia': {
-    title: 'South East Asia',
-    image: 'assets/images/Images_map.png',
-    alt: 'South East Asia region overview',
+  4: {
+    title: 'Southeast Asia',
+    image: 'assets/images/card-southeast-asia.png',
     stats: [
       { label: 'Sales & Service', value: '10' },
       { label: 'R&D', value: '1' },
       { label: 'Manufacturing', value: '5' }
+    ]
+  },
+  5: {
+    title: 'Europe',
+    image: 'assets/images/card-europe.png',
+    stats: [
+      { label: 'Sales & Service', value: '12' },
+      { label: 'R&D', value: '2' },
+      { label: 'Manufacturing', value: '3' }
     ]
   }
 };
@@ -230,176 +225,127 @@ function initBusinessAccordion() {
 }
 
 function initBasesMapSwitcher() {
-  const section = document.querySelector('.bases-section');
-  const stage = section ? section.querySelector('.bases-map-stage') : null;
-  const visual = section ? section.querySelector('.bases-map-visual') : null;
-  const card = document.getElementById('bases-region-card');
-  const title = card ? card.querySelector('.bases-region-title') : null;
-  const image = card ? card.querySelector('.bases-region-card-image') : null;
-  const statsList = card ? card.querySelector('.bases-region-stats') : null;
-  const hotspots = Array.from(document.querySelectorAll('.bases-hotspot'));
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var section = document.querySelector('.bases-section');
+  var stage = section ? section.querySelector('.bases-map-stage') : null;
+  var visual = section ? section.querySelector('.bases-map-visual') : null;
+  var card = document.getElementById('bases-info-card');
+  var title = card ? card.querySelector('.bases-info-card__title') : null;
+  var image = card ? card.querySelector('.bases-info-card__image') : null;
+  var statsList = card ? card.querySelector('.bases-info-card__stats') : null;
+  var dots = Array.from(document.querySelectorAll('.bases-dot'));
 
-  if (!section || !stage || !visual || !card || !title || !image || !statsList || !hotspots.length) return;
+  if (!section || !stage || !visual || !card || !title || !image || !statsList || !dots.length) return;
 
-  let activeRegion = card.dataset.activeRegion || hotspots[0].dataset.region;
-  let switchTimer = null;
-  let resizeFrame = null;
+  var activeDot = 3;
+  var resizeFrame = null;
 
-  const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+  function isDesktop() {
+    return window.matchMedia('(min-width: 992px)').matches;
+  }
 
-  const positionHotspots = () => {
-    const visualRect = visual.getBoundingClientRect();
-    if (!visualRect.width || !visualRect.height) return;
+  function positionCard(dot) {
+    if (!isDesktop()) return;
 
-    hotspots.forEach((hotspot) => {
-      const x = Number(hotspot.dataset.x || 0);
-      const y = Number(hotspot.dataset.y || 0);
+    var dotRect = dot.getBoundingClientRect();
+    var stageRect = stage.getBoundingClientRect();
 
-      hotspot.style.left = `${x * visualRect.width}px`;
-      hotspot.style.top = `${y * visualRect.height}px`;
+    var dotCenterX = dotRect.left + dotRect.width / 2 - stageRect.left;
+    var dotBottom = dotRect.bottom - stageRect.top;
+
+    var cardWidth = 292;
+    var cardLeft = dotCenterX - cardWidth / 2;
+
+    if (cardLeft < 0) cardLeft = 8;
+    if (cardLeft + cardWidth > stageRect.width) cardLeft = stageRect.width - cardWidth - 8;
+
+    var cardTop = dotBottom + 12;
+
+    card.style.left = cardLeft + 'px';
+    card.style.top = cardTop + 'px';
+  }
+
+  function showCard() {
+    card.classList.add('is-visible');
+    card.setAttribute('aria-hidden', 'false');
+  }
+
+  function hideCard() {
+    card.classList.remove('is-visible');
+    card.setAttribute('aria-hidden', 'true');
+  }
+
+  function renderDot(dotId) {
+    var data = BASES_DOT_DATA[dotId];
+    if (!data) return;
+
+    title.textContent = data.title;
+    image.src = data.image;
+    statsList.innerHTML = data.stats
+      .map(function (item) {
+        return '<li><span>' + item.label + ':</span> <strong>' + item.value + '</strong></li>';
+      })
+      .join('');
+  }
+
+  function setActiveDot(dotId) {
+    dots.forEach(function (dot) {
+      var isActive = Number(dot.dataset.dot) === dotId;
+      dot.classList.toggle('is-active', isActive);
     });
-  };
+  }
 
-  const positionCard = (regionId = activeRegion) => {
-    const activeHotspot = hotspots.find((hotspot) => hotspot.dataset.region === regionId);
-    if (!activeHotspot) return;
+  function activateDot(dotId) {
+    if (dotId === activeDot) return;
 
-    const stageRect = stage.getBoundingClientRect();
-    const hotspotRect = activeHotspot.getBoundingClientRect();
-    const cardRect = card.getBoundingClientRect();
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    const horizontalPadding = isMobile ? 8 : 16;
-    const verticalPadding = isMobile ? 8 : 16;
-    const offset = isMobile ? 12 : 18;
-    const hotspotCenterX = hotspotRect.left + (hotspotRect.width / 2);
-    const hotspotBottomY = hotspotRect.bottom;
-    const hotspotTopY = hotspotRect.top;
-    const maxLeft = Math.max(horizontalPadding, stageRect.width - cardRect.width - horizontalPadding);
-    const maxTop = Math.max(verticalPadding, stageRect.height - cardRect.height - verticalPadding);
+    activeDot = dotId;
+    setActiveDot(dotId);
+    renderDot(dotId);
 
-    let left = hotspotCenterX - stageRect.left - (cardRect.width / 2);
-    let top = hotspotBottomY - stageRect.top + offset;
-    let placement = 'bottom';
-
-    if (top > maxTop) {
-      top = hotspotTopY - stageRect.top - cardRect.height - offset;
-      placement = 'top';
+    var activeEl = dots.find(function (d) { return Number(d.dataset.dot) === dotId; });
+    if (activeEl) {
+      positionCard(activeEl);
     }
+  }
 
-    left = clamp(left, horizontalPadding, maxLeft);
-    top = clamp(top, verticalPadding, maxTop);
+  function syncLayout() {
+    var activeEl = dots.find(function (d) { return Number(d.dataset.dot) === activeDot; });
+    if (activeEl) {
+      positionCard(activeEl);
+    }
+  }
 
-    card.style.left = `${left}px`;
-    card.style.top = `${top}px`;
-    card.dataset.cardPlacement = placement;
-  };
-
-  const syncLayout = () => {
-    positionHotspots();
-    positionCard(activeRegion);
-  };
-
-  const syncLayoutSoon = () => {
+  function syncLayoutSoon() {
     if (resizeFrame) {
       window.cancelAnimationFrame(resizeFrame);
     }
-
     resizeFrame = window.requestAnimationFrame(syncLayout);
-  };
+  }
 
-  const renderRegion = (regionId) => {
-    const region = BASES_REGION_DATA[regionId];
-    if (!region) return;
-
-    title.textContent = region.title;
-    image.src = region.image;
-    image.alt = region.alt;
-    statsList.innerHTML = region.stats
-      .map((item) => `<li><span>${item.label}:</span> <strong>${item.value}</strong></li>`)
-      .join('');
-    card.dataset.activeRegion = regionId;
-    syncLayoutSoon();
-  };
-
-  const setActiveHotspot = (regionId) => {
-    hotspots.forEach((hotspot) => {
-      const isActive = hotspot.dataset.region === regionId;
-      hotspot.classList.toggle('is-active', isActive);
-      hotspot.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-      hotspot.setAttribute('aria-current', isActive ? 'true' : 'false');
-    });
-  };
-
-  const activateRegion = (regionId) => {
-    if (!BASES_REGION_DATA[regionId]) return;
-
-    if (regionId === activeRegion) {
-      positionCard(regionId);
-      return;
-    }
-
-    activeRegion = regionId;
-    setActiveHotspot(regionId);
-
-    if (switchTimer) {
-      window.clearTimeout(switchTimer);
-    }
-
-    if (prefersReducedMotion) {
-      renderRegion(regionId);
-      return;
-    }
-
-    card.classList.add('is-switching');
-    switchTimer = window.setTimeout(() => {
-      renderRegion(regionId);
-      card.classList.remove('is-switching');
-    }, 170);
-  };
-
-  const moveFocus = (currentIndex, direction) => {
-    const nextIndex = (currentIndex + direction + hotspots.length) % hotspots.length;
-    hotspots[nextIndex].focus();
-    activateRegion(hotspots[nextIndex].dataset.region);
-  };
-
-  hotspots.forEach((hotspot, index) => {
-    hotspot.addEventListener('click', () => {
-      activateRegion(hotspot.dataset.region);
-    });
-
-    hotspot.addEventListener('keydown', (event) => {
-      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-        event.preventDefault();
-        moveFocus(index, 1);
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      var dotId = Number(dot.dataset.dot);
+      if (dotId === activeDot) {
+        if (card.classList.contains('is-visible')) {
+          hideCard();
+        } else {
+          showCard();
+          positionCard(dot);
+        }
+        return;
       }
 
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-        event.preventDefault();
-        moveFocus(index, -1);
-      }
-
-      if (event.key === ' ' || event.key === 'Enter') {
-        event.preventDefault();
-        activateRegion(hotspot.dataset.region);
-      }
+      activateDot(dotId);
+      showCard();
     });
   });
 
-  renderRegion(activeRegion);
-  setActiveHotspot(activeRegion);
-
-  if (image.complete) {
-    syncLayoutSoon();
-  } else {
-    image.addEventListener('load', syncLayoutSoon, { once: true });
-  }
+  renderDot(activeDot);
+  setActiveDot(activeDot);
 
   window.addEventListener('resize', syncLayoutSoon);
 
   if (typeof ResizeObserver === 'function') {
-    const resizeObserver = new ResizeObserver(syncLayoutSoon);
+    var resizeObserver = new ResizeObserver(syncLayoutSoon);
     resizeObserver.observe(visual);
     resizeObserver.observe(stage);
   }
