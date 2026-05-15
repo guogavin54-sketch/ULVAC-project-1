@@ -145,21 +145,6 @@
   }
 }
 
-/* Glowing text effect for card h3 titles on hover */
-@keyframes text-ray-sweep {
-  0% {
-    background-position: -100% 50%;
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    background-position: 100% 50%;
-    opacity: 0.8;
-  }
-}
-
 .text-glow-effect {
   position: relative;
   display: inline-block;
@@ -170,30 +155,24 @@
   position: absolute;
   left: 0;
   bottom: -4px;
-  width: 100%;
+  width: 1px;
   height: 2px;
   background: linear-gradient(
     90deg,
-    transparent,
     rgba(15, 102, 173, 0.7),
     rgba(28, 125, 205, 0.9),
-    rgba(15, 102, 173, 0.7),
-    transparent
+    rgba(15, 102, 173, 0.7)
   );
-  background-size: 200% 100%;
   opacity: 0;
-  transform: scaleX(0.3);
-  transform-origin: left center;
   transition:
-    opacity 480ms var(--ease-out-cubic),
-    transform 480ms var(--ease-out-cubic);
+    width 480ms var(--ease-out-cubic),
+    opacity 480ms var(--ease-out-cubic);
 }
 
 .business-card:hover .text-glow-effect::after,
 .news-card:hover .text-glow-effect::after {
   opacity: 1;
-  transform: scaleX(1);
-  animation: text-ray-sweep 0.8s ease-out forwards;
+  width: 100%;
 }
 
 /* Accessibility: Prefers Reduced Motion */
