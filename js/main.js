@@ -341,6 +341,12 @@ function initBasesMapSwitcher() {
 
   renderDot(activeDot);
   setActiveDot(activeDot);
+  showCard();
+  
+  var activeEl = dots.find(function (d) { return Number(d.dataset.dot) === activeDot; });
+  if (activeEl) {
+    positionCard(activeEl);
+  }
 
   window.addEventListener('resize', syncLayoutSoon);
 

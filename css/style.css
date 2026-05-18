@@ -1082,7 +1082,7 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: center;
   column-gap: 4px;
-  margin-right: 1025px;
+  margin-right: auto;
   padding: 9px 19px 9px 23px;
   border: 1px solid #1c7dcd;
   border-radius: 4px;
@@ -1090,6 +1090,20 @@ h1, h2, h3, h4 {
   color: #1c7dcd;
   text-decoration: none;
   transition: transform 0.24s ease, box-shadow 0.24s ease, background-color 0.24s ease;
+}
+
+.btn-map-bases--mobile {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .btn-map-bases--mobile {
+    display: none !important;
+  }
+  
+  .bases-map-header .btn-map-bases {
+    display: inline-flex;
+  }
 }
 
 .btn-map-bases span {
@@ -1195,11 +1209,27 @@ h1, h2, h3, h4 {
 }
 
 /* ---- Info Card ---- */
+.bases-info-wrapper {
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .bases-info-wrapper {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  
+  .bases-info-card {
+    pointer-events: auto;
+  }
+}
+
 .bases-info-card {
   position: relative;
   z-index: 2;
   width: 292px;
-  border-radius: 8px;
+  border-radius: 12px;
   background: #ffffff;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
   opacity: 0;
@@ -1207,6 +1237,7 @@ h1, h2, h3, h4 {
   pointer-events: none;
   transition: opacity 0.28s ease, transform 0.28s ease;
   overflow: hidden;
+  padding: 16px;
 }
 
 .bases-info-card.is-visible {
@@ -1226,6 +1257,7 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 134px;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .bases-info-card__image {
@@ -1239,7 +1271,7 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 16px 16px 18px;
+  padding: 16px 0 2px;
 }
 
 .bases-info-card__title {

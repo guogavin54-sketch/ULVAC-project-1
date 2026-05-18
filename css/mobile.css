@@ -583,14 +583,20 @@
   }
 
   body.is-mobile .btn-map-bases {
-    width: 358px;
+    display: none;
+  }
+
+  body.is-mobile .btn-map-bases--mobile {
+    display: inline-flex;
     justify-content: center;
     margin-right: 0;
+    width: 100%;
+    margin-top: 16px;
   }
 
   body.is-mobile .bases-map-stage {
     width: 100%;
-    max-width: 358px;
+    
     padding-bottom: 0;
   }
 
@@ -603,6 +609,9 @@
     background-size: 100% 100%;
     background-position: 0 0;
     background-repeat: no-repeat;
+  }
+  .bases-map-stage{
+    height: auto;
   }
 
   body.is-mobile .bases-dot {
@@ -623,8 +632,10 @@
 
   body.is-mobile .bases-info-card {
     width: 100%;
-    max-width: 358px;
+    max-width: 100%;
     margin-top: 16px;
+    position: static;
+    padding: 12px;
   }
 
   body.is-mobile .bases-info-card__media {
@@ -632,7 +643,7 @@
   }
 
   body.is-mobile .bases-info-card__body {
-    padding: 14px;
+    padding: 12px 0 0;
     gap: 12px;
   }
 
@@ -681,7 +692,7 @@
   }
 
   body.is-mobile .value-report-section .report-text p {
-    max-width: 358px;
+    
     font-size: 15px;
     line-height: 19px;
     color: #ffffff;

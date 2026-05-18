@@ -348,7 +348,7 @@
 
           <div class="bases-map-stage">
             <div class="bases-map-visual">
-              <button type="button" class="bases-dot bases-dot--1" data-dot="1" aria-label="Base location 1">
+              <button type="button" class="bases-dot bases-dot--1 is-active" data-dot="1" aria-label="Base location 1">
                 <span class="bases-dot__ring"></span>
                 <span class="bases-dot__core"></span>
               </button>
@@ -369,18 +369,24 @@
                 <span class="bases-dot__core"></span>
               </button>
             </div>
-            <div id="bases-info-card" class="bases-info-card" aria-live="polite" aria-hidden="true">
-              <div class="bases-info-card__media">
-                <img src="assets/images/card-japan.png" alt="" class="bases-info-card__image">
+            <div class="bases-info-wrapper">
+              <div id="bases-info-card" class="bases-info-card is-visible" aria-live="polite" aria-hidden="true">
+                <div class="bases-info-card__media">
+                  <img src="assets/images/card-japan.png" alt="" class="bases-info-card__image">
+                </div>
+                <div class="bases-info-card__body">
+                  <h3 class="bases-info-card__title">Japan</h3>
+                  <ul class="bases-info-card__stats">
+                    <li><span>Sales &amp; Service:</span> <strong>35</strong></li>
+                    <li><span>R&amp;D:</span> <strong>4</strong></li>
+                    <li><span>Manufacturing:</span> <strong>11</strong></li>
+                  </ul>
+                </div>
               </div>
-              <div class="bases-info-card__body">
-                <h3 class="bases-info-card__title">Japan</h3>
-                <ul class="bases-info-card__stats">
-                  <li><span>Sales &amp; Service:</span> <strong>35</strong></li>
-                  <li><span>R&amp;D:</span> <strong>4</strong></li>
-                  <li><span>Manufacturing:</span> <strong>11</strong></li>
-                </ul>
-              </div>
+              <a href="#" class="btn-map-bases btn-map-bases--mobile hover-card-effect animate-on-scroll reveal-tight delay-100">
+                <span>See All Group Companies</span>
+                <img src="assets/images/chevron-right.svg" alt="" class="chevron-right-icon">
+              </a>
             </div>
           </div>
         </div>
@@ -460,6 +466,7 @@
     </div>
   </footer>
 
+  <script src="js/auth-check.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
