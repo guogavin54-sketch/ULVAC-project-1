@@ -386,7 +386,7 @@
     background: #1c7dcd;
     color: #ffffff;
     font-family: Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 23px;
     text-decoration: none;
@@ -571,8 +571,17 @@
   }
 
   body.is-mobile .bases-map-header {
+    width: 100%;
+  }
+
+  body.is-mobile .bases-map-content {
+    display: none;
+  }
+
+  body.is-mobile .bases-map-content--mobile {
+    display: flex;
+    flex-direction: column;
     gap: 48px;
-    align-items: flex-start;
     width: 100%;
   }
 
@@ -582,22 +591,26 @@
     text-align: left;
   }
 
-  body.is-mobile .btn-map-bases {
+  body.is-mobile .bases-info-panel {
+    width: 100%;
+    order: 2;
+  }
+
+  body.is-mobile .btn-map-bases--desktop {
     display: none;
   }
 
   body.is-mobile .btn-map-bases--mobile {
     display: inline-flex;
     justify-content: center;
-    margin-right: 0;
     width: 100%;
-    margin-top: 16px;
+            padding: 10px;
   }
-
+.btn-map-bases span{
+  font-size: 16px;
+}
   body.is-mobile .bases-map-stage {
     width: 100%;
-    
-    padding-bottom: 0;
   }
 
   body.is-mobile .bases-map-visual {
@@ -609,6 +622,35 @@
     background-size: 100% 100%;
     background-position: 0 0;
     background-repeat: no-repeat;
+  }
+
+  body.is-mobile .bases-card-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  body.is-mobile .bases-card-nav-container .bases-nav-btn {
+   
+    width: 36px;
+        height: 36px;
+        max-width: 36px;
+        max-height: 36px;
+    flex-shrink: 0;
+    padding: 8px 6px 8px 10px;
+            padding: 0;
+  }
+.bases-nav-btn .chevron-icon{
+width: auto;
+        height: auto;
+}
+  body.is-mobile .bases-card-nav-container .bases-info-card {
+    flex: 1;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: auto;
   }
   .bases-map-stage{
     height: auto;
@@ -624,17 +666,10 @@
     height: 12px;
   }
 
-  body.is-mobile .bases-dot--1 { left: 18%; top: 39%; }
-  body.is-mobile .bases-dot--2 { left: 42%; top: 37%; }
-  body.is-mobile .bases-dot--3 { left: 47%; top: 47%; }
-  body.is-mobile .bases-dot--4 { left: 33%; top: 68%; }
-  body.is-mobile .bases-dot--5 { left: 88%; top: 45%; }
+
 
   body.is-mobile .bases-info-card {
     width: 100%;
-    max-width: 100%;
-    margin-top: 16px;
-    position: static;
     padding: 12px;
   }
 
@@ -806,7 +841,7 @@
     width: 100%;
 }
 .news-footer .btn-business span{
-  font-size: 15px;
+  font-size: 16px;
 }
 }
 

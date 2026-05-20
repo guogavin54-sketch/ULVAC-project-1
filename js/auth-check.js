@@ -53,13 +53,10 @@
       return;
     }
 
-    // For demo purposes, authentication is optional
-    // Uncomment the lines below to enforce login required
-    /*
+    // Redirect to login if not authenticated
     if (!isAuthenticated()) {
       window.location.href = LOGIN_PAGE;
     }
-    */
   }
 
   // ================================================

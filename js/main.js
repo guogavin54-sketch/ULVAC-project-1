@@ -112,6 +112,24 @@ var BASES_DOT_DATA = {
       { label: 'R&D', value: '2' },
       { label: 'Manufacturing', value: '3' }
     ]
+  },
+  6: {
+    title: 'North America',
+    image: 'assets/images/card-japan.png',
+    stats: [
+      { label: 'Sales & Service', value: '15' },
+      { label: 'R&D', value: '3' },
+      { label: 'Manufacturing', value: '4' }
+    ]
+  },
+  7: {
+    title: 'Oceania',
+    image: 'assets/images/card-korea.png',
+    stats: [
+      { label: 'Sales & Service', value: '6' },
+      { label: 'R&D', value: '1' },
+      { label: 'Manufacturing', value: '2' }
+    ]
   }
 };
 
@@ -196,7 +214,7 @@ function initBusinessAccordion() {
 
     if (!item || !panel) return;
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    setItemState(item, panel, trigger, isMobile);
+    setItemState(item, panel, trigger, false);
 
     trigger.addEventListener('click', () => {
       const isOpen = item.classList.contains('is-open');
@@ -226,65 +244,59 @@ function initBusinessAccordion() {
 
 function initBasesMapSwitcher() {
   var section = document.querySelector('.bases-section');
-  var stage = section ? section.querySelector('.bases-map-stage') : null;
-  var visual = section ? section.querySelector('.bases-map-visual') : null;
   var card = document.getElementById('bases-info-card');
+  var cardMobile = document.getElementById('bases-info-card-mobile');
   var title = card ? card.querySelector('.bases-info-card__title') : null;
   var image = card ? card.querySelector('.bases-info-card__image') : null;
   var statsList = card ? card.querySelector('.bases-info-card__stats') : null;
+  var titleMobile = cardMobile ? cardMobile.querySelector('.bases-info-card__title') : null;
+  var imageMobile = cardMobile ? cardMobile.querySelector('.bases-info-card__image') : null;
+  var statsListMobile = cardMobile ? cardMobile.querySelector('.bases-info-card__stats') : null;
   var dots = Array.from(document.querySelectorAll('.bases-dot'));
+  var prevBtns = Array.from(document.querySelectorAll('.bases-nav-btn--prev'));
+  var nextBtns = Array.from(document.querySelectorAll('.bases-nav-btn--next'));
 
-  if (!section || !stage || !visual || !card || !title || !image || !statsList || !dots.length) return;
+  if (!section || !card || !title || !image || !statsList || !dots.length) return;
 
   var activeDot = 3;
-  var resizeFrame = null;
+  var totalDots = 7; // 总是7个点，不管桌面端还是移动端
 
-  function isDesktop() {
-    return window.matchMedia('(min-width: 992px)').matches;
-  }
-
-  function positionCard(dot) {
-    if (!isDesktop()) return;
-
-    var dotRect = dot.getBoundingClientRect();
-    var stageRect = stage.getBoundingClientRect();
-
-    var dotCenterX = dotRect.left + dotRect.width / 2 - stageRect.left;
-    var dotBottom = dotRect.bottom - stageRect.top;
-
-    var cardWidth = 292;
-    var cardLeft = dotCenterX - cardWidth / 2;
-
-    if (cardLeft < 0) cardLeft = 8;
-    if (cardLeft + cardWidth > stageRect.width) cardLeft = stageRect.width - cardWidth - 8;
-
-    var cardTop = dotBottom + 12;
-
-    card.style.left = cardLeft + 'px';
-    card.style.top = cardTop + 'px';
-  }
-
-  function showCard() {
-    card.classList.add('is-visible');
-    card.setAttribute('aria-hidden', 'false');
-  }
-
-  function hideCard() {
-    card.classList.remove('is-visible');
-    card.setAttribute('aria-hidden', 'true');
-  }
-
-  function renderDot(dotId) {
+  function renderDot(dotId, animate) {
     var data = BASES_DOT_DATA[dotId];
     if (!data) return;
 
-    title.textContent = data.title;
-    image.src = data.image;
-    statsList.innerHTML = data.stats
-      .map(function (item) {
-        return '<li><span>' + item.label + ':</span> <strong>' + item.value + '</strong></li>';
-      })
-      .join('');
+    function updateCard(cardEl, titleEl, imageEl, statsEl) {
+      if (!cardEl || !titleEl || !imageEl || !statsEl) return;
+
+      if (animate) {
+        cardEl.style.opacity = '0';
+        cardEl.style.transform = 'translateY(-10px)';
+        
+        setTimeout(function() {
+          titleEl.textContent = data.title;
+          imageEl.src = data.image;
+          statsEl.innerHTML = data.stats
+            .map(function (item) {
+              return '<li><span>' + item.label + ':</span> <strong>' + item.value + '</strong></li>';
+            })
+            .join('');
+          
+          cardEl.style.opacity = '1';
+          cardEl.style.transform = 'translateY(0)';
+        }, 200);
+      } else {
+        titleEl.textContent = data.title;
+        imageEl.src = data.image;
+        statsEl.innerHTML = data.stats
+          .map(function (item) {
+            return '<li><span>' + item.label + ':</span> <strong>' + item.value + '</strong></li>';
+          })
+          .join('');
+      }
+    }
+
+    updateCard(card, title, image, statsList);
+    updateCard(cardMobile, titleMobile, imageMobile, statsListMobile);
   }
 
   function setActiveDot(dotId) {
@@ -294,65 +306,42 @@ function initBasesMapSwitcher() {
     });
   }
 
-  function activateDot(dotId) {
+  function activateDot(dotId, animate) {
+    // 如果已经是当前点，就不执行
     if (dotId === activeDot) return;
 
     activeDot = dotId;
     setActiveDot(dotId);
-    renderDot(dotId);
-
-    var activeEl = dots.find(function (d) { return Number(d.dataset.dot) === dotId; });
-    if (activeEl) {
-      positionCard(activeEl);
-    }
+    renderDot(dotId, animate !== false);
   }
 
-  function syncLayout() {
-    var activeEl = dots.find(function (d) { return Number(d.dataset.dot) === activeDot; });
-    if (activeEl) {
-      positionCard(activeEl);
-    }
+  function goToPrev() {
+    var newDot = activeDot - 1;
+    if (newDot < 1) newDot = totalDots;
+    activateDot(newDot);
   }
 
-  function syncLayoutSoon() {
-    if (resizeFrame) {
-      window.cancelAnimationFrame(resizeFrame);
-    }
-    resizeFrame = window.requestAnimationFrame(syncLayout);
+  function goToNext() {
+    var newDot = activeDot + 1;
+    if (newDot > totalDots) newDot = 1;
+    activateDot(newDot);
   }
 
   dots.forEach(function (dot) {
     dot.addEventListener('click', function () {
       var dotId = Number(dot.dataset.dot);
-      if (dotId === activeDot) {
-        if (card.classList.contains('is-visible')) {
-          hideCard();
-        } else {
-          showCard();
-          positionCard(dot);
-        }
-        return;
-      }
-
       activateDot(dotId);
-      showCard();
     });
   });
 
-  renderDot(activeDot);
+  prevBtns.forEach(function (btn) {
+    btn.addEventListener('click', goToPrev);
+  });
+
+  nextBtns.forEach(function (btn) {
+    btn.addEventListener('click', goToNext);
+  });
+
+  renderDot(activeDot, false);
   setActiveDot(activeDot);
-  showCard();
-  
-  var activeEl = dots.find(function (d) { return Number(d.dataset.dot) === activeDot; });
-  if (activeEl) {
-    positionCard(activeEl);
-  }
-
-  window.addEventListener('resize', syncLayoutSoon);
-
-  if (typeof ResizeObserver === 'function') {
-    var resizeObserver = new ResizeObserver(syncLayoutSoon);
-    resizeObserver.observe(visual);
-    resizeObserver.observe(stage);
-  }
 }
