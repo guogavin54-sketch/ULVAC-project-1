@@ -1076,7 +1076,6 @@ h1, h2, h3, h4 {
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  gap: calc(100vw * 48 / 1280);
 }
 
 .bases-map-header {
@@ -1088,7 +1087,7 @@ h1, h2, h3, h4 {
 
 .bases-map-content {
   display: flex;
-  gap: calc(100vw * 48 / 1280);
+
   align-items: flex-start;
   width: 100%;
 }
@@ -1736,7 +1735,9 @@ h1, h2, h3, h4 {
   text-decoration: none;
 }
 @media (max-width: 1366px) {
-  .hero { padding-right: 40px; padding-left: 40px; }
+  .hero { padding-right: 40px; padding-left: 40px;
+  height: 550px;
+  }
   .business-section { padding: 80px 0; }
   .profile-section { padding: 80px 0; }
   .news-section { padding: 80px 0; }
