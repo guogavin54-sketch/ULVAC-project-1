@@ -670,7 +670,7 @@ width: auto;
 
   body.is-mobile .bases-info-card {
     width: 100%;
-    padding: 12px;
+    padding: 16px;
   }
 
   body.is-mobile .bases-info-card__media {
@@ -678,13 +678,13 @@ width: auto;
   }
 
   body.is-mobile .bases-info-card__body {
-    padding: 12px 0 0;
-    gap: 12px;
+    padding: 16px 0 0;
+    gap: 8px;
   }
 
   body.is-mobile .bases-info-card__title {
     font-size: 18px;
-    line-height: 24px;
+    line-height: 27px;
   }
 
   body.is-mobile .bases-info-card__stats {
@@ -693,8 +693,8 @@ width: auto;
   }
 
   body.is-mobile .bases-info-card__stats li {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 22px;
   }
 
   body.is-mobile .value-report-section {

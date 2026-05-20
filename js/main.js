@@ -2,13 +2,48 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMode();
-  initScrollAnimations();
   initHeaderScrollState();
-
   initMobileNav();
   initBusinessAccordion();
   initBasesMapSwitcher();
+  
+  // Wait for video to load before initializing banner animations
+  initAnimationsAfterVideoLoad();
 });
+
+function initAnimationsAfterVideoLoad() {
+  const heroVideo = document.querySelector('.hero-video');
+  
+  // If no video found, initialize animations immediately
+  if (!heroVideo) {
+    initScrollAnimations();
+    return;
+  }
+  
+  // Check if video is already loaded
+  if (heroVideo.readyState >= 3) { // HAVE_FUTURE_DATA or higher
+    initScrollAnimations();
+    return;
+  }
+  
+  // Wait for video to be ready to play
+  const loadTimeout = setTimeout(() => {
+    // Fallback: initialize animations if video takes too long to load
+    initScrollAnimations();
+  }, 5000); // 5 second timeout
+  
+  const handleVideoReady = () => {
+    clearTimeout(loadTimeout);
+    initScrollAnimations();
+    // Remove listeners after initialization
+    heroVideo.removeEventListener('loadeddata', handleVideoReady);
+    heroVideo.removeEventListener('canplaythrough', handleVideoReady);
+  };
+  
+  // Listen for video load events
+  heroVideo.addEventListener('loadeddata', handleVideoReady);
+  heroVideo.addEventListener('canplaythrough', handleVideoReady);
+}
 
 function initScrollAnimations() {
   const animatedElements = Array.from(document.querySelectorAll('.animate-on-scroll'));
