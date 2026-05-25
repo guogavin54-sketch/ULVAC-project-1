@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBasesMapSwitcher();
   initLangSelector();
   initMobileLangSelector();
+  initStatCounter();
   
   // Wait for video to load before initializing banner animations
   initAnimationsAfterVideoLoad();
@@ -466,6 +467,62 @@ function initLangSelector() {
   });
 }
 
+function initStatCounter() {
+  const statValues = document.querySelectorAll('.stat-value');
+  if (!statValues.length) return;
+
+  const duration = 3500;
+
+  const animateCounter = (element, targetValue) => {
+    const startValue = 0;
+    const startTime = performance.now();
+    
+    const formatNumber = (num) => {
+      const originalText = element.dataset.originalText || element.textContent;
+      if (originalText.includes('B')) {
+        return num.toFixed(1) + 'B';
+      } else if (originalText.includes(',')) {
+        return Math.round(num).toLocaleString();
+      }
+      return Math.round(num).toString();
+    };
+
+    const updateValue = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      const currentValue = startValue + (targetValue - startValue) * progress;
+      
+      element.textContent = formatNumber(currentValue);
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateValue);
+      }
+    };
+
+    requestAnimationFrame(updateValue);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+        entry.target.classList.add('animated');
+        const text = entry.target.textContent;
+        entry.target.dataset.originalText = text;
+        let numValue = parseFloat(text.replace(/[^0-9.]/g, ''));
+        animateCounter(entry.target, numValue);
+      }
+    });
+  }, {
+    threshold: 0.3,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  statValues.forEach(value => {
+    observer.observe(value);
+  });
+}
+
 function initMobileLangSelector() {
   const selector = document.querySelector('.mobile-lang-selector');
   const dropdown = document.querySelector('.mobile-lang-dropdown');
@@ -538,5 +595,61 @@ function initMobileLangSelector() {
     if (!selector.contains(e.target)) {
       closeDropdown();
     }
+  });
+}
+
+function initStatCounter() {
+  const statValues = document.querySelectorAll('.stat-value');
+  if (!statValues.length) return;
+
+  const duration = 3500;
+
+  const animateCounter = (element, targetValue) => {
+    const startValue = 0;
+    const startTime = performance.now();
+    
+    const formatNumber = (num) => {
+      const originalText = element.dataset.originalText || element.textContent;
+      if (originalText.includes('B')) {
+        return num.toFixed(1) + 'B';
+      } else if (originalText.includes(',')) {
+        return Math.round(num).toLocaleString();
+      }
+      return Math.round(num).toString();
+    };
+
+    const updateValue = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      const currentValue = startValue + (targetValue - startValue) * progress;
+      
+      element.textContent = formatNumber(currentValue);
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateValue);
+      }
+    };
+
+    requestAnimationFrame(updateValue);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+        entry.target.classList.add('animated');
+        const text = entry.target.textContent;
+        entry.target.dataset.originalText = text;
+        let numValue = parseFloat(text.replace(/[^0-9.]/g, ''));
+        animateCounter(entry.target, numValue);
+      }
+    });
+  }, {
+    threshold: 0.3,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  statValues.forEach(value => {
+    observer.observe(value);
   });
 }
