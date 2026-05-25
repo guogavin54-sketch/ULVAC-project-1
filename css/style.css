@@ -1498,8 +1498,14 @@ h1, h2, h3, h4 {
   inset: 0;
   border-radius: 50%;
   background: rgba(255, 125, 0, 0.2);
-  animation: bases-dot-pulse 2s ease-out infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover 时显示呼吸动画 */
+.bases-dot:hover .bases-dot__ring {
   opacity: 1;
+  animation: bases-dot-pulse 2s ease-out infinite;
 }
 
 /* 选中时隐藏橙色脉冲，显示白色静态环 */
