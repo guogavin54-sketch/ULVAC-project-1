@@ -110,66 +110,70 @@ function initHeaderScrollState() {
 
 var BASES_DOT_DATA = {
   1: {
-    title: 'Japan',
-    image: 'assets/images/card-japan.png',
+    title: 'Europe',
+    image: 'assets/images/card-europe.png',
     stats: [
-      { label: 'Sales & Service', value: '35' },
-      { label: 'R&D', value: '4' },
-      { label: 'Manufacturing', value: '11' }
+      { label: 'Sales & Service', value: '1' },
+  
     ]
   },
   2: {
-    title: 'Korea',
-    image: 'assets/images/card-korea.png',
+	  
+	      title: 'China',
+    image: 'assets/images/card-china.png',
     stats: [
-      { label: 'Sales & Service', value: '8' },
-      { label: 'R&D', value: '2' },
-      { label: 'Manufacturing', value: '3' }
+      { label: 'Sales & Service', value: '15' },
+      { label: 'R&D', value: '1' },
+      { label: 'Manufacturing', value: '9' }
+
     ]
   },
   3: {
-    title: 'China',
-    image: 'assets/images/card-china.png',
+	  
+	      title: 'Taiwan',
+    image: 'assets/images/card-taiwan.png',
     stats: [
-      { label: 'Sales & Service', value: '22' },
-      { label: 'R&D', value: '5' },
-      { label: 'Manufacturing', value: '8' }
+      { label: 'Sales & Service', value: '3' },
+      { label: 'R&D', value: '1' },
+      { label: 'Manufacturing', value: '3' }
     ]
+
   },
   4: {
     title: 'Southeast Asia',
     image: 'assets/images/card-southeast-asia.png',
     stats: [
-      { label: 'Sales & Service', value: '10' },
-      { label: 'R&D', value: '1' },
-      { label: 'Manufacturing', value: '5' }
+      { label: 'Sales & Service', value: '2' },
+
     ]
   },
   5: {
-    title: 'Europe',
-    image: 'assets/images/card-europe.png',
+	      title: 'Americas',
+    image: 'assets/images/card-americas.png',
     stats: [
-      { label: 'Sales & Service', value: '12' },
-      { label: 'R&D', value: '2' },
-      { label: 'Manufacturing', value: '3' }
+      { label: 'Sales & Service', value: '1' },
+      { label: 'R&D', value: '1' },
+      { label: 'Manufacturing', value: '1' }
+ 
     ]
   },
   6: {
-    title: 'North America',
-    image: 'assets/images/card-japan.png',
+	      title: 'Korea',
+    image: 'assets/images/card-korea.png',
     stats: [
-      { label: 'Sales & Service', value: '15' },
-      { label: 'R&D', value: '3' },
-      { label: 'Manufacturing', value: '4' }
+      { label: 'Sales & Service', value: '8' },
+      { label: 'R&D', value: '1' },
+      { label: 'Manufacturing', value: '2' }
+
     ]
   },
   7: {
-    title: 'Oceania',
-    image: 'assets/images/card-korea.png',
+   title: 'Japan',
+    image: 'assets/images/card-japan.png',
     stats: [
-      { label: 'Sales & Service', value: '6' },
-      { label: 'R&D', value: '1' },
-      { label: 'Manufacturing', value: '2' }
+      { label: 'Sales & Service', value: '35' },
+      { label: 'R&D', value: '4' },
+      { label: 'Manufacturing', value: '11' }
     ]
   }
 };
