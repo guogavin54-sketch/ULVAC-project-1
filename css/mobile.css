@@ -1008,6 +1008,7 @@ width: auto;
     font-size: 13px;
     line-height: 21px;
     width: 100%;
+    text-align: left;
   }
 
   body.is-mobile .text-spotlight::after {
