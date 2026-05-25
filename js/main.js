@@ -303,7 +303,7 @@ function initBasesMapSwitcher() {
 
   if (!section || !card || !title || !image || !statsList || !dots.length) return;
 
-  var activeDot = 3;
+  var activeDot = 1;
   var totalDots = 7; // 总是7个点，不管桌面端还是移动端
 
   function renderDot(dotId, animate) {
