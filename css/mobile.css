@@ -545,6 +545,11 @@ width: 100%;
     object-fit: cover;
   }
 
+  body.is-mobile .business-section .business-accordion-link {
+    display: block;
+    text-decoration: none;
+  }
+
   body.is-mobile .business-section .business-accordion-item.is-open .business-accordion-trigger {
     padding-bottom: 16px;
   }
