@@ -73,7 +73,8 @@
   transition:
     transform var(--transition-speed-base) var(--ease-out-cubic),
     box-shadow var(--transition-speed-base) var(--ease-out-cubic),
-    border-color var(--transition-speed-base) var(--ease-out-cubic);
+    border-color var(--transition-speed-base) var(--ease-out-cubic),
+    background-color var(--transition-speed-base) var(--ease-out-cubic);
   will-change: transform;
 }
 
@@ -81,7 +82,7 @@
 .hover-card-effect:focus-visible,
 .hover-lift:hover,
 .hover-lift:focus-visible {
-  transform: translate3d(0, -4px, 0);
+
   box-shadow: var(--shadow-lg);
 }
 
@@ -93,31 +94,44 @@
     opacity var(--transition-speed-fast) var(--ease-in-out);
 }
 
+.hover-color-effect:hover,
+.hover-color-effect:focus-visible {
+  color: var(--color-primary);
+}
+
+/* Scale hover effect */
+.hover-scale {
+  transition:
+    transform var(--transition-speed-base) var(--ease-out-cubic);
+}
+
+.hover-scale:hover,
+.hover-scale:focus-visible {
+  transform: scale(1.05);
+}
+
+/* Glow hover effect */
+.hover-glow {
+  transition:
+    box-shadow var(--transition-speed-base) var(--ease-out-cubic),
+    transform var(--transition-speed-base) var(--ease-out-cubic);
+}
+
+.hover-glow:hover,
+.hover-glow:focus-visible {
+  box-shadow: 0 0 20px rgba(28, 125, 205, 0.4);
+  transform: scale(1.02);
+}
+
 .text-spotlight {
   position: relative;
 }
 
-.text-spotlight::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -12px;
-  width: min(148px, 42%);
-  height: 3px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(28, 125, 205, 0.95), rgba(77, 168, 245, 0.3));
-  opacity: 0;
-  transform: scaleX(0.3);
-  transform-origin: left center;
-  transition:
-    opacity 720ms var(--ease-out-cubic),
-    transform 720ms var(--ease-out-cubic);
-}
+
 
 .text-spotlight.is-visible::after {
   opacity: 1;
   transform: scaleX(1);
-  display: none;
 }
 
 .text-readable {
@@ -193,10 +207,7 @@
     will-change: auto;
   }
 
-  .text-spotlight::after {
-    opacity: 1;
-    transform: none;
-  }
+
 
   .hover-card-effect,
   .hover-lift {

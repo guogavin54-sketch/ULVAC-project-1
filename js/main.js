@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initBusinessAccordion();
   initBasesMapSwitcher();
+  initLangSelector();
+  initMobileLangSelector();
   
   // Wait for video to load before initializing banner animations
   initAnimationsAfterVideoLoad();
@@ -60,12 +62,20 @@ function initScrollAnimations() {
   };
 
   const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const mobileQuery = window.matchMedia('(max-width: 768px)');
+  
   if (mediaQuery.matches || typeof IntersectionObserver !== 'function') {
     animatedElements.forEach((element) => {
       markVisible(element);
     });
     return;
   }
+
+  const observerOptions = {
+    root: null,
+    rootMargin: mobileQuery.matches ? '0px 0px -5% 0px' : '0px 0px -10% 0px',
+    threshold: mobileQuery.matches ? 0.1 : 0.16
+  };
 
   const observer = new IntersectionObserver((entries, currentObserver) => {
     entries.forEach((entry) => {
@@ -74,11 +84,7 @@ function initScrollAnimations() {
       markVisible(entry.target);
       currentObserver.unobserve(entry.target);
     });
-  }, {
-    root: null,
-    rootMargin: '0px 0px -10% 0px',
-    threshold: 0.16
-  });
+  }, observerOptions);
 
   animatedElements.forEach((element) => observer.observe(element));
 }
@@ -379,4 +385,154 @@ function initBasesMapSwitcher() {
 
   renderDot(activeDot, false);
   setActiveDot(activeDot);
+}
+
+function initLangSelector() {
+  const selector = document.querySelector('.lang-selector');
+  const dropdown = document.querySelector('.lang-dropdown');
+  const options = document.querySelectorAll('.lang-option');
+  const currentLangEl = document.querySelector('.current-lang');
+  
+  if (!selector || !dropdown || !options.length || !currentLangEl) return;
+
+  const toggleDropdown = () => {
+    const isOpen = selector.classList.contains('active');
+    
+    if (isOpen) {
+      closeDropdown();
+    } else {
+      openDropdown();
+    }
+  };
+
+  const openDropdown = () => {
+    selector.classList.add('active');
+    selector.setAttribute('aria-expanded', 'true');
+    dropdown.removeAttribute('hidden');
+  };
+
+  const closeDropdown = () => {
+    selector.classList.remove('active');
+    selector.setAttribute('aria-expanded', 'false');
+    dropdown.setAttribute('hidden', '');
+  };
+
+  const selectLang = (langCode, langText) => {
+    currentLangEl.textContent = langText;
+    
+    options.forEach(opt => {
+      opt.classList.toggle('active-lang', opt.dataset.lang === langCode);
+    });
+    
+    closeDropdown();
+    
+    selector.focus();
+  };
+
+  selector.addEventListener('click', toggleDropdown);
+
+  selector.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleDropdown();
+    } else if (e.key === 'Escape') {
+      closeDropdown();
+    }
+  });
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      selectLang(option.dataset.lang, option.textContent);
+    });
+    
+    option.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectLang(option.dataset.lang, option.textContent);
+      } else if (e.key === 'Escape') {
+        closeDropdown();
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!selector.contains(e.target)) {
+      closeDropdown();
+    }
+  });
+}
+
+function initMobileLangSelector() {
+  const selector = document.querySelector('.mobile-lang-selector');
+  const dropdown = document.querySelector('.mobile-lang-dropdown');
+  const options = document.querySelectorAll('.mobile-lang-option');
+  const currentLangEl = document.querySelector('.mobile-lang-text');
+  
+  if (!selector || !dropdown || !options.length || !currentLangEl) return;
+
+  const toggleDropdown = () => {
+    const isOpen = selector.classList.contains('active');
+    
+    if (isOpen) {
+      closeDropdown();
+    } else {
+      openDropdown();
+    }
+  };
+
+  const openDropdown = () => {
+    selector.classList.add('active');
+    selector.setAttribute('aria-expanded', 'true');
+    dropdown.removeAttribute('hidden');
+  };
+
+  const closeDropdown = () => {
+    selector.classList.remove('active');
+    selector.setAttribute('aria-expanded', 'false');
+    dropdown.setAttribute('hidden', '');
+  };
+
+  const selectLang = (langCode, langText) => {
+    currentLangEl.textContent = langText;
+    
+    options.forEach(opt => {
+      opt.classList.toggle('active-lang', opt.dataset.lang === langCode);
+    });
+    
+    closeDropdown();
+    
+    selector.focus();
+  };
+
+  selector.addEventListener('click', toggleDropdown);
+
+  selector.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleDropdown();
+    } else if (e.key === 'Escape') {
+      closeDropdown();
+    }
+  });
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      selectLang(option.dataset.lang, option.textContent);
+    });
+    
+    option.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectLang(option.dataset.lang, option.textContent);
+      } else if (e.key === 'Escape') {
+        closeDropdown();
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!selector.contains(e.target)) {
+      closeDropdown();
+    }
+  });
 }

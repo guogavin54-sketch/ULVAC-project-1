@@ -6,6 +6,37 @@
   display: none;
 }
 
+/* Mobile scroll animations */
+@media (max-width: 768px) {
+  body.is-mobile .animate-on-scroll {
+    --reveal-offset-y: 16px;
+    --reveal-duration: 600ms;
+    opacity: 0;
+    transform: translate3d(0, var(--reveal-offset-y), 0);
+    transition:
+      opacity var(--reveal-duration) ease-out,
+      transform var(--reveal-duration) ease-out;
+  }
+
+  body.is-mobile .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  body.is-mobile .text-spotlight::after {
+    opacity: 0;
+    transform: scaleX(0.3);
+    transition:
+      opacity 500ms ease-out,
+      transform 500ms ease-out;
+  }
+
+  body.is-mobile .text-spotlight.is-visible::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
 @media (max-width: 768px) {
   /* Mobile-first override strategy:
      keep selectors scoped to real section paths so desktop rules cannot out-rank them. */
@@ -123,18 +154,20 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: min(66.7vw, 260px);
-    min-width: 240px;
+    width: 300px;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #ffffff;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
     transform: translateX(100%);
     transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
     z-index: 1200;
     box-shadow: -10px 0 32px rgba(0, 0, 0, 0.12);
-    padding: 20px 16px 24px;
+    padding: 24px 16px;
     box-sizing: border-box;
+    row-gap: 32px;
   }
 
   body.is-mobile .mobile-side-nav.is-open {
@@ -143,62 +176,204 @@
 
   body.is-mobile .mobile-side-nav-header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 24px;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
+    justify-content: flex-end;
+    margin-bottom: 0;
   }
 
   body.is-mobile .mobile-nav-close {
-    position: relative;
-    width: 40px;
-    height: 40px;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
     border: 0;
     background: transparent;
     padding: 0;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  body.is-mobile .mobile-nav-close span {
-    position: absolute;
-    top: 19px;
-    left: 10px;
-    width: 20px;
-    height: 2px;
-    border-radius: 99px;
-    background: #1a1a1a;
-  }
-
-  body.is-mobile .mobile-nav-close span:first-child {
-    transform: rotate(45deg);
-  }
-
-  body.is-mobile .mobile-nav-close span:last-child {
-    transform: rotate(-45deg);
+  body.is-mobile .mobile-nav-close svg {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
   }
 
   body.is-mobile .mobile-nav-menu {
     display: block;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
   }
 
   body.is-mobile .mobile-nav-list {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
+    row-gap: 16px;
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
+  body.is-mobile .mobile-nav-list li {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    align-self: stretch;
+    column-gap: 10px;
+    border-width: 0px 0px 1px;
+    border-style: solid;
+          border-color: rgba(255, 255, 255, 0.7);
+    padding-bottom: 15px;
+  }
+
   body.is-mobile .mobile-nav-list a {
-    display: block;
-    padding: 14px 8px;
-    color: #1a1a1a;
-    font-family: Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+    flex-shrink: 0;
+    color: #000000 !important;
+    font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
     font-size: 16px;
-    line-height: 22px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0;
     text-decoration: none;
-    border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+    display: block;
+  }
+
+  body.is-mobile .mobile-lang-selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+            border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #ffffff;
+    padding: 11px 7px;
+width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+            background: rgba(255, 255, 255, 0.7);
+  }
+
+  body.is-mobile .mobile-lang-selector:hover,
+  body.is-mobile .mobile-lang-selector:focus {
+    border-color: #1c7dcd;
+    outline: none;
+  }
+
+  body.is-mobile .mobile-lang-selector:focus-visible {
+    outline: 2px solid #1c7dcd;
+    outline-offset: 2px;
+  }
+
+  body.is-mobile .mobile-lang-selector.active {
+    border-color: #1c7dcd;
+  }
+
+  body.is-mobile .mobile-lang-title {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+  }
+
+  body.is-mobile .mobile-lang-icon {
+    height: 24px;
+    width: auto;
+    transition: filter 0.3s ease;
+  }
+
+  body.is-mobile .mobile-lang-selector:hover .mobile-lang-icon,
+  body.is-mobile .mobile-lang-selector:focus .mobile-lang-icon,
+  body.is-mobile .mobile-lang-selector.active .mobile-lang-icon {
+    filter: brightness(0) saturate(100%) invert(43%) sepia(98%) saturate(1680%) hue-rotate(185deg) brightness(93%) contrast(91%);
+  }
+
+  body.is-mobile .mobile-lang-text {
+    font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0;
+    margin: 0;
+    color: #1a1a1a !important;
+  }
+
+  body.is-mobile .mobile-lang-selector:hover .mobile-lang-text,
+  body.is-mobile .mobile-lang-selector:focus .mobile-lang-text,
+  body.is-mobile .mobile-lang-selector.active .mobile-lang-text {
+    color: #1c7dcd !important;
+  }
+
+  body.is-mobile .mobile-lang-arrow {
+    width: 16px;
+    height: 16px;
+    color: #1a1a1a;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  body.is-mobile .mobile-lang-selector:hover .mobile-lang-arrow,
+  body.is-mobile .mobile-lang-selector:focus .mobile-lang-arrow,
+  body.is-mobile .mobile-lang-selector.active .mobile-lang-arrow {
+    color: #1c7dcd;
+  }
+
+  body.is-mobile .mobile-lang-selector.active .mobile-lang-arrow {
+    transform: rotate(180deg);
+  }
+
+  body.is-mobile .mobile-lang-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    max-height: 120px;
+    overflow-y: auto;
+    margin: 0;
+    padding: 4px 0;
+    list-style: none;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all 0.3s ease;
+    z-index: 100;
+    box-sizing: border-box;
+  }
+
+  body.is-mobile .mobile-lang-selector.active .mobile-lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  body.is-mobile .mobile-lang-option {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #1a1a1a;
+    transition: all 0.2s ease;
+    font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  }
+
+  body.is-mobile .mobile-lang-option:hover {
+    color: #1c7dcd;
+    background: #f0f7fd;
   }
 
   body.is-mobile .hero {
@@ -482,11 +657,13 @@
   body.is-mobile .news-card.small {
     height: auto;
     flex-direction: column;
-    padding: 23px;
+    padding: 16px;
     gap: 16px;
   }
-
-  body.is-mobile .news-card.small .news-img-wrap,
+.news-card.small .news-img-wrap{
+      outline: none;
+}
+ body.is-mobile .news-card.small .news-img-wrap,
   body.is-mobile .news-card.large .news-img-wrap {
     width: 100%;
     height: 250px;
@@ -495,7 +672,11 @@
     border-radius: 8px;
     overflow: hidden;
   }
-
+body.is-mobile .news-card.small .news-img-wrap{
+  height: auto;
+  border: none;
+}
+ 
   body.is-mobile .news-card.large .news-img-wrap {
     aspect-ratio: auto;
   }

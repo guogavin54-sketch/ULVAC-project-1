@@ -86,24 +86,30 @@
           <li><a href="#" class="hover-color-effect">Contact</a></li>
         </ul>
       </nav>
-      <div class="lang-selector">
+      <div class="lang-selector" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="lang-dropdown">
         <img src="assets/images/language.png" alt="Language" class="lang-icon">
-        <span>English</span>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <span class="current-lang">English</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lang-arrow">
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
+        <ul id="lang-dropdown" class="lang-dropdown" role="menu" aria-label="Language options" hidden>
+          <li role="none">
+            <button role="menuitem" class="lang-option" data-lang="en">English</button>
+          </li>
+          <li role="none">
+            <button role="menuitem" class="lang-option" data-lang="ja">Japanese</button>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="mobile-nav-overlay" aria-hidden="true"></div>
     <aside id="mobile-side-nav" class="mobile-side-nav" aria-hidden="true">
       <div class="mobile-side-nav-header">
-        <div class="logo">
-          <img src="assets/images/ULVAC%20LOGO(Blue)%201.png" alt="ULVAC" class="header-logo-img">
-          <span class="logo-text">Global</span>
-        </div>
         <button class="mobile-nav-close" type="button" aria-label="Close navigation menu">
-          <span></span>
-          <span></span>
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#1C7DCD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
         </button>
       </div>
       <nav class="mobile-nav-menu" aria-label="Mobile Navigation">
@@ -114,6 +120,23 @@
           <li><a href="#" class="hover-color-effect">Contact</a></li>
         </ul>
       </nav>
+      <div class="mobile-lang-selector" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-lang-dropdown">
+        <div class="mobile-lang-title">
+          <img src="assets/images/language.png" alt="Language" class="mobile-lang-icon">
+          <span class="mobile-lang-text">English</span>
+        </div>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mobile-lang-arrow">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+        <ul id="mobile-lang-dropdown" class="mobile-lang-dropdown" role="menu" aria-label="Language options" hidden>
+          <li role="none">
+            <button role="menuitem" class="mobile-lang-option" data-lang="en">English</button>
+          </li>
+          <li role="none">
+            <button role="menuitem" class="mobile-lang-option" data-lang="ja">Japanese</button>
+          </li>
+        </ul>
+      </div>
     </aside>
   </header>
 
@@ -122,7 +145,7 @@
     <section class="hero">
       <div class="hero-bg">
         <!-- 首屏视频主动预加载，避免远端缓存恢复时出现明显延迟 -->
-        <video autoplay muted loop playsinline preload="auto" poster="assets/images/hero_bg.png" class="hero-video scanner-effect">
+        <video autoplay muted loop playsinline preload="auto" poster="assets/images/Poster.png" class="hero-video scanner-effect">
           <source src="assets/video/ulvac_2.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
@@ -342,7 +365,10 @@
           <div class="news-column">
             <div class="news-card small animate-on-scroll delay-200 hover-card-effect">
               <div class="news-img-wrap">
-                <img src="assets/images/image_skhynix.png" alt="SK Hynix" class="news-image-sk" loading="lazy" decoding="async">
+                <picture>
+                  <source media="(max-width: 767px)" srcset="assets/images/image_skhynix-sp.png">
+                  <img src="assets/images/image_skhynix.png" alt="SK Hynix" class="news-image-sk" loading="lazy" decoding="async">
+                </picture>
               </div>
               <div class="news-content">
                 <span class="news-date">2025.11.21</span>
@@ -352,7 +378,10 @@
             </div>
             <div class="news-card small animate-on-scroll delay-300 hover-card-effect">
               <div class="news-img-wrap">
-                <img src="assets/images/image_cdp.png" alt="CDP" class="news-image-cdp" loading="lazy" decoding="async">
+                <picture>
+                  <source media="(max-width: 767px)" srcset="assets/images/image_cdp-sp.png">
+                  <img src="assets/images/image_cdp.png" alt="CDP" class="news-image-cdp" loading="lazy" decoding="async">
+                </picture>
               </div>
               <div class="news-content">
                 <span class="news-date">2025.04.01</span>
@@ -384,14 +413,13 @@
             <div class="bases-info-panel bases-info-panel--desktop">
               <div id="bases-info-card" class="bases-info-card is-visible" aria-live="polite">
                 <div class="bases-info-card__media">
-                  <img src="assets/images/card-japan.png" alt="" class="bases-info-card__image">
+                  <img src="assets/images/card-europe.png" alt="" class="bases-info-card__image">
                 </div>
                 <div class="bases-info-card__body">
-                  <h3 class="bases-info-card__title">Japan</h3>
+                  <h3 class="bases-info-card__title">Europe</h3>
                   <ul class="bases-info-card__stats">
-                    <li><span>Sales &amp; Service:</span> <strong>35</strong></li>
-                    <li><span>R&amp;D:</span> <strong>4</strong></li>
-                    <li><span>Manufacturing:</span> <strong>11</strong></li>
+                    <li><span>Sales &amp; Service:</span> <strong>1</strong></li>
+         
                   </ul>
                 </div>
               </div>
@@ -520,14 +548,13 @@
               
               <div id="bases-info-card-mobile" class="bases-info-card is-visible" aria-live="polite">
                 <div class="bases-info-card__media">
-                  <img src="assets/images/card-japan.png" alt="" class="bases-info-card__image">
+                  <img src="assets/images/card-europe.png" alt="" class="bases-info-card__image">
                 </div>
                 <div class="bases-info-card__body">
-                  <h3 class="bases-info-card__title">Japan</h3>
+                  <h3 class="bases-info-card__title">Europe</h3>
                   <ul class="bases-info-card__stats">
-                    <li><span>Sales &amp; Service:</span> <strong>35</strong></li>
-                    <li><span>R&amp;D:</span> <strong>4</strong></li>
-                    <li><span>Manufacturing:</span> <strong>11</strong></li>
+                    <li><span>Sales &amp; Service:</span> <strong>1</strong></li>
+            
                   </ul>
                 </div>
               </div>
@@ -584,13 +611,13 @@
             </div>
             <div class="footer-contact-row footer-phone-row">
               <img src="assets/images/mp3quxx6-qxfyz5g.svg" alt="" class="footer-contact-icon" loading="lazy" decoding="async">
-              <p>0467-89-2033</p>
+              <p>+81-467-89-2033​</p>
             </div>
           </address>
         </div>
         <div class="footer-nav-columns">
           <div class="footer-nav-group animate-on-scroll reveal-soft delay-100">
-            <h4>SITEMAP</h4>
+            <a href="#" class="footer-nav-title hover-color-effect">SITEMAP</a>
             <ul>
               <li><a href="#" class="hover-color-effect">Home</a></li>
               <li><a href="#" class="hover-color-effect">About ULVAC</a></li>
@@ -600,7 +627,7 @@
             </ul>
           </div>
           <div class="footer-nav-group footer-sites-group animate-on-scroll reveal-soft delay-200">
-            <h4>ULVAC Sites</h4>
+            <a href="#" class="footer-nav-title hover-color-effect">ULVAC Sites</a>
             <ul>
               <li><a href="#" class="hover-color-effect">Corporate Site (EN)</a></li>
               <li><a href="#" class="hover-color-effect">Corporate Site (JP)</a></li>
