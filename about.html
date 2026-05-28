@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About ULVAC - ULVAC, Global Leader in Vacuum Technology</title>
+  <meta name="description" content="Learn about ULVAC, a global leader in vacuum technology with over 70 years of experience.">
+  
+  <!-- Preconnect and Google Fonts (Inter, Roboto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <script>
+    (function() {
+      'use strict';
+      var TOKEN_KEY = 'ulvac_auth_token';
+      var LOGIN_PAGE = 'login.html';
+      
+      var token = localStorage.getItem(TOKEN_KEY) || sessionStorage.getItem(TOKEN_KEY);
+      
+      if (!token && !window.location.pathname.endsWith(LOGIN_PAGE)) {
+        window.location.href = LOGIN_PAGE;
+        return;
+      }
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('auth-complete');
+      });
+      
+      setTimeout(function() {
+        document.body.classList.add('auth-complete');
+      }, 1000);
+    })();
+  </script>
+  
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+  <header class="global-header">
+    <div class="container header-container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/images/ULVAC%20LOGO(Blue)%201.png" alt="ULVAC" class="header-logo-img">
+        </a>
+        <span class="logo-text">Global</span>
+      </div>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-side-nav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="about.html" class="hover-color-effect active">About ULVAC</a></li>
+          <li><a href="#" class="hover-color-effect">News</a></li>
+          <li><a href="#" class="hover-color-effect">Investor Relations</a></li>
+          <li><a href="#" class="hover-color-effect">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="lang-selector" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="lang-dropdown">
+        <img src="assets/images/language.png" alt="Language" class="lang-icon">
+        <span class="current-lang">English</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lang-arrow">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+        <ul id="lang-dropdown" class="lang-dropdown" role="menu" aria-label="Language options" hidden>
+          <li role="none"><button role="menuitem" class="lang-option" data-lang="en">English</button></li>
+          <li role="none"><button role="menuitem" class="lang-option" data-lang="ja">Japanese</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mobile-nav-overlay" aria-hidden="true"></div>
+    <aside id="mobile-side-nav" class="mobile-side-nav" aria-hidden="true">
+      <div class="mobile-side-nav-header">
+        <button class="mobile-nav-close" type="button" aria-label="Close navigation menu">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#1C7DCD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-nav-menu" aria-label="Mobile Navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="about.html" class="hover-color-effect active">About ULVAC</a></li>
+          <li><a href="#" class="hover-color-effect">News</a></li>
+          <li><a href="#" class="hover-color-effect">Investor Relations</a></li>
+          <li><a href="#" class="hover-color-effect">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-lang-selector" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-lang-dropdown">
+        <div class="mobile-lang-title">
+          <img src="assets/images/language.png" alt="Language" class="mobile-lang-icon">
+          <span class="mobile-lang-text">English</span>
+        </div>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mobile-lang-arrow">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+        <ul id="mobile-lang-dropdown" class="mobile-lang-dropdown" role="menu" aria-label="Language options" hidden>
+          <li role="none"><button role="menuitem" class="mobile-lang-option" data-lang="en">English</button></li>
+          <li role="none"><button role="menuitem" class="mobile-lang-option" data-lang="ja">Japanese</button></li>
+        </ul>
+      </div>
+    </aside>
+  </header>
+
+  <main class="pCAboutOverview">
+    
+    <!-- Tab Navigation -->
+    <nav class="tab">
+      <div class="container">
+        <p class="text2">Overview</p>
+        <p class="text3">Our Business</p>
+        <p class="text3">R&D</p>
+        <p class="text3">Group Companies</p>
+      </div>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="contentsAll container">
+      <h2 class="title2">About ULVAC</h2>
+    </div>
+
+    <!-- Top Message Section -->
+    <section class="section section-top-message animate-on-scroll reveal-soft">
+      <div class="container">
+        <h2 class="topMessage">Top Message</h2>
+        <div class="contents">
+          <div class="text3">
+            <div class="quote">
+              <img src=".figma/image/mplzuzo6-ixmprqb.png" alt="" class="quotation1">
+              <div class="text">
+                <p class="buildingAFlourishing">
+                  Building a flourishing future by creating innovative solutions to deliver industrial and scientific advancement.
+                </p>
+              </div>
+            </div>
+            <p class="name">Setsuo Iwashita, President and CEO</p>
+            <p class="backIn1952UlvacWasSt">
+              Back in 1952, ULVAC was still a fledgling venture that had just been founded by young engineers aspiring to contribute to industrial and scientific advancement through the use of vacuum technologies with the financial support of six angel investors. While continuing to cherish the entrepreneurial spirit that it has embraced since its establishment, ULVAC remains committed to creating new value by pursuing cutting-edge innovation for our vacuum technologies.
+            </p>
+            <div class="buttonShow">
+              <p class="text2">Show More</p>
+              <img src=".figma/image/mplzuzlm-2keeotm.svg" alt="" class="expandMore">
+            </div>
+          </div>
+          <div class="image">
+            <div class="dotGrid"></div>
+            <div class="dotGrid2"></div>
+            <img src=".figma/image/mplzuzo6-ip8n7ux.png" alt="CEO Photo" class="image50">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section class="section2 section-who-we-are animate-on-scroll reveal-soft">
+      <div class="dotGrid"></div>
+      <div class="dotGrid2"></div>
+      <div class="dotGrid3"></div>
+      <div class="container">
+        <h2 class="whoWeAre">Who We Are</h2>
+        <p class="backIn1952UlvacWasSt">
+          ULVAC is a comprehensive vacuum equipment manufacturer that provides manufacturing equipment, components, analytical instruments, materials, and services based on its core vacuum technology. Under the basic corporate philosophy of "contributing to the development of industries and science," we pursue cutting-edge innovation and support people's lives across a wide range of industries including semiconductors, electronic devices, displays, automotive, and pharmaceuticals.
+        </p>
+        <div class="detail">
+          <p class="basicCorporatePhilos">Basic Corporate Philosophy</p>
+          <p class="uLvacGroupAimsToCont">
+            ULVAC Group aims to contribute to the development of industries and science by comprehensively utilizing its vacuum and peripheral technologies through the mutual cooperation and collaboration of the Group companies.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company Profile Section -->
+    <section class="section4 section-company-profile animate-on-scroll reveal-soft">
+      <div class="container">
+        <p class="companyProfile">Company Profile</p>
+        <p class="backIn1952UlvacWasSt">
+          When ULVAC was founded back in 1952, vacuum technology had not yet entered widespread use in Japan. As a trailblazer, we championed vacuum technology by introducing new technologies to the market and addressing the needs of customers in diverse industries.
+        </p>
+        <div class="list">
+          <div class="text">
+            <p class="title">Name</p>
+            <p class="content">ULVAC, Inc.</p>
+          </div>
+          <div class="text">
+            <p class="title">Trademark</p>
+            <p class="content">ULVAC</p>
+          </div>
+          <div class="text">
+            <p class="title">ULVAC Head Office / Plant</p>
+            <p class="content">2500 Hagisono, Chigasaki, Kanagawa 253-8543, Japan</p>
+          </div>
+          <div class="text">
+            <p class="title">Established</p>
+            <p class="content">August 23, 1952</p>
+          </div>
+          <div class="text">
+            <p class="title">Representative</p>
+            <p class="content">Setsuo Iwashita, President and CEO</p>
+          </div>
+          <div class="text">
+            <p class="title">Capital</p>
+            <p class="content">20,873,042,500 yen</p>
+          </div>
+          <div class="text">
+            <p class="title">Number of Employees</p>
+            <p class="content">1,648, Consolidated: 6,132 (as of 30th June, 2025)</p>
+          </div>
+          <div class="text2">
+            <p class="title">Business Areas</p>
+            <div class="content3">
+              <p class="content2">
+                Development, manufacture, sales, customer support and machinery importing/exporting activities related to vacuum equipment, peripheral devices, vacuum components and materials for the display, semiconductor, electronics, electrics, metals, machinery, automotive, chemical, food and pharmaceutical industries
+              </p>
+            </div>
+          </div>
+          <div class="text2">
+            <p class="title">Principal Shareholders</p>
+            <div class="content3">
+              <p class="content2">
+                The Master Trust Bank of Japan, Ltd.; Nippon Life Insurance Company; BBH (LUX) FOR FIDELITY FUNDS-GLOBAL TECHNOLOGY POOL; Custody Bank of Japan, Ltd.; STATE STREET BANK AND TRUST COMPANY 505227; JPMorgan Securities Japan Co., Ltd. (as of 30th June, 2025)
+              </p>
+            </div>
+          </div>
+          <div class="text">
+            <p class="title">Banks</p>
+            <p class="content">Mizuho Bank, Ltd.; Sumitomo Mitsui Banking Corporation; Nippon Life Insurance Company</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company History Section -->
+    <section class="section5 section-company-history animate-on-scroll reveal-soft">
+      <div class="container">
+        <h2 class="topMessage">Company History</h2>
+        <p class="backIn1952UlvacWasSt3">
+          When ULVAC was founded back in 1952, vacuum technology had not yet entered widespread use in Japan. As a trailblazer, we championed vacuum technology by introducing new technologies to the market and addressing the needs of customers in diverse industries.
+        </p>
+        <div class="contents2 history-content">
+          <img src=".figma/image/mpm07xtw-06zl88v.png" alt="ULVAC Building" class="pic history-image">
+        <div class="list2 timeline-list">
+          
+          <div class="item2 timeline-item">
+            <div class="barVertical bar-vertical-start">
+              <div className="ellipse6 timeline-dot"></div>
+              <div className="rectangle timeline-bar"></div>
+            </div>
+            <div className="text9 timeline-text">
+              <p className="date">1952 August</p>
+              <p className="content4">Relocated headquarters and Yokohama Plant to Chigasaki City.</p>
+            </div>
+          </div>
+
+          <div className="item3 timeline-item">
+            <div className="barVertical2 bar-vertical-mid">
+              <div className="rectangle2 bar-top"></div>
+              <div className="ellipse7 timeline-dot"></div>
+              <div className="rectangle3 bar-bottom"></div>
+            </div>
+            <div className="text10 timeline-text">
+              <p className="date">1968 May</p>
+              <p className="content5">Japan Vacuum Engineering Co., Ltd. was founded (capital: 6 million yen) for the purpose of importing and selling various types of vacuum equipment.</p>
+            </div>
+          </div>
+
+          <div className="item3 timeline-item">
+            <div className="barVertical2 bar-vertical-mid">
+              <div className="rectangle2 bar-top"></div>
+              <div className="ellipse7 timeline-dot"></div>
+              <div className="rectangle3 bar-bottom"></div>
+            </div>
+            <div className="text10 timeline-text">
+              <p className="date">1975 December</p>
+              <p className="content5">Established ULVAC North America Corp. (currently, ULVAC Technologies, Inc.), a subsidiary in North America, as an export base to the U.S.</p>
+            </div>
+          </div>
+
+          <div className="item4 timeline-item">
+            <div className="barVertical2 bar-vertical-end">
+              <div className="rectangle2 bar-top"></div>
+              <div className="ellipse7 timeline-dot"></div>
+              <div className="rectangle3 bar-bottom"></div>
+            </div>
+            <div className="text11 timeline-text">
+              <p className="date">1982 January</p>
+              <p className="content4">Established ULVAC TAIWAN Co., Ltd. (currently, ULVAC TAIWAN INC.) in Taipei City, Taiwan.</p>
+            </div>
+          </div>
+
+          <div className="item4 timeline-item">
+            <div className="barVertical2 bar-vertical-mid">
+              <div className="rectangle2 bar-top"></div>
+              <div className="ellipse7 timeline-dot"></div>
+              <div className="rectangle3 bar-bottom"></div>
+            </div>
+            <div className="text11 timeline-text">
+              <p className="date">1987 February</p>
+              <p className="content4">Established ULVAC GmbH in West Germany to improve European services.</p>
+            </div>
+          </div>
+
+          <div className="item3 timeline-item">
+            <div className="barVertical2 bar-vertical-mid">
+              <div className="rectangle2 bar-top"></div>
+              <div className="ellipse7 timeline-dot"></div>
+              <div className="rectangle3 bar-bottom"></div>
+            </div>
+            <div className="text10 timeline-text">
+              <p className="date">1995 September</p>
+              <p className="content5">Established ULVAC (NINGBO) Co., Ltd., a joint venture with Ningbo C.S.I. Power & Machinery Group Co., Ltd. in China.</p>
+            </div>
+          </div>
+
+          <div className="item4 timeline-item">
+            <div className="barVertical2 bar-vertical-end">
+              <div className="rectangle2 bar-top"></div>
+              <div className="ellipse7 timeline-dot"></div>
+              <div className="rectangle3 bar-bottom"></div>
+            </div>
+            <div className="text11 timeline-text">
+              <p className="date">2001 July</p>
+              <p className="content4">Changed company name to ULVAC, Inc.</p>
+            </div>
+          </div>
+
+          <div className="item4 timeline-item">
+            <div className="barVertical2 bar-vertical-end">
+              <div className="rectangle2 bar-top"></div>
+              <div className="ellipse7 timeline-dot"></div>
+              <div className="rectangle3 bar-bottom"></div>
+            </div>
+            <div className="text11 timeline-text">
+              <p className="date">2004 April</p>
+              <p className="content4">Joined the 1st Section of Tokyo Stock Exchange. Increased capital to 8.1 billion yen from 3.85 billion yen.</p>
+            </div>
+          </div>
+
+          <div className="item3 timeline-item">
+            <div className="barVertical2 bar-vertical-mid">
+              <div className="rectangle2 bar-top"></div>
+              <div className="ellipse7 timeline-dot"></div>
+              <div className="rectangle3 bar-bottom"></div>
+            </div>
+            <div className="text10 timeline-text">
+              <p className="date">2022 April</p>
+              <p className="content5">Moved from the First Section of the Tokyo Stock Exchange to the Prime Market following the exchange's market restructuring.</p>
+            </div>
+          </div>
+
+          <div className="item5 timeline-item-last">
+            <div className="barVertical2 bar-vertical-last">
+              <div className="rectangle2 bar-top"></div>
+              <div className="ellipse7 timeline-dot"></div>
+              <div className="rectangle3 bar-bottom"></div>
+            </div>
+            <div className="text12 timeline-text">
+              <p className="date">2024 May</p>
+              <p className="content5">Established the Technology Center PYEONGTAEK in South Korea to accelerate product and technology development and strengthen collaboration and technical support.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- More Information Section -->
+    <section class="section6 section-more-info animate-on-scroll reveal-soft">
+      <div class="container">
+        <h2 class="topMessage">More Information</h2>
+      <div className="containerLink info-cards-grid">
+        
+        <div className="link2 info-row">
+          <div className="buttonCard info-card">
+            <p className="managementStructure card-title">Management Structure</p>
+            <div className="link card-link">
+              <p className="viewDetails link-text">View Details</p>
+              <img src=".figma/image/mpm07xtw-3g1t6n3.svg" alt="" className="expandMore2 chevron-icon">
+            </div>
+          </div>
+          <div className="buttonCard info-card">
+            <p className="managementStructure card-title">Organization</p>
+            <div className="link card-link">
+              <p className="viewDetails link-text">View Details</p>
+              <img src=".figma/image/mpm07xtw-3g1t6n3.svg" alt="" className="expandMore2 chevron-icon">
+            </div>
+          </div>
+        </div>
+
+        <div className="link2 info-row">
+          <div className="buttonCard info-card">
+            <p className="managementStructure card-title">Sustainability</p>
+            <div className="link card-link">
+              <p className="viewDetails link-text">View Details</p>
+              <img src=".figma/image/mpm07xtw-3g1t6n3.svg" alt="" className="expandMore2 chevron-icon">
+            </div>
+          </div>
+          <div className="buttonCard info-card">
+            <p className="managementStructure card-title">Company Profile Download</p>
+            <div className="link card-link">
+              <p className="viewDetails link-text">View Details</p>
+              <img src=".figma/image/mpm07xtw-3g1t6n3.svg" alt="" className="expandMore2 chevron-icon">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </section>
+
+  </main>
+
+  <footer class="global-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-block animate-on-scroll reveal-soft">
+          <img src="assets/images/mp3quxx8-izeqmh7.png" alt="ULVAC" class="footer-logo-img" loading="lazy" decoding="async">
+          <address class="footer-contact">
+            <div class="footer-contact-row">
+              <img src="assets/images/mp3quxx6-gfqbb6v.svg" alt="" class="footer-contact-icon" loading="lazy" decoding="async">
+              <p>ULVAC, Inc.<br>2500 Hagisono, Chigasaki, Kanagawa 253-8543, Japan</p>
+            </div>
+            <div class="footer-contact-row footer-phone-row">
+              <img src="assets/images/mp3quxx6-qxfyz5g.svg" alt="" class="footer-contact-icon" loading="lazy" decoding="async">
+              <p>+81-467-89-2033</p>
+            </div>
+          </address>
+        </div>
+        <div class="footer-nav-columns">
+          <div class="footer-nav-group animate-on-scroll reveal-soft delay-100">
+            <a href="#" class="footer-nav-title hover-color-effect">SITEMAP</a>
+            <ul>
+              <li><a href="index.html" class="hover-color-effect">Home</a></li>
+              <li><a href="about.html" class="hover-color-effect">About ULVAC</a></li>
+              <li><a href="#" class="hover-color-effect">News</a></li>
+              <li><a href="#" class="hover-color-effect">Investor Relations</a></li>
+              <li><a href="#" class="hover-color-effect">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group footer-sites-group animate-on-scroll reveal-soft delay-200">
+            <a href="#" class="footer-nav-title hover-color-effect">ULVAC Sites</a>
+            <ul>
+              <li><a href="#" class="hover-color-effect">Corporate Site (EN)</a></li>
+              <li><a href="#" class="hover-color-effect">Corporate Site (JP)</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom reveal-soft delay-300">
+        <p>&copy; 2026 ULVAC, Inc. All Rights Reserved.</p>
+        <div class="footer-legal">
+          <a href="#" class="hover-color-effect">Privacy Policy</a>
+          <a href="#" class="hover-color-effect">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/auth-check.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/about.js"></script>
+</body>
+</html>

@@ -164,7 +164,7 @@
   display: inline-block;
 }
 
-.text-glow-effect::after {
+/* .text-glow-effect::after {
   content: "";
   position: absolute;
   left: 0;
@@ -181,7 +181,7 @@
   transition:
     width 480ms var(--ease-out-cubic),
     opacity 480ms var(--ease-out-cubic);
-}
+} */
 
 .business-card:hover .text-glow-effect::after,
 .news-card:hover .text-glow-effect::after {

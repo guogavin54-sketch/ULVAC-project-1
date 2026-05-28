@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   
+  <!-- Preload hero video for faster loading -->
+  <link rel="preload" href="assets/video/ulvac_2.mp4" as="video" type="video/mp4">
+  
   <!-- Hide body until authentication check completes -->
   <style>
     body {
@@ -145,7 +148,16 @@
     <section class="hero">
       <div class="hero-bg">
         <!-- 首屏视频主动预加载，避免远端缓存恢复时出现明显延迟 -->
-        <video autoplay muted loop playsinline preload="auto" poster="assets/images/Poster.png" class="hero-video scanner-effect">
+        <video 
+          autoplay 
+          muted 
+          loop 
+          playsinline 
+          preload="auto" 
+          poster="assets/images/Poster.png" 
+          class="hero-video scanner-effect"
+          id="hero-video"
+        >
           <source src="assets/video/ulvac_2.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
@@ -153,7 +165,7 @@
         <div class="scanner-line"></div>
       </div>
       <div class="container hero-content">
-        <h1 class="animate-on-scroll reveal-pop text-spotlight">ULVAC, Global Leader in Vacuum<br>Technology for Over 70 Years</h1>
+        <h1 class="animate-on-scroll reveal-pop text-spotlight">ULVAC, Global Leader in Vacuum<span class="desktop-br"></span>Technology for Over 70 Years</h1>
         <p class="hero-description animate-on-scroll reveal-soft delay-100 text-readable">Our advanced technologies support industrial manufacturers with solutions centered around our proprietary vacuum technology, playing an important role in areas of global strategic significance, including advanced semiconductor electronics, rare earth magnet manufacturing, and extreme cooling technologies for quantum computing.</p>
         <button class="btn-hero-white hover-lift animate-on-scroll reveal-tight delay-200">
           <span>Learn More About ULVAC</span>
@@ -413,7 +425,7 @@
     </section>
 
     <!-- Main Bases Section -->
-    <section class="bases-section">
+    <section class="bases-section" data-bases-ready="false">
       <div class="bases-container container">
         <div class="bases-map-shell">
           <div class="bases-map-header">
@@ -423,16 +435,34 @@
           <div class="bases-map-content">
             <!-- Left: Info Card (Desktop) -->
             <div class="bases-info-panel bases-info-panel--desktop">
-              <div id="bases-info-card" class="bases-info-card is-visible" aria-live="polite">
-                <div class="bases-info-card__media">
-                  <img src="assets/images/card-europe.png" alt="" class="bases-info-card__image">
-                </div>
-                <div class="bases-info-card__body">
-                  <h3 class="bases-info-card__title">Europe</h3>
-                  <ul class="bases-info-card__stats">
-                    <li><span>Sales &amp; Service:</span> <strong>1</strong></li>
-         
-                  </ul>
+              <!-- Card Container with Fixed Height -->
+              <div class="bases-info-card-container">
+                <div class="bases-info-card-wrapper">
+                  <a href="#" id="bases-info-card" class="bases-info-card is-visible hover-card-effect" aria-live="polite">
+                    <div class="bases-info-card__media img-wrap">
+                      <img src="assets/images/card-japan.png" alt="" class="bases-info-card__image">
+                    </div>
+                    <div class="bases-info-card__body">
+                      <h3 class="bases-info-card__title">Japan</h3>
+                      <ul class="bases-info-card__stats">
+                        <li><span>Sales &amp; Service:</span> <strong>35</strong></li>
+                        <li><span>R&amp;D:</span> <strong>4</strong></li>
+                        <li><span>Manufacturing:</span> <strong>11</strong></li>
+                      </ul>
+                    </div>
+                  </a>
+                  <a href="#" id="bases-info-card-next" class="bases-info-card hover-card-effect" aria-live="polite">
+                    <div class="bases-info-card__media img-wrap">
+                      <img src="assets/images/card-americas.png" alt="" class="bases-info-card__image">
+                    </div>
+                    <div class="bases-info-card__body">
+                      <h3 class="bases-info-card__title">Americas</h3>
+                      <ul class="bases-info-card__stats">
+                        <li><span>Sales &amp; Service:</span> <strong>1</strong></li>
+             
+                      </ul>
+                    </div>
+                  </a>
                 </div>
               </div>
               
@@ -456,7 +486,7 @@
             <!-- Right: Map -->
             <div class="bases-map-stage">
               <div class="bases-map-visual">
-                <button type="button" class="bases-dot bases-dot--1 is-active" data-dot="1" aria-label="Base location 1">
+                <button type="button" class="bases-dot bases-dot--1" data-dot="1" aria-label="Base location 1">
                   <span class="bases-dot__white-ring--2"></span>
                   <span class="bases-dot__white-ring--1"></span>
                   <span class="bases-dot__ring"></span>
@@ -492,7 +522,7 @@
                   <span class="bases-dot__ring"></span>
                   <span class="bases-dot__core"></span>
                 </button>
-                <button type="button" class="bases-dot bases-dot--7" data-dot="7" aria-label="Base location 7">
+                <button type="button" class="bases-dot bases-dot--7 is-active" data-dot="7" aria-label="Base location 7">
                   <span class="bases-dot__white-ring--2"></span>
                   <span class="bases-dot__white-ring--1"></span>
                   <span class="bases-dot__ring"></span>
@@ -507,7 +537,7 @@
             <!-- Map (Mobile) -->
             <div class="bases-map-stage">
               <div class="bases-map-visual">
-                <button type="button" class="bases-dot bases-dot--1 is-active" data-dot="1" aria-label="Base location 1">
+                <button type="button" class="bases-dot bases-dot--1" data-dot="1" aria-label="Base location 1">
                   <span class="bases-dot__white-ring--2"></span>
                   <span class="bases-dot__white-ring--1"></span>
                   <span class="bases-dot__ring"></span>
@@ -543,7 +573,7 @@
                   <span class="bases-dot__ring"></span>
                   <span class="bases-dot__core"></span>
                 </button>
-                <button type="button" class="bases-dot bases-dot--7" data-dot="7" aria-label="Base location 7">
+                <button type="button" class="bases-dot bases-dot--7 is-active" data-dot="7" aria-label="Base location 7">
                   <span class="bases-dot__white-ring--2"></span>
                   <span class="bases-dot__white-ring--1"></span>
                   <span class="bases-dot__ring"></span>
@@ -558,16 +588,34 @@
                 <img src="assets/images/chevron-right.svg" alt="" class="chevron-icon">
               </button>
               
-              <div id="bases-info-card-mobile" class="bases-info-card is-visible" aria-live="polite">
-                <div class="bases-info-card__media">
-                  <img src="assets/images/card-europe.png" alt="" class="bases-info-card__image">
-                </div>
-                <div class="bases-info-card__body">
-                  <h3 class="bases-info-card__title">Europe</h3>
-                  <ul class="bases-info-card__stats">
-                    <li><span>Sales &amp; Service:</span> <strong>1</strong></li>
-            
-                  </ul>
+              <!-- Card Container with Fixed Height for Mobile -->
+              <div class="bases-info-card-container">
+                <div class="bases-info-card-wrapper">
+                  <a href="#" id="bases-info-card-mobile" class="bases-info-card is-visible hover-card-effect" aria-live="polite">
+                    <div class="bases-info-card__media img-wrap">
+                      <img src="assets/images/card-japan.png" alt="" class="bases-info-card__image">
+                    </div>
+                    <div class="bases-info-card__body">
+                      <h3 class="bases-info-card__title">Japan</h3>
+                      <ul class="bases-info-card__stats">
+                        <li><span>Sales &amp; Service:</span> <strong>35</strong></li>
+                        <li><span>R&amp;D:</span> <strong>4</strong></li>
+                        <li><span>Manufacturing:</span> <strong>11</strong></li>
+                      </ul>
+                    </div>
+                  </a>
+                  <a href="#" id="bases-info-card-mobile-next" class="bases-info-card hover-card-effect" aria-live="polite">
+                    <div class="bases-info-card__media img-wrap">
+                      <img src="assets/images/card-americas.png" alt="" class="bases-info-card__image">
+                    </div>
+                    <div class="bases-info-card__body">
+                      <h3 class="bases-info-card__title">Americas</h3>
+                      <ul class="bases-info-card__stats">
+                        <li><span>Sales &amp; Service:</span> <strong>1</strong></li>
+              
+                      </ul>
+                    </div>
+                  </a>
                 </div>
               </div>
               
@@ -621,10 +669,10 @@
               <img src="assets/images/mp3quxx6-gfqbb6v.svg" alt="" class="footer-contact-icon" loading="lazy" decoding="async">
               <p>ULVAC, Inc.<br>2500 Hagisono, Chigasaki, Kanagawa 253-8543, Japan</p>
             </div>
-            <div class="footer-contact-row footer-phone-row">
+            <!-- <div class="footer-contact-row footer-phone-row">
               <img src="assets/images/mp3quxx6-qxfyz5g.svg" alt="" class="footer-contact-icon" loading="lazy" decoding="async">
               <p>+81-467-89-2033​</p>
-            </div>
+            </div> -->
           </address>
         </div>
         <div class="footer-nav-columns">
