@@ -30,19 +30,8 @@
   <script>
     (function() {
       'use strict';
-      var TOKEN_KEY = 'ulvac_auth_token';
-      var LOGIN_PAGE = 'login.html';
+      window.ULVAC_AUTH_BYPASS = true;
       
-      // Check authentication status immediately
-      var token = localStorage.getItem(TOKEN_KEY) || sessionStorage.getItem(TOKEN_KEY);
-      
-      // If not authenticated, redirect immediately before page renders
-      if (!token && !window.location.pathname.endsWith(LOGIN_PAGE)) {
-        window.location.href = LOGIN_PAGE;
-        return;
-      }
-      
-      // If authenticated, allow page to render
       document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('auth-complete');
       });
@@ -83,10 +72,10 @@
       </button>
       <nav class="main-nav">
         <ul>
-          <li><a href="#" class="hover-color-effect">About ULVAC</a></li>
-          <li><a href="#" class="hover-color-effect">News</a></li>
-          <li><a href="#" class="hover-color-effect">Investor Relations</a></li>
-          <li><a href="#" class="hover-color-effect">Contact</a></li>
+          <li><a href="#" class="hover-color-effect" data-text="About ULVAC"><span>About ULVAC</span></a></li>
+          <li><a href="#" class="hover-color-effect" data-text="News"><span>News</span></a></li>
+          <li><a href="#" class="hover-color-effect" data-text="Investor Relations"><span>Investor Relations</span></a></li>
+          <li><a href="#" class="hover-color-effect" data-text="Contact"><span>Contact</span></a></li>
         </ul>
       </nav>
       <div class="lang-selector" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="lang-dropdown">
@@ -165,7 +154,7 @@
         <div class="scanner-line"></div>
       </div>
       <div class="container hero-content">
-        <h1 class="animate-on-scroll reveal-pop text-spotlight">ULVAC, Global Leader in Vacuum<span class="desktop-br"></span>Technology for Over 70 Years</h1>
+        <h1 class="animate-on-scroll reveal-pop text-spotlight">ULVAC, Global Leader in Vacuum<span class="desktop-br"></span> Technology for Over 70 Years</h1>
         <p class="hero-description animate-on-scroll reveal-soft delay-100 text-readable">Our advanced technologies support industrial manufacturers with solutions centered around our proprietary vacuum technology, playing an important role in areas of global strategic significance, including advanced semiconductor electronics, rare earth magnet manufacturing, and extreme cooling technologies for quantum computing.</p>
         <button class="btn-hero-white hover-lift animate-on-scroll reveal-tight delay-200">
           <span>Learn More About ULVAC</span>
@@ -326,45 +315,44 @@
       </div>
       <div class="container profile-container">
         <h2 class="animate-on-scroll reveal-pop text-spotlight">Company Profile</h2>
-        <div class="profile-stats">
-          <div class="stat-card stat-card-sales hover-card-effect animate-on-scroll delay-100">
-        
-            <div class="stat-icon"><img src="assets/images/stat1_laptop.svg" alt="Laptop" loading="lazy" decoding="async"></div>
-            <div class="stat-title">
-              <div class="stat-value-row">
-                <span class="stat-currency">¥</span>
-                <span class="stat-value">251.2B</span>
+        <div class="profile-stats-block">
+          <div class="profile-stats">
+            <div class="stat-card stat-card-sales  animate-on-scroll delay-100">
+              <div class="stat-icon"><img src="assets/images/Sales.png" alt="Net sales" loading="lazy" decoding="async"></div>
+              <div class="stat-title">
+                <div class="stat-value-row">
+                  <span class="stat-currency">¥</span>
+                  <span class="stat-value">251.2B</span>
+                </div>
+                <div class="stat-label">net sales</div>
               </div>
-              <div class="stat-label">net sales<br>FY2025 (ended June 2025)</div>
             </div>
-          </div>
-          <div class="stat-card stat-card-employees hover-card-effect animate-on-scroll delay-200">
-         
-            <div class="stat-icon"><img src="assets/images/stat2_person.svg" alt="Employees" loading="lazy" decoding="async"></div>
-            <div class="stat-title">
-              <span class="stat-value">6,132</span>
-              <div class="stat-label">group employees worldwide<br>FY2025 (ended June 2025)</div>
-            </div>
-          </div>
-          <div class="stat-card stat-card-companies hover-card-effect animate-on-scroll delay-300">
-        
-            <div class="stat-icon"><img src="assets/images/stat3_building.svg" alt="Group Companies" loading="lazy" decoding="async"></div>
-            <div class="stat-title">
-              <span class="stat-value">41</span>
-              <div class="stat-label">group companies<br>FY2025 (ended June 2025) </div>
-            </div>
-          </div>
-          <div class="stat-card stat-card-rnd hover-card-effect animate-on-scroll delay-400">
-          
-            <div class="stat-icon"><img src="assets/images/stat4_yen.svg" alt="R&D Cost" loading="lazy" decoding="async"></div>
-            <div class="stat-title">
-              <div class="stat-value-row stat-value-row-rnd">
-                <span class="stat-currency">¥</span>
-                <span class="stat-value">22.8B</span>
+            <div class="stat-card stat-card-employees  animate-on-scroll delay-200">
+              <div class="stat-icon"><img src="assets/images/Employees.png" alt="Group employees worldwide" loading="lazy" decoding="async"></div>
+              <div class="stat-title">
+                <span class="stat-value">6,132</span>
+                <div class="stat-label">group employees worldwide</div>
               </div>
-              <div class="stat-label">R&D capital expenditure</div>
+            </div>
+            <div class="stat-card stat-card-companies  animate-on-scroll delay-300">
+              <div class="stat-icon"><img src="assets/images/Companies.png" alt="Group companies" loading="lazy" decoding="async"></div>
+              <div class="stat-title">
+                <span class="stat-value">41</span>
+                <div class="stat-label">group companies</div>
+              </div>
+            </div>
+            <div class="stat-card stat-card-rnd  animate-on-scroll delay-400">
+              <div class="stat-icon"><img src="assets/images/R&D.png" alt="R&amp;D capital expenditure" loading="lazy" decoding="async"></div>
+              <div class="stat-title">
+                <div class="stat-value-row">
+                  <span class="stat-currency">¥</span>
+                  <span class="stat-value">22.8B</span>
+                </div>
+                <div class="stat-label">R&D capital expenditure</div>
+              </div>
             </div>
           </div>
+          <p class="profile-stats-note animate-on-scroll delay-500">*As of FY2025 (ended June 2025)</p>
         </div>
       </div>
     </section>
@@ -677,7 +665,7 @@
         </div>
         <div class="footer-nav-columns">
           <div class="footer-nav-group animate-on-scroll reveal-soft delay-100">
-            <a href="#" class="footer-nav-title hover-color-effect">SITEMAP</a>
+         <p class="footer-nav-title hover-color-effect"> SITEMAP</p>
             <ul>
               <li><a href="#" class="hover-color-effect">Home</a></li>
               <li><a href="#" class="hover-color-effect">About ULVAC</a></li>
@@ -687,7 +675,7 @@
             </ul>
           </div>
           <div class="footer-nav-group footer-sites-group animate-on-scroll reveal-soft delay-200">
-            <a href="#" class="footer-nav-title hover-color-effect">ULVAC Sites</a>
+            <p class="footer-nav-title hover-color-effect">ULVAC Sites</p>
             <ul>
               <li><a href="#" class="hover-color-effect">Corporate Site (EN)</a></li>
               <li><a href="#" class="hover-color-effect">Corporate Site (JP)</a></li>

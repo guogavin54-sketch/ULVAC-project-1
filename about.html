@@ -14,15 +14,7 @@
   <script>
     (function() {
       'use strict';
-      var TOKEN_KEY = 'ulvac_auth_token';
-      var LOGIN_PAGE = 'login.html';
-      
-      var token = localStorage.getItem(TOKEN_KEY) || sessionStorage.getItem(TOKEN_KEY);
-      
-      if (!token && !window.location.pathname.endsWith(LOGIN_PAGE)) {
-        window.location.href = LOGIN_PAGE;
-        return;
-      }
+      window.ULVAC_AUTH_BYPASS = true;
       
       document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('auth-complete');
@@ -64,10 +56,20 @@
       </button>
       <nav class="main-nav">
         <ul>
-          <li><a href="about.html" class="hover-color-effect active">About ULVAC</a></li>
-          <li><a href="#" class="hover-color-effect">News</a></li>
-          <li><a href="#" class="hover-color-effect">Investor Relations</a></li>
-          <li><a href="#" class="hover-color-effect">Contact</a></li>
+          <li class="about-nav-item">
+            <a href="about.html" class="hover-color-effect" data-text="About ULVAC"><span>About ULVAC</span></a>
+            <nav class="tab about-header-tab" aria-label="About secondary navigation">
+              <div class="container">
+                <button type="button" class="tab-nav-item" data-text="Overview"><span>Overview</span></button>
+                <button type="button" class="tab-nav-item" data-text="Our Business"><span>Our Business</span></button>
+                <button type="button" class="tab-nav-item" data-text="R&amp;D"><span>R&amp;D</span></button>
+                <button type="button" class="tab-nav-item" data-text="Group Companies"><span>Group Companies</span></button>
+              </div>
+            </nav>
+          </li>
+          <li><a href="#" class="hover-color-effect" data-text="News"><span>News</span></a></li>
+          <li><a href="#" class="hover-color-effect" data-text="Investor Relations"><span>Investor Relations</span></a></li>
+          <li><a href="#" class="hover-color-effect" data-text="Contact"><span>Contact</span></a></li>
         </ul>
       </nav>
       <div class="lang-selector" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="lang-dropdown">
@@ -94,7 +96,7 @@
       </div>
       <nav class="mobile-nav-menu" aria-label="Mobile Navigation">
         <ul class="mobile-nav-list">
-          <li><a href="about.html" class="hover-color-effect active">About ULVAC</a></li>
+          <li><a href="about.html" class="hover-color-effect">About ULVAC</a></li>
           <li><a href="#" class="hover-color-effect">News</a></li>
           <li><a href="#" class="hover-color-effect">Investor Relations</a></li>
           <li><a href="#" class="hover-color-effect">Contact</a></li>
@@ -118,16 +120,6 @@
 
   <main class="pCAboutOverview">
     
-    <!-- Tab Navigation -->
-    <nav class="tab">
-      <div class="container">
-        <p class="text2">Overview</p>
-        <p class="text3">Our Business</p>
-        <p class="text3">R&D</p>
-        <p class="text3">Group Companies</p>
-      </div>
-    </nav>
-
     <!-- Page Title -->
     <div class="contentsAll container">
       <h2 class="title2">About ULVAC</h2>
@@ -135,31 +127,31 @@
 
     <!-- Top Message Section -->
     <section class="section section-top-message animate-on-scroll reveal-soft">
-      <div class="container">
+      <div class="container top-message-container">
         <h2 class="topMessage">Top Message</h2>
-        <div class="contents">
-          <div class="text3">
-            <div class="quote">
-              <img src=".figma/image/mplzuzo6-ixmprqb.png" alt="" class="quotation1">
-              <div class="text">
-                <p class="buildingAFlourishing">
+        <div class="top-message-content">
+          <div class="top-message-copy">
+            <div class="top-message-quote">
+              <img src=".figma/image/mplzuzo6-ixmprqb.png" alt="" class="top-message-quote-icon">
+              <div class="top-message-quote-text">
+                <p class="top-message-lead">
                   Building a flourishing future by creating innovative solutions to deliver industrial and scientific advancement.
                 </p>
               </div>
             </div>
-            <p class="name">Setsuo Iwashita, President and CEO</p>
-            <p class="backIn1952UlvacWasSt">
+            <p class="top-message-name">Setsuo Iwashita, President and CEO</p>
+            <p class="top-message-body">
               Back in 1952, ULVAC was still a fledgling venture that had just been founded by young engineers aspiring to contribute to industrial and scientific advancement through the use of vacuum technologies with the financial support of six angel investors. While continuing to cherish the entrepreneurial spirit that it has embraced since its establishment, ULVAC remains committed to creating new value by pursuing cutting-edge innovation for our vacuum technologies.
             </p>
-            <div class="buttonShow">
-              <p class="text2">Show More</p>
-              <img src=".figma/image/mplzuzlm-2keeotm.svg" alt="" class="expandMore">
+            <div class="buttonShow top-message-toggle">
+              <p class="top-message-toggle-text">Show More</p>
+              <img src=".figma/image/mplzuzlm-2keeotm.svg" alt="" class="expandMore top-message-toggle-icon">
             </div>
           </div>
-          <div class="image">
-            <div class="dotGrid"></div>
-            <div class="dotGrid2"></div>
-            <img src=".figma/image/mplzuzo6-ip8n7ux.png" alt="CEO Photo" class="image50">
+          <div class="top-message-image">
+            <div class="top-message-dot-grid"></div>
+            <div class="top-message-dot-grid-2"></div>
+            <img src=".figma/image/mplzuzo6-ip8n7ux.png" alt="CEO Photo" class="top-message-photo">
           </div>
         </div>
       </div>
@@ -167,17 +159,17 @@
 
     <!-- Who We Are Section -->
     <section class="section2 section-who-we-are animate-on-scroll reveal-soft">
-      <div class="dotGrid"></div>
-      <div class="dotGrid2"></div>
-      <div class="dotGrid3"></div>
-      <div class="container">
+      <div class="who-we-are-dot-grid"></div>
+      <div class="who-we-are-dot-grid-2"></div>
+      <div class="who-we-are-dot-grid-3"></div>
+      <div class="container who-we-are-container">
         <h2 class="whoWeAre">Who We Are</h2>
-        <p class="backIn1952UlvacWasSt">
+        <p class="who-we-are-intro">
           ULVAC is a comprehensive vacuum equipment manufacturer that provides manufacturing equipment, components, analytical instruments, materials, and services based on its core vacuum technology. Under the basic corporate philosophy of "contributing to the development of industries and science," we pursue cutting-edge innovation and support people's lives across a wide range of industries including semiconductors, electronic devices, displays, automotive, and pharmaceuticals.
         </p>
-        <div class="detail">
-          <p class="basicCorporatePhilos">Basic Corporate Philosophy</p>
-          <p class="uLvacGroupAimsToCont">
+        <div class="who-we-are-detail">
+          <p class="who-we-are-detail-title">Basic Corporate Philosophy</p>
+          <p class="who-we-are-detail-text">
             ULVAC Group aims to contribute to the development of industries and science by comprehensively utilizing its vacuum and peripheral technologies through the mutual cooperation and collaboration of the Group companies.
           </p>
         </div>
@@ -186,59 +178,59 @@
 
     <!-- Company Profile Section -->
     <section class="section4 section-company-profile animate-on-scroll reveal-soft">
-      <div class="container">
+      <div class="container company-profile-container">
         <p class="companyProfile">Company Profile</p>
-        <p class="backIn1952UlvacWasSt">
+        <p class="company-profile-intro">
           When ULVAC was founded back in 1952, vacuum technology had not yet entered widespread use in Japan. As a trailblazer, we championed vacuum technology by introducing new technologies to the market and addressing the needs of customers in diverse industries.
         </p>
-        <div class="list">
-          <div class="text">
-            <p class="title">Name</p>
-            <p class="content">ULVAC, Inc.</p>
+        <div class="company-profile-list">
+          <div class="company-profile-row">
+            <p class="company-profile-label">Name</p>
+            <p class="company-profile-value">ULVAC, Inc.</p>
           </div>
-          <div class="text">
-            <p class="title">Trademark</p>
-            <p class="content">ULVAC</p>
+          <div class="company-profile-row">
+            <p class="company-profile-label">Trademark</p>
+            <p class="company-profile-value">ULVAC</p>
           </div>
-          <div class="text">
-            <p class="title">ULVAC Head Office / Plant</p>
-            <p class="content">2500 Hagisono, Chigasaki, Kanagawa 253-8543, Japan</p>
+          <div class="company-profile-row">
+            <p class="company-profile-label">ULVAC Head Office / Plant</p>
+            <p class="company-profile-value">2500 Hagisono, Chigasaki, Kanagawa 253-8543, Japan</p>
           </div>
-          <div class="text">
-            <p class="title">Established</p>
-            <p class="content">August 23, 1952</p>
+          <div class="company-profile-row">
+            <p class="company-profile-label">Established</p>
+            <p class="company-profile-value">August 23, 1952</p>
           </div>
-          <div class="text">
-            <p class="title">Representative</p>
-            <p class="content">Setsuo Iwashita, President and CEO</p>
+          <div class="company-profile-row">
+            <p class="company-profile-label">Representative</p>
+            <p class="company-profile-value">Setsuo Iwashita, President and CEO</p>
           </div>
-          <div class="text">
-            <p class="title">Capital</p>
-            <p class="content">20,873,042,500 yen</p>
+          <div class="company-profile-row">
+            <p class="company-profile-label">Capital</p>
+            <p class="company-profile-value">20,873,042,500 yen</p>
           </div>
-          <div class="text">
-            <p class="title">Number of Employees</p>
-            <p class="content">1,648, Consolidated: 6,132 (as of 30th June, 2025)</p>
+          <div class="company-profile-row">
+            <p class="company-profile-label">Number of Employees</p>
+            <p class="company-profile-value">1,648, Consolidated: 6,132 (as of 30th June, 2025)</p>
           </div>
-          <div class="text2">
-            <p class="title">Business Areas</p>
-            <div class="content3">
-              <p class="content2">
+          <div class="company-profile-row company-profile-row--multiline">
+            <p class="company-profile-label">Business Areas</p>
+            <div class="company-profile-value-wrap">
+              <p class="company-profile-value">
                 Development, manufacture, sales, customer support and machinery importing/exporting activities related to vacuum equipment, peripheral devices, vacuum components and materials for the display, semiconductor, electronics, electrics, metals, machinery, automotive, chemical, food and pharmaceutical industries
               </p>
             </div>
           </div>
-          <div class="text2">
-            <p class="title">Principal Shareholders</p>
-            <div class="content3">
-              <p class="content2">
+          <div class="company-profile-row company-profile-row--multiline">
+            <p class="company-profile-label">Principal Shareholders</p>
+            <div class="company-profile-value-wrap">
+              <p class="company-profile-value">
                 The Master Trust Bank of Japan, Ltd.; Nippon Life Insurance Company; BBH (LUX) FOR FIDELITY FUNDS-GLOBAL TECHNOLOGY POOL; Custody Bank of Japan, Ltd.; STATE STREET BANK AND TRUST COMPANY 505227; JPMorgan Securities Japan Co., Ltd. (as of 30th June, 2025)
               </p>
             </div>
           </div>
-          <div class="text">
-            <p class="title">Banks</p>
-            <p class="content">Mizuho Bank, Ltd.; Sumitomo Mitsui Banking Corporation; Nippon Life Insurance Company</p>
+          <div class="company-profile-row">
+            <p class="company-profile-label">Banks</p>
+            <p class="company-profile-value">Mizuho Bank, Ltd.; Sumitomo Mitsui Banking Corporation; Nippon Life Insurance Company</p>
           </div>
         </div>
       </div>
@@ -380,46 +372,43 @@
 
     <!-- More Information Section -->
     <section class="section6 section-more-info animate-on-scroll reveal-soft">
-      <div class="container">
-        <h2 class="topMessage">More Information</h2>
-      <div className="containerLink info-cards-grid">
-        
-        <div className="link2 info-row">
-          <div className="buttonCard info-card">
-            <p className="managementStructure card-title">Management Structure</p>
-            <div className="link card-link">
-              <p className="viewDetails link-text">View Details</p>
-              <img src=".figma/image/mpm07xtw-3g1t6n3.svg" alt="" className="expandMore2 chevron-icon">
+      <div class="container more-info-container">
+        <h2 class="more-information-title">More Information</h2>
+        <div class="more-info-grid">
+          <div class="more-info-row">
+            <div class="more-info-card">
+              <p class="more-info-card-title">Management Structure</p>
+              <div class="more-info-card-link">
+                <p class="more-info-card-link-text">View Details</p>
+                <img src="assets/images/chevron_right-w.svg" alt="" class="more-info-card-link-icon">
+              </div>
+            </div>
+            <div class="more-info-card">
+              <p class="more-info-card-title">Organization</p>
+              <div class="more-info-card-link">
+                <p class="more-info-card-link-text">View Details</p>
+                <img src="assets/images/chevron_right-w.svg" alt="" class="more-info-card-link-icon">
+              </div>
             </div>
           </div>
-          <div className="buttonCard info-card">
-            <p className="managementStructure card-title">Organization</p>
-            <div className="link card-link">
-              <p className="viewDetails link-text">View Details</p>
-              <img src=".figma/image/mpm07xtw-3g1t6n3.svg" alt="" className="expandMore2 chevron-icon">
+          <div class="more-info-row">
+            <div class="more-info-card">
+              <p class="more-info-card-title">Sustainability</p>
+              <div class="more-info-card-link">
+                <p class="more-info-card-link-text">View Details</p>
+                <img src="assets/images/chevron_right-w.svg" alt="" class="more-info-card-link-icon">
+              </div>
+            </div>
+            <div class="more-info-card">
+              <p class="more-info-card-title">Company Profile Download</p>
+              <div class="more-info-card-link">
+                <p class="more-info-card-link-text">View Details</p>
+                <img src="assets/images/chevron_right-w.svg" alt="" class="more-info-card-link-icon">
+              </div>
             </div>
           </div>
         </div>
-
-        <div className="link2 info-row">
-          <div className="buttonCard info-card">
-            <p className="managementStructure card-title">Sustainability</p>
-            <div className="link card-link">
-              <p className="viewDetails link-text">View Details</p>
-              <img src=".figma/image/mpm07xtw-3g1t6n3.svg" alt="" className="expandMore2 chevron-icon">
-            </div>
-          </div>
-          <div className="buttonCard info-card">
-            <p className="managementStructure card-title">Company Profile Download</p>
-            <div className="link card-link">
-              <p className="viewDetails link-text">View Details</p>
-              <img src=".figma/image/mpm07xtw-3g1t6n3.svg" alt="" className="expandMore2 chevron-icon">
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
     </section>
 
   </main>

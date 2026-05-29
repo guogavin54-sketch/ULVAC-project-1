@@ -94,7 +94,7 @@
     opacity var(--transition-speed-fast) var(--ease-in-out);
 }
 
-.hover-color-effect:hover,
+
 .hover-color-effect:focus-visible {
   color: var(--color-primary);
 }

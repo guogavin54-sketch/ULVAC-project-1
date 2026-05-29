@@ -2,20 +2,11 @@
   'use strict';
 
   function initAboutTabs() {
-    var tabs = document.querySelectorAll('.tab .text2, .tab .text3');
+    var tabs = document.querySelectorAll('.tab .tab-nav-item');
     if (!tabs.length) return;
 
     tabs.forEach(function(tab) {
       tab.addEventListener('click', function() {
-        var currentActive = document.querySelector('.tab .text2');
-        if (currentActive) {
-          currentActive.classList.remove('text2');
-          currentActive.classList.add('text3');
-        }
-        
-        this.classList.remove('text3');
-        this.classList.add('text2');
-        
         var tabName = this.textContent.trim();
         console.log('Tab switched to:', tabName);
       });
@@ -23,10 +14,10 @@
   }
 
   function initShowMoreButton() {
-    var showMoreBtn = document.querySelector('.buttonShow');
-    var textEl = document.querySelector('.backIn1952UlvacWasSt');
-    var expandIcon = document.querySelector('.expandMore');
-    var text2 = document.querySelector('.buttonShow .text2');
+    var showMoreBtn = document.querySelector('.top-message-toggle');
+    var textEl = document.querySelector('.top-message-body');
+    var expandIcon = document.querySelector('.top-message-toggle-icon');
+    var text2 = document.querySelector('.top-message-toggle-text');
     
     if (!showMoreBtn || !textEl) return;
 
@@ -44,12 +35,12 @@
   }
 
   function initInfoCards() {
-    var infoCards = document.querySelectorAll('.buttonCard');
+    var infoCards = document.querySelectorAll('.more-info-card');
     if (!infoCards.length) return;
 
     infoCards.forEach(function(card) {
       card.addEventListener('click', function() {
-        var title = this.querySelector('.managementStructure');
+        var title = this.querySelector('.more-info-card-title');
         if (title) {
           console.log('Card clicked:', title.textContent.trim());
         }

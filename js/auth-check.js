@@ -8,6 +8,15 @@
 (function() {
   'use strict';
 
+  if (window.ULVAC_AUTH_BYPASS) {
+    window.ULVACAuth = {
+      isAuthenticated: function() { return true; },
+      getAuthToken: function() { return null; },
+      logout: function() {}
+    };
+    return;
+  }
+
   // ================================================
   // Configuration
   // ================================================

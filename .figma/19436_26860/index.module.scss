@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  column-gap: 64px;
+  background: #ffffffd6;
+  padding: 8px 88px;
+  width: 1440px;
+  height: 56px;
+
+  .text {
+    flex-shrink: 0;
+    padding: 8px 0px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: var(--Ulvac---main, #1c7dcd);
+    font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .text2 {
+    flex-shrink: 0;
+    padding: 8px 0px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: var(--color-neutral-solid-gray-400);
+    font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+  }
+}

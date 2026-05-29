@@ -1,0 +1,202 @@
+* {
+  box-sizing: border-box;
+}
+
+.section {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: #edf7ff;
+  padding: 120px 80px;
+  width: 1440px;
+  height: 656px;
+  row-gap: 48px;
+
+  .dotGrid {
+    display: flex;
+    position: absolute;
+    top: 193px;
+    left: -44px;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: flex-start;
+    border-radius: 8px;
+    padding-top: 2px;
+    padding-left: 1px;
+    width: 93px;
+    height: 97px;
+    overflow: hidden;
+
+    .frame {
+      display: flex;
+      align-items: flex-start;
+      align-self: stretch;
+      justify-content: space-between;
+      margin-right: -7px;
+      padding-right: 7px;
+      padding-bottom: 6px;
+      min-width: 100px;
+      overflow: hidden;
+
+      .ellipse {
+        border-radius: 50%;
+        background: #c5e5ff;
+        width: 3px;
+        height: 3px;
+      }
+    }
+  }
+
+  .dotGrid2 {
+    display: flex;
+    position: absolute;
+    top: 375px;
+    left: 112px;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: flex-start;
+    z-index: 1;
+    border-radius: 8px;
+    width: 1272px;
+    height: 177px;
+    overflow: hidden;
+
+    .ellipse2 {
+      border-radius: 50%;
+      background: #9cc4e5;
+      width: 3px;
+      height: 3px;
+    }
+
+    .frame2 {
+      display: flex;
+      align-items: flex-start;
+      align-self: stretch;
+      justify-content: space-between;
+      margin-right: -8px;
+      padding: 0px 8px 6px 1251px;
+      min-width: 1280px;
+      overflow: hidden;
+    }
+
+    .frame3 {
+      display: flex;
+      align-items: flex-start;
+      align-self: stretch;
+      justify-content: space-between;
+      margin-right: -8px;
+      padding-right: 8px;
+      padding-bottom: 6px;
+      min-width: 1280px;
+      overflow: hidden;
+    }
+  }
+
+  .whoWeAre {
+    flex-shrink: 0;
+    align-self: stretch;
+    z-index: 2;
+    line-height: 70px;
+    letter-spacing: 0;
+    color: var(--color-neutral-opacity-gray-900);
+    font-family: "Dunbar Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 54px;
+    font-weight: 700;
+  }
+
+  .backIn1952UlvacWasSt {
+    flex-shrink: 0;
+    align-self: stretch;
+    z-index: 3;
+    width: 1280px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: var(--color-neutral-solid-gray-800);
+    font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+  }
+
+  .detail {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
+    z-index: 4;
+    border: 1px solid #9cc4e5;
+    border-radius: 8px;
+    background: var(--color-neutral-white);
+    padding: 31px 47px;
+    row-gap: 24px;
+
+    .basicCorporatePhilos {
+      flex-shrink: 0;
+      line-height: 42px;
+      letter-spacing: 0;
+      color: var(--color-neutral-opacity-gray-900);
+      font-family: "Dunbar Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .uLvacGroupAimsToCont {
+      flex-shrink: 0;
+      align-self: stretch;
+      width: 1184px;
+      line-height: 24px;
+      letter-spacing: 0;
+      color: var(--color-neutral-solid-gray-600);
+      font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+      font-size: 16px;
+    }
+  }
+
+  .dotGrid3 {
+    display: flex;
+    position: absolute;
+    top: 1px;
+    left: 754px;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: flex-start;
+    z-index: 5;
+    border-radius: 0px 0px 8px 8px;
+    width: 687px;
+    height: 111px;
+    overflow: hidden;
+
+    .ellipse3 {
+      border-radius: 50%;
+      background: #bde1ff;
+      width: 3px;
+      height: 3px;
+    }
+
+    .frame4 {
+      display: flex;
+      align-items: flex-start;
+      align-self: stretch;
+      justify-content: space-between;
+      margin-top: -9px;
+      margin-right: -113px;
+      padding-right: 5px;
+      padding-bottom: 6px;
+      min-width: 800px;
+      overflow: hidden;
+    }
+
+    .frame5 {
+      display: flex;
+      align-items: flex-start;
+      align-self: stretch;
+      justify-content: space-between;
+      margin-right: -113px;
+      padding-right: 5px;
+      padding-bottom: 6px;
+      min-width: 800px;
+      overflow: hidden;
+    }
+  }
+}
