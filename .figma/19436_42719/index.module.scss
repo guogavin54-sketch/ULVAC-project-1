@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: var(--color-neutral-white);
+  padding: 64px 16px;
+  width: 390px;
+  height: 604px;
+  row-gap: 32px;
+
+  .moreInformation {
+    flex-shrink: 0;
+    align-self: stretch;
+    line-height: 36px;
+    letter-spacing: 0;
+    color: var(--color-neutral-opacity-gray-900);
+    font-family: "Dunbar Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .link2 {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
+    justify-content: center;
+    row-gap: 16px;
+
+    .buttonCard {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      align-items: flex-start;
+      align-self: stretch;
+      border-radius: 8px;
+      background: var(--Bg_map);
+      padding: 16px;
+      row-gap: 7px;
+      background-image: linear-gradient(
+        284.07deg,
+        #0d5895 0.01%,
+        #1164a7 50%,
+        #4da8f5 99.99%
+      );
+
+      .managementStructure {
+        flex-shrink: 0;
+        align-self: stretch;
+        line-height: 27px;
+        letter-spacing: 0;
+        color: var(--color-neutral-white);
+        font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .link {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        align-self: stretch;
+        justify-content: flex-end;
+
+        .viewDetails {
+          flex-shrink: 0;
+          line-height: 24px;
+          letter-spacing: 0;
+          color: var(--color-neutral-white);
+          font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+          font-size: 16px;
+          font-weight: 700;
+        }
+
+        .chevronRight {
+          flex-shrink: 0;
+          width: 24px;
+          height: 24px;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}

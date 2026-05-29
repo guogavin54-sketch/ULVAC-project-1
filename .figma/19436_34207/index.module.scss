@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 4px;
+  border: 1px solid var(--Ulvac---main, #1c7dcd);
+  border-radius: 4px;
+  background: var(--Ulvac---main, #1c7dcd);
+  padding: 9px 19px 9px 23px;
+  width: 161px;
+  height: 44px;
+
+  .superMiniaturization {
+    flex-shrink: 0;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: var(--color-neutral-white);
+    font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    padding: 3px;
+
+    .openInNew {
+      width: 18px;
+      height: 18px;
+      overflow: hidden;
+    }
+  }
+}

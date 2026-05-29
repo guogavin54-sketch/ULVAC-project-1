@@ -49,6 +49,11 @@
   }
 
   function initScrollAnimations() {
+    if (typeof window.initScrollAnimations === 'function' && window.initScrollAnimations !== initScrollAnimations) {
+      window.initScrollAnimations();
+      return;
+    }
+
     var animateElements = document.querySelectorAll('.animate-on-scroll');
     
     if ('IntersectionObserver' in window) {

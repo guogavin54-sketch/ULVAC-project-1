@@ -1,0 +1,142 @@
+/* ============================================
+   R&D PAGE MOBILE STYLES
+   ============================================ */
+
+@media (max-width: 768px) {
+  body.is-mobile .rnd-page {
+    background: #ffffff;
+  }
+
+  body.is-mobile .rnd-page .container {
+    width: 100% !important;
+    max-width: none;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
+  body.is-mobile .rnd-section {
+    padding: 48px 0 64px;
+    background: #ffffff;
+  }
+
+  body.is-mobile .rnd-container {
+    row-gap: 32px;
+  }
+
+  body.is-mobile .rnd-title {
+    width: 100%;
+    margin: 0;
+    font-size: 34px;
+    line-height: 44px;
+    letter-spacing: -0.34px;
+  }
+
+  body.is-mobile .rnd-content {
+    row-gap: 32px;
+  }
+
+  body.is-mobile .rnd-paragraph {
+    row-gap: 16px;
+  }
+
+  body.is-mobile .rnd-lead {
+    width: 100%;
+    font-size: 22px;
+    line-height: 29px;
+  }
+
+  body.is-mobile .rnd-body {
+    width: 100%;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  body.is-mobile .rnd-feature-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  body.is-mobile .rnd-feature-card {
+    min-height: 0;
+    padding: 16px;
+    row-gap: 16px;
+  }
+
+  body.is-mobile .rnd-feature-badge {
+    width: 32px;
+    height: 32px;
+  }
+
+  body.is-mobile .rnd-feature-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  body.is-mobile .rnd-feature-copy {
+    row-gap: 8px;
+  }
+
+  body.is-mobile .rnd-feature-title {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  body.is-mobile .rnd-feature-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  body.is-mobile .rnd-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  body.is-mobile .rnd-banner-content {
+    row-gap: 16px;
+  }
+
+  body.is-mobile .rnd-banner-stats {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  body.is-mobile .rnd-stat {
+    min-width: 0;
+  }
+
+  body.is-mobile .rnd-stat-label {
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  body.is-mobile .rnd-stat-value {
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  body.is-mobile .rnd-banner-note {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  body.is-mobile .rnd-banner-button {
+    align-self: stretch;
+    width: 100%;
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+
+  body.is-mobile .rnd-banner-button-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  body.is-mobile .rnd-banner-button-icon {
+    width: 24px;
+    height: 24px;
+  }
+}

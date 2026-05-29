@@ -1076,7 +1076,7 @@ function initLangSelector() {
 }
 
 function initStatCounter() {
-  const statValues = document.querySelectorAll('.stat-value');
+  const statValues = document.querySelectorAll('.stat-value, .rnd-stat-value');
   if (!statValues.length) return;
 
   const duration = 1500;
@@ -1087,12 +1087,12 @@ function initStatCounter() {
     
     const formatNumber = (num) => {
       const originalText = element.dataset.originalText || element.textContent;
-      if (originalText.includes('B')) {
-        return num.toFixed(1) + 'B';
-      } else if (originalText.includes(',')) {
-        return Math.round(num).toLocaleString();
-      }
-      return Math.round(num).toString();
+      const prefix = element.dataset.counterPrefix || '';
+      const suffix = element.dataset.counterSuffix || '';
+      const numericToken = element.dataset.counterNumeric || '';
+      const hasDecimals = numericToken.includes('.') || originalText.includes('B');
+      const formattedNumber = hasDecimals ? num.toFixed(1) : Math.round(num).toLocaleString();
+      return prefix + formattedNumber + suffix;
     };
 
     const updateValue = (currentTime) => {
@@ -1117,7 +1117,13 @@ function initStatCounter() {
         entry.target.classList.add('animated');
         const text = entry.target.textContent;
         entry.target.dataset.originalText = text;
-        let numValue = parseFloat(text.replace(/[^0-9.]/g, ''));
+        const match = text.trim().match(/^([^0-9]*)([\d,.]+(?:\.\d+)?)(.*)$/);
+        if (match) {
+          entry.target.dataset.counterPrefix = match[1] || '';
+          entry.target.dataset.counterNumeric = match[2] || '';
+          entry.target.dataset.counterSuffix = match[3] || '';
+        }
+        let numValue = parseFloat((match ? match[2] : text).replace(/,/g, '').replace(/[^0-9.]/g, ''));
         animateCounter(entry.target, numValue);
       }
     });
@@ -1208,7 +1214,7 @@ function initMobileLangSelector() {
 }
 
 function initStatCounter() {
-  const statValues = document.querySelectorAll('.stat-value');
+  const statValues = document.querySelectorAll('.stat-value, .rnd-stat-value');
   if (!statValues.length) return;
 
   const duration = 1500;
@@ -1219,12 +1225,12 @@ function initStatCounter() {
     
     const formatNumber = (num) => {
       const originalText = element.dataset.originalText || element.textContent;
-      if (originalText.includes('B')) {
-        return num.toFixed(1) + 'B';
-      } else if (originalText.includes(',')) {
-        return Math.round(num).toLocaleString();
-      }
-      return Math.round(num).toString();
+      const prefix = element.dataset.counterPrefix || '';
+      const suffix = element.dataset.counterSuffix || '';
+      const numericToken = element.dataset.counterNumeric || '';
+      const hasDecimals = numericToken.includes('.') || originalText.includes('B');
+      const formattedNumber = hasDecimals ? num.toFixed(1) : Math.round(num).toLocaleString();
+      return prefix + formattedNumber + suffix;
     };
 
     const updateValue = (currentTime) => {
@@ -1249,7 +1255,13 @@ function initStatCounter() {
         entry.target.classList.add('animated');
         const text = entry.target.textContent;
         entry.target.dataset.originalText = text;
-        let numValue = parseFloat(text.replace(/[^0-9.]/g, ''));
+        const match = text.trim().match(/^([^0-9]*)([\d,.]+(?:\.\d+)?)(.*)$/);
+        if (match) {
+          entry.target.dataset.counterPrefix = match[1] || '';
+          entry.target.dataset.counterNumeric = match[2] || '';
+          entry.target.dataset.counterSuffix = match[3] || '';
+        }
+        let numValue = parseFloat((match ? match[2] : text).replace(/,/g, '').replace(/[^0-9.]/g, ''));
         animateCounter(entry.target, numValue);
       }
     });

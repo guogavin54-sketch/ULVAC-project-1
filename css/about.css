@@ -80,8 +80,15 @@
   color: #1c7dcd;
 }
 
+.tab-nav-item.is-active,
+.tab-nav-item[aria-current="page"] {
+  color: #1c7dcd;
+}
+
 .tab-nav-item:hover > span,
-.tab-nav-item:focus-visible > span {
+.tab-nav-item:focus-visible > span,
+.tab-nav-item.is-active > span,
+.tab-nav-item[aria-current="page"] > span {
   font-weight: 700;
 }
 
@@ -92,6 +99,7 @@
   row-gap: 0;
   padding-top: 48px;
   padding-bottom: 64px;
+  background: #fff;
 }
 
 .title2 {
@@ -114,6 +122,7 @@
   align-items: flex-start;
   justify-content: center;
   padding: 48px 0 120px;
+      background: #fff;
 }
 
 .top-message-container {
@@ -132,6 +141,7 @@
   font-family: "Dunbar Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
   font-size: var(--font-size-54-fluid);
   font-weight: 700;
+      padding-bottom: 48px;
   margin: 0;
 }
 
@@ -317,7 +327,7 @@
 .who-we-are-dot-grid {
   position: absolute;
   top: 193px;
-  left: -44px;
+  left: 0;
   width: 93px;
   height: 97px;
   background-image: url('../assets/images/Dot Grid-left.png');
@@ -327,20 +337,23 @@
 
 .who-we-are-dot-grid-2 {
   position: absolute;
-  top: 375px;
-  left: 112px;
-  width: 1272px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   height: 177px;
   background-image: url('../assets/images/Dot Grid-bottom.png');
   background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 1;
+  background-size: 100% 100%;
+  background-position: left top;
+  z-index: 0;
+  pointer-events: none;
+  transform: translate(var(--who-we-are-dot-expose-x), var(--who-we-are-dot-expose-y));
 }
 
 .who-we-are-dot-grid-3 {
   position: absolute;
   top: 1px;
-  left: 754px;
+  right: 0;
   width: 687px;
   height: 111px;
   background-image: url('../assets/images/Dot Grid-top.png');
@@ -375,18 +388,46 @@
   margin: 0;
 }
 
+.who-we-are-detail-shell {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  isolation: isolate;
+  --who-we-are-dot-expose-x: 2.35%;
+  --who-we-are-dot-expose-y: 9.6%;
+}
+
 .who-we-are-detail {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
   align-items: flex-start;
   align-self: stretch;
-  z-index: 4;
+  z-index: 1;
   border: 1px solid #9cc4e5;
   border-radius: 8px;
-  background: var(--color-neutral-white);
+  background: #ffffff;
+  background-clip: padding-box;
   padding: 31px 47px;
   row-gap: 24px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.who-we-are-detail::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #ffffff;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.who-we-are-detail > * {
+  position: relative;
+  z-index: 1;
 }
 
 .who-we-are-detail-title {
@@ -411,7 +452,9 @@
   font-size: var(--font-size-16-fluid);
   margin: 0;
 }
-
+.pCAboutOverview{
+  background: #fff;
+}
 /* Company Profile Section */
 .section4 {
   display: flex;
@@ -420,6 +463,7 @@
   align-items: flex-start;
   justify-content: center;
   padding: 120px 0;
+  background: #fff;
 }
 
 .company-profile-container {
@@ -518,6 +562,7 @@
 /* Company History Section */
 .section5 {
   padding: 80px 0;
+      background: #F2F3F4;
 }
 
 .companyHistory {
@@ -536,7 +581,7 @@
   display: grid;
   grid-template-columns: 380px 1fr;
   gap: 48px;
-  margin-top: 32px;
+  margin-top: 48px;
 }
 
 .pic {
@@ -664,15 +709,23 @@
   flex-direction: column;
   justify-content: flex-start;
   padding: 24px;
+  width: 100%;
   border-radius: 8px;
   border: 1px solid transparent;
   min-height: 76px;
   row-gap: 7px;
   background-color: #1c7dcd;
   background-image: linear-gradient(279.55deg, #0d5895 0%, #1164a7 50%, #4da8f5 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: 0 0;
+  background-clip: padding-box;
+  overflow: hidden;
   box-shadow: 0 0 0 rgba(28, 125, 205, 0);
   transition: transform 0.24s ease, box-shadow 0.24s ease, background-color 0.32s ease, background-image 0.32s ease, border-color 0.32s ease;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .more-info-card:hover {
@@ -771,6 +824,7 @@
   .topMessage {
     font-size: 48px;
     line-height: 60px;
+
   }
   
   .top-message-content {
