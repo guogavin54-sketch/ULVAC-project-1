@@ -1005,7 +1005,7 @@ h1, h2, h3, h4 {
 
 .stat-value-row {
   display: inline-flex;
-  align-items: flex-end;
+      align-items: center;
   column-gap: 4px;
 }
 
