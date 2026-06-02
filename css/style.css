@@ -1,4 +1,4 @@
-/* css/style.css */
+﻿/* css/style.css */
 
 @font-face {
   font-family: 'Dunbar Text';
@@ -434,9 +434,9 @@ h1, h2, h3, h4 {
   object-fit: cover;
 }
 
-/* 扫描特效 */
+/* 鎵弿鐗规晥 */
 .scanner-effect {
-  /* 初始时图片/视频完全被遮挡（亮度为0） */
+  /* 鍒濆鏃跺浘鐗?瑙嗛瀹屽叏琚伄鎸★紙浜害涓?锛?*/
   filter: brightness(0);
   animation: reveal-image 3.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
@@ -513,7 +513,7 @@ h1, h2, h3, h4 {
   font-weight: 700;
   text-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
   margin: 0;
-  margin-bottom: -16px; /* 补偿内部 row-gap 以精确对齐 Figma 48px */
+  margin-bottom: -16px; /* 琛ュ伩鍐呴儴 row-gap 浠ョ簿纭榻?Figma 48px */
 }
 
 .desktop-br {
@@ -1335,7 +1335,7 @@ h1, h2, h3, h4 {
   animation: ambient-orbit 18s ease-in-out infinite;
 }
 
-/* 当屏幕宽度超过991px时，统一使用PC地图尺寸 */
+/* 褰撳睆骞曞搴﹁秴杩?91px鏃讹紝缁熶竴浣跨敤PC鍦板浘灏哄 */
 @media (min-width: 992px) {
   .bases-section {
     padding: 80px 0;
@@ -1667,7 +1667,7 @@ h1, h2, h3, h4 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../assets/images/map-dots.png');
+  background-image: url('../assets/images/home_bases_map_dots.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1733,7 +1733,7 @@ h1, h2, h3, h4 {
 .bases-dot--7 {     left: 47%;
     top: 41%;}
 
-/* 未选中：橙色脉冲环 */
+/* 鏈€変腑锛氭鑹茶剦鍐茬幆 */
 .bases-dot__ring {
   position: absolute;
   inset: 0;
@@ -1743,19 +1743,19 @@ h1, h2, h3, h4 {
   transition: opacity 0.3s ease;
 }
 
-/* Hover 时显示呼吸动画 */
+/* Hover 鏃舵樉绀哄懠鍚稿姩鐢?*/
 .bases-dot:hover .bases-dot__ring {
   opacity: 1;
   animation: bases-dot-pulse 2s ease-out infinite;
 }
 
-/* 选中时隐藏橙色脉冲，显示白色静态环 */
+/* 閫変腑鏃堕殣钘忔鑹茶剦鍐诧紝鏄剧ず鐧借壊闈欐€佺幆 */
 .bases-dot.is-active .bases-dot__ring {
   opacity: 0;
   animation: none;
 }
 
-/* 白色内圈（选中时显示） */
+/* 鐧借壊鍐呭湀锛堥€変腑鏃舵樉绀猴級 */
 .bases-dot__white-ring--1 {
   position: absolute;
   border-radius: 50%;
@@ -1769,7 +1769,7 @@ h1, h2, h3, h4 {
   transition: opacity 0.3s ease;
 }
 
-/* 白色外圈（选中时显示） */
+/* 鐧借壊澶栧湀锛堥€変腑鏃舵樉绀猴級 */
 .bases-dot__white-ring--2 {
   position: absolute;
   border-radius: 50%;
@@ -1783,7 +1783,7 @@ h1, h2, h3, h4 {
   transition: opacity 0.3s ease;
 }
 
-/* 选中时显示白色环 */
+/* 閫変腑鏃舵樉绀虹櫧鑹茬幆 */
 .bases-dot.is-active .bases-dot__white-ring--1,
 .bases-dot.is-active .bases-dot__white-ring--2 {
   opacity: 1;
@@ -2195,10 +2195,6 @@ box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: flex-start;
   gap: 8px;
-}
-
-.footer-phone-row {
-  align-items: center;
 }
 
 .footer-contact-icon {

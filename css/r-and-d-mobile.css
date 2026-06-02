@@ -2,11 +2,13 @@
    R&D PAGE MOBILE STYLES
    ============================================ */
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   body.is-mobile .rnd-page {
     background: #ffffff;
   }
-
+.rnd-container{
+  padding-top: 0;
+}
   body.is-mobile .rnd-page .container {
     width: 100% !important;
     max-width: none;

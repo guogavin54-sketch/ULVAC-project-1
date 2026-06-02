@@ -251,6 +251,19 @@
   filter: brightness(0) invert(1);
 }
 
+@media (max-width: 1366px) {
+  .rnd-section {
+    padding-top: 0px;
+    padding-bottom: 80px;
+  }
+  .rnd-container{
+    padding-top: 35px;
+    
+    .rnd-container{
+          row-gap: 44px;
+    }
+}
+
 @media (max-width: 1280px) {
   .rnd-banner {
     gap: 20px;

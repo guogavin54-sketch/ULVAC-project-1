@@ -66,6 +66,9 @@
 .delay-500 { --reveal-delay: 540ms; }
 .delay-600 { --reveal-delay: 640ms; }
 .delay-700 { --reveal-delay: 740ms; }
+.delay-800 { --reveal-delay: 840ms; }
+.delay-900 { --reveal-delay: 940ms; }
+.delay-1000 { --reveal-delay: 1040ms; }
 
 /* Interactive Hover Effects */
 .hover-card-effect,

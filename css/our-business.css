@@ -23,9 +23,9 @@
   margin: 0;
   color: var(--color-neutral-opacity-gray-900);
   font-family: "Dunbar Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
-  font-size: 64px;
+  font-size: var(--font-size-64-fluid);
   font-weight: 700;
-  line-height: 83px;
+  line-height: var(--line-height-64-fluid);
   letter-spacing: -0.64px;
 }
 
@@ -255,6 +255,19 @@
 }
 
 @media (max-width: 1366px) {
+  .our-business-header {
+    padding-top: 35px;
+    padding-bottom: 44px;
+  }
+
+  .our-business-section {
+    padding-top: 35px;
+    padding-bottom: 80px;
+  }
+  .our-business-container{
+        row-gap: 44px;
+  }
+
   .our-business-card-media {
     flex-basis: 38%;
     width: 38%;
@@ -263,17 +276,33 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 991px) {
   .our-business-section {
     padding: 40px 0 96px;
   }
 
   .our-business-card {
     flex-direction: column;
+    padding: 16px;
+    row-gap: 16px;
+    column-gap: 0;
   }
 
   .our-business-card-media {
     flex-basis: auto;
     width: 100%;
+  }
+
+  .our-business-card-body {
+    row-gap: 16px;
+  }
+
+  .our-business-card-copy {
+    row-gap: 8px;
+  }
+
+  .our-business-card-title {
+    font-size: 22px;
+    line-height: 29px;
   }
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -49,6 +49,8 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/about-mobile.css">
 </head>
 <body>
 
@@ -56,7 +58,9 @@
   <header class="global-header">
     <div class="container header-container">
       <div class="logo">
-        <img src="assets/images/ULVAC%20LOGO(Blue)%201.png" alt="ULVAC" class="header-logo-img">
+        <a href="index.html">
+          <img src="assets/images/brand_logo_header_blue.png" alt="ULVAC" class="header-logo-img">
+        </a>
         <span class="logo-text">Global</span>
       </div>
       <button
@@ -72,14 +76,24 @@
       </button>
       <nav class="main-nav">
         <ul>
-          <li><a href="#" class="hover-color-effect" data-text="About ULVAC"><span>About ULVAC</span></a></li>
-          <li><a href="#" class="hover-color-effect" data-text="News"><span>News</span></a></li>
-          <li><a href="#" class="hover-color-effect" data-text="Investor Relations"><span>Investor Relations</span></a></li>
-          <li><a href="#" class="hover-color-effect" data-text="Contact"><span>Contact</span></a></li>
+          <li class="about-nav-item">
+            <a href="about.html" class="hover-color-effect" data-text="About ULVAC"><span>About ULVAC</span></a>
+            <nav class="tab about-header-tab" aria-label="About secondary navigation">
+              <div class="container">
+                <a href="about.html" class="tab-nav-item" data-text="Overview"><span>Overview</span></a>
+                <a href="our-business.html" class="tab-nav-item" data-text="Our Business"><span>Our Business</span></a>
+                <a href="r-and-d.html" class="tab-nav-item" data-text="R&amp;D"><span>R&amp;D</span></a>
+                <a href="group-companies.html" class="tab-nav-item" data-text="Group Companies"><span>Group Companies</span></a>
+              </div>
+            </nav>
+          </li>
+          <li><a href="news.html" class="hover-color-effect" data-text="News"><span>News</span></a></li>
+          <li><a href="investor-relations.html" class="hover-color-effect" data-text="Investor Relations"><span>Investor Relations</span></a></li>
+          <li><a href="contact.html" class="hover-color-effect" data-text="Contact"><span>Contact</span></a></li>
         </ul>
       </nav>
       <div class="lang-selector" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="lang-dropdown">
-        <img src="assets/images/language.png" alt="Language" class="lang-icon">
+        <img src="assets/images/icon_language_globe.png" alt="Language" class="lang-icon">
         <span class="current-lang">English</span>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lang-arrow">
           <polyline points="6 9 12 15 18 9"></polyline>
@@ -106,15 +120,15 @@
       </div>
       <nav class="mobile-nav-menu" aria-label="Mobile Navigation">
         <ul class="mobile-nav-list">
-          <li><a href="#" class="hover-color-effect">About ULVAC</a></li>
-          <li><a href="#" class="hover-color-effect">News</a></li>
-          <li><a href="#" class="hover-color-effect">Investor Relations</a></li>
-          <li><a href="#" class="hover-color-effect">Contact</a></li>
+          <li><a href="about.html" class="hover-color-effect">About ULVAC</a></li>
+          <li><a href="news.html" class="hover-color-effect">News</a></li>
+          <li><a href="investor-relations.html" class="hover-color-effect">Investor Relations</a></li>
+          <li><a href="contact.html" class="hover-color-effect">Contact</a></li>
         </ul>
       </nav>
       <div class="mobile-lang-selector" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-lang-dropdown">
         <div class="mobile-lang-title">
-          <img src="assets/images/language.png" alt="Language" class="mobile-lang-icon">
+          <img src="assets/images/icon_language_globe.png" alt="Language" class="mobile-lang-icon">
           <span class="mobile-lang-text">English</span>
         </div>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mobile-lang-arrow">
@@ -136,21 +150,21 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-bg">
-        <!-- 首屏视频主动预加载，避免远端缓存恢复时出现明显延迟 -->
+        <!-- 棣栧睆瑙嗛涓诲姩棰勫姞杞斤紝閬垮厤杩滅缂撳瓨鎭㈠鏃跺嚭鐜版槑鏄惧欢杩?-->
         <video 
           autoplay 
           muted 
           loop 
           playsinline 
           preload="auto" 
-          poster="assets/images/Poster.png" 
+          poster="assets/images/home_hero_video_poster.png" 
           class="hero-video scanner-effect"
           id="hero-video"
         >
           <source src="assets/video/ulvac_2.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
-        <!-- 扫描光束线 -->
+        <!-- 鎵弿鍏夋潫绾?-->
         <div class="scanner-line"></div>
       </div>
       <div class="container hero-content">
@@ -158,7 +172,7 @@
         <p class="hero-description animate-on-scroll reveal-soft delay-100 text-readable">Our advanced technologies support industrial manufacturers with solutions centered around our proprietary vacuum technology, playing an important role in areas of global strategic significance, including advanced semiconductor electronics, rare earth magnet manufacturing, and extreme cooling technologies for quantum computing.</p>
         <button class="btn-hero-white hover-lift animate-on-scroll reveal-tight delay-200">
           <span>Learn More About ULVAC</span>
-       <img src="assets/images/chevron-right.svg" alt="" class="chevron-right-icon">
+       <img src="assets/images/icon_chevron_right_blue.svg" alt="" class="chevron-right-icon">
           </svg>
         </button>
       </div>
@@ -171,14 +185,14 @@
           <h2 class="animate-on-scroll reveal-pop text-spotlight">ULVAC Operates Businesses in Six Areas</h2>
           <a href="our-business.html" class="btn-business hover-lift animate-on-scroll reveal-tight delay-100">
             <span>See Business Overview</span>
-       <img src="assets/images/chevron_right-w.svg" alt="" class="chevron-right-icon">
+       <img src="assets/images/icon_chevron_right_white.svg" alt="" class="chevron-right-icon">
           </a>
         </div>
         <div class="business-grid">
           <div class="business-card-container">
             <a href="#" class="business-card hover-card-effect animate-on-scroll delay-100">
               <div class="img-wrap">
-                <img src="assets/images/card-1.png" alt="Semiconductor and Electronic Device Production Equipment" loading="lazy" decoding="async">
+                <img src="assets/images/business_semiconductor_equipment.png" alt="Semiconductor and Electronic Device Production Equipment" loading="lazy" decoding="async">
               </div>
               <div class="card-content">
                 <h3 class="title-semiconductor text-glow-effect">Semiconductor and Electronic Device Production Equipment</h3>
@@ -187,7 +201,7 @@
             </a>
             <a href="#" class="business-card hover-card-effect animate-on-scroll delay-200">
               <div class="img-wrap">
-                <img src="assets/images/card-2.png" alt="Industrial Equipment" loading="lazy" decoding="async">
+                <img src="assets/images/business_display_energy_equipment.png" alt="Industrial Equipment" loading="lazy" decoding="async">
               </div>
               <div class="card-content">
                 <h3 class="text-glow-effect">Display and Energy-Related Production Equipment</h3>
@@ -196,7 +210,7 @@
             </a>
             <a href="#" class="business-card hover-card-effect animate-on-scroll delay-300">
               <div class="img-wrap">
-                <img src="assets/images/card-3.png" alt="Display and Energy-Related Production Equipment" loading="lazy" decoding="async">
+                <img src="assets/images/business_industrial_equipment.png" alt="Display and Energy-Related Production Equipment" loading="lazy" decoding="async">
               </div>
               <div class="card-content">
                 <h3 class="title-display text-glow-effect">Industrial Equipment</h3>
@@ -207,7 +221,7 @@
           <div class="business-card-container">
             <a href="#" class="business-card hover-card-effect animate-on-scroll delay-400">
               <div class="img-wrap">
-                <img src="assets/images/card-4.png" alt="Components" loading="lazy" decoding="async">
+                <img src="assets/images/business_components.png" alt="Components" loading="lazy" decoding="async">
               </div>
               <div class="card-content">
                 <h3 class="text-glow-effect">Components</h3>
@@ -216,7 +230,7 @@
             </a>
             <a href="#" class="business-card hover-card-effect animate-on-scroll delay-500">
               <div class="img-wrap">
-                <img src="assets/images/card-5.png" alt="Materials" loading="lazy" decoding="async">
+                <img src="assets/images/business_materials.png" alt="Materials" loading="lazy" decoding="async">
               </div>
               <div class="card-content">
                 <h3 class="text-glow-effect">Materials</h3>
@@ -225,7 +239,7 @@
             </a>
             <a href="#" class="business-card hover-card-effect animate-on-scroll delay-600">
               <div class="img-wrap">
-                <img src="assets/images/card-6.png" alt="Vacuum Application Business" loading="lazy" decoding="async">
+                <img src="assets/images/business_vacuum_applications.png" alt="Vacuum Application Business" loading="lazy" decoding="async">
               </div>
               <div class="card-content">
                 <h3 class="title-vacuum text-glow-effect">Vacuum Application Business (Surface analysis and Coating)</h3>
@@ -241,67 +255,67 @@
           <article class="business-accordion-item">
             <button class="business-accordion-trigger" type="button" aria-expanded="false" aria-controls="business-panel-1">
               <span class="business-accordion-label">Semiconductor and Electronic Device Production Equipment</span>
-              <img src="assets/images/mp3rp31x-04rw72x.svg" alt="" class="business-accordion-icon">
+              <img src="assets/images/home_business_accordion_toggle.svg" alt="" class="business-accordion-icon">
             </button>
             <div id="business-panel-1" class="business-accordion-panel">
               <p>Super-miniaturization technologies delivering products that support societal progress through high-performance devices</p>
-              <a href="#" class="business-accordion-link"><img src="assets/images/card-1.png" alt="Semiconductor and Electronic Device Production Equipment" loading="lazy" decoding="async"></a>
+              <a href="#" class="business-accordion-link"><img src="assets/images/business_semiconductor_equipment.png" alt="Semiconductor and Electronic Device Production Equipment" loading="lazy" decoding="async"></a>
             </div>
           </article>
           <article class="business-accordion-item">
             <button class="business-accordion-trigger" type="button" aria-expanded="false" aria-controls="business-panel-2">
               <span class="business-accordion-label">Display and Energy-Related Production Equipment</span>
-              <img src="assets/images/mp3rp31x-04rw72x.svg" alt="" class="business-accordion-icon">
+              <img src="assets/images/home_business_accordion_toggle.svg" alt="" class="business-accordion-icon">
             </button>
             <div id="business-panel-2" class="business-accordion-panel">
               <p>Coating and processing solutions for various materials including glass substrates, plastics, and films</p>
-              <a href="#" class="business-accordion-link"><img src="assets/images/card-2.png" alt="Display and Energy-Related Production Equipment" loading="lazy" decoding="async"></a>
+              <a href="#" class="business-accordion-link"><img src="assets/images/business_display_energy_equipment.png" alt="Display and Energy-Related Production Equipment" loading="lazy" decoding="async"></a>
             </div>
           </article>
           <article class="business-accordion-item">
             <button class="business-accordion-trigger" type="button" aria-expanded="false" aria-controls="business-panel-3">
               <span class="business-accordion-label">Industrial Equipment</span>
-              <img src="assets/images/mp3rp31x-04rw72x.svg" alt="" class="business-accordion-icon">
+              <img src="assets/images/home_business_accordion_toggle.svg" alt="" class="business-accordion-icon">
             </button>
             <div id="business-panel-3" class="business-accordion-panel">
               <p>Solutions across wide-ranging industries, including automobile, pharmaceutical, and food</p>
-              <a href="#" class="business-accordion-link"><img src="assets/images/card-3.png" alt="Industrial Equipment" loading="lazy" decoding="async"></a>
+              <a href="#" class="business-accordion-link"><img src="assets/images/business_industrial_equipment.png" alt="Industrial Equipment" loading="lazy" decoding="async"></a>
             </div>
           </article>
           <article class="business-accordion-item">
             <button class="business-accordion-trigger" type="button" aria-expanded="false" aria-controls="business-panel-4">
               <span class="business-accordion-label">Components</span>
-              <img src="assets/images/mp3rp31x-04rw72x.svg" alt="" class="business-accordion-icon">
+              <img src="assets/images/home_business_accordion_toggle.svg" alt="" class="business-accordion-icon">
             </button>
             <div id="business-panel-4" class="business-accordion-panel">
               <p>Vacuum pumps, measurement and analysis equipment, power generators, and vacuum valves</p>
-              <a href="#" class="business-accordion-link"><img src="assets/images/card-4.png" alt="Components" loading="lazy" decoding="async"></a>
+              <a href="#" class="business-accordion-link"><img src="assets/images/business_components.png" alt="Components" loading="lazy" decoding="async"></a>
             </div>
           </article>
           <article class="business-accordion-item">
             <button class="business-accordion-trigger" type="button" aria-expanded="false" aria-controls="business-panel-5">
               <span class="business-accordion-label">Materials</span>
-              <img src="assets/images/mp3rp31x-04rw72x.svg" alt="" class="business-accordion-icon">
+              <img src="assets/images/home_business_accordion_toggle.svg" alt="" class="business-accordion-icon">
             </button>
             <div id="business-panel-5" class="business-accordion-panel">
               <p>Electric materials, such as sputtering targets, and precision-processed metals for diverse applications</p>
-              <a href="#" class="business-accordion-link"><img src="assets/images/card-5.png" alt="Materials" loading="lazy" decoding="async"></a>
+              <a href="#" class="business-accordion-link"><img src="assets/images/business_materials.png" alt="Materials" loading="lazy" decoding="async"></a>
             </div>
           </article>
           <article class="business-accordion-item">
             <button class="business-accordion-trigger" type="button" aria-expanded="false" aria-controls="business-panel-6">
               <span class="business-accordion-label">Vacuum Application Business (Surface analysis and Coating)</span>
-              <img src="assets/images/mp3rp31x-04rw72x.svg" alt="" class="business-accordion-icon">
+              <img src="assets/images/home_business_accordion_toggle.svg" alt="" class="business-accordion-icon">
             </button>
             <div id="business-panel-6" class="business-accordion-panel">
               <p>Technology derived from vacuum-based production equipment for diverse industries</p>
-              <a href="#" class="business-accordion-link"><img src="assets/images/card-6.png" alt="Vacuum Application Business" loading="lazy" decoding="async"></a>
+              <a href="#" class="business-accordion-link"><img src="assets/images/business_vacuum_applications.png" alt="Vacuum Application Business" loading="lazy" decoding="async"></a>
             </div>
           </article>
         </div>
         <a href="our-business.html" class="btn-business-mobile">
           <span>See Business Overview</span>
-          <img src="assets/images/chevron_right-w.svg" alt="">
+          <img src="assets/images/icon_chevron_right_white.svg" alt="">
         </a>
       </div>
     </section>
@@ -309,7 +323,7 @@
     <!-- Company Profile Section -->
     <section class="profile-section">
       <div class="profile-bg">
-        <img src="assets/images/1_ULVAC_honsha_0512%201.jpg" alt="Company Profile" loading="lazy" decoding="async">
+        <img src="assets/images/home_company_profile_background.jpg" alt="Company Profile" loading="lazy" decoding="async">
         <div class="profile-overlay"></div>
       </div>
       <div class="container profile-container">
@@ -317,34 +331,34 @@
         <div class="profile-stats-block">
           <div class="profile-stats">
             <div class="stat-card stat-card-sales  animate-on-scroll delay-100">
-              <div class="stat-icon"><img src="assets/images/Sales.png" alt="Net sales" loading="lazy" decoding="async"></div>
+              <div class="stat-icon"><img src="assets/images/home_stat_net_sales.png" alt="Net sales" loading="lazy" decoding="async"></div>
               <div class="stat-title">
                 <div class="stat-value-row">
-                  <span class="stat-currency">¥</span>
+                  <span class="stat-currency">楼</span>
                   <span class="stat-value">251.2B</span>
                 </div>
                 <div class="stat-label">net sales</div>
               </div>
             </div>
             <div class="stat-card stat-card-employees  animate-on-scroll delay-200">
-              <div class="stat-icon"><img src="assets/images/Employees.png" alt="Group employees worldwide" loading="lazy" decoding="async"></div>
+              <div class="stat-icon"><img src="assets/images/home_stat_group_employees.png" alt="Group employees worldwide" loading="lazy" decoding="async"></div>
               <div class="stat-title">
                 <span class="stat-value">6,132</span>
                 <div class="stat-label">group employees worldwide</div>
               </div>
             </div>
             <div class="stat-card stat-card-companies  animate-on-scroll delay-300">
-              <div class="stat-icon"><img src="assets/images/Companies.png" alt="Group companies" loading="lazy" decoding="async"></div>
+              <div class="stat-icon"><img src="assets/images/home_stat_group_companies.png" alt="Group companies" loading="lazy" decoding="async"></div>
               <div class="stat-title">
                 <span class="stat-value">41</span>
                 <div class="stat-label">group companies</div>
               </div>
             </div>
             <div class="stat-card stat-card-rnd  animate-on-scroll delay-400">
-              <div class="stat-icon"><img src="assets/images/R&D.png" alt="R&amp;D capital expenditure" loading="lazy" decoding="async"></div>
+              <div class="stat-icon"><img src="assets/images/home_stat_rnd_investment.png" alt="R&amp;D capital expenditure" loading="lazy" decoding="async"></div>
               <div class="stat-title">
                 <div class="stat-value-row">
-                  <span class="stat-currency">¥</span>
+                  <span class="stat-currency">楼</span>
                   <span class="stat-value">22.8B</span>
                 </div>
                 <div class="stat-label">R&D capital expenditure</div>
@@ -364,7 +378,7 @@
           <!-- Large News Item -->
           <a href="#" class="news-card large animate-on-scroll delay-100 hover-card-effect">
             <div class="news-img-wrap">
-              <img src="assets/images/image_tsmc.png" alt="News Image" class="news-image-large" loading="lazy" decoding="async">
+              <img src="assets/images/news_feature_tsmc_desktop.png" alt="News Image" class="news-image-large" loading="lazy" decoding="async">
             </div>
             <div class="news-content">
               <span class="news-date ">2025.12.25</span>
@@ -377,8 +391,8 @@
             <a href="#" class="news-card small animate-on-scroll delay-200 hover-card-effect">
               <div class="news-img-wrap">
                 <picture>
-                  <source media="(max-width: 767px)" srcset="assets/images/image_skhynix-sp.png">
-                  <img src="assets/images/image_skhynix.png" alt="SK Hynix" class="news-image-sk" loading="lazy" decoding="async">
+                  <source media="(max-width: 767px)" srcset="assets/images/news_feature_sk_hynix_mobile.png">
+                  <img src="assets/images/news_feature_sk_hynix_desktop.png" alt="SK Hynix" class="news-image-sk" loading="lazy" decoding="async">
                 </picture>
               </div>
               <div class="news-content">
@@ -390,8 +404,8 @@
             <a href="#" class="news-card small animate-on-scroll delay-300 hover-card-effect">
               <div class="news-img-wrap">
                 <picture>
-                  <source media="(max-width: 767px)" srcset="assets/images/image_cdp-sp.png">
-                  <img src="assets/images/image_cdp.png" alt="CDP" class="news-image-cdp" loading="lazy" decoding="async">
+                  <source media="(max-width: 767px)" srcset="assets/images/news_feature_cdp_mobile.png">
+                  <img src="assets/images/news_feature_cdp_desktop.png" alt="CDP" class="news-image-cdp" loading="lazy" decoding="async">
                 </picture>
               </div>
               <div class="news-content">
@@ -403,9 +417,9 @@
           </div>
         </div>
         <div class="news-footer animate-on-scroll delay-400">
-            <a href="#" class="btn-business hover-lift">
+            <a href="news.html" class="btn-business hover-lift">
             <span>See All News</span>
-        <img src="assets/images/chevron_right-w.svg" alt="" class="chevron-right-icon">
+        <img src="assets/images/icon_chevron_right_white.svg" alt="" class="chevron-right-icon">
           </a>
         </div>
       </div>
@@ -427,7 +441,7 @@
                 <div class="bases-info-card-wrapper">
                   <a href="#" id="bases-info-card" class="bases-info-card is-visible hover-card-effect" aria-live="polite">
                     <div class="bases-info-card__media img-wrap">
-                      <img src="assets/images/card-japan.png" alt="" class="bases-info-card__image">
+                      <img src="assets/images/bases_region_japan.png" alt="" class="bases-info-card__image">
                     </div>
                     <div class="bases-info-card__body">
                       <h3 class="bases-info-card__title">Japan</h3>
@@ -440,7 +454,7 @@
                   </a>
                   <a href="#" id="bases-info-card-next" class="bases-info-card hover-card-effect" aria-live="polite">
                     <div class="bases-info-card__media img-wrap">
-                      <img src="assets/images/card-americas.png" alt="" class="bases-info-card__image">
+                      <img src="assets/images/bases_region_americas.png" alt="" class="bases-info-card__image">
                     </div>
                     <div class="bases-info-card__body">
                       <h3 class="bases-info-card__title">Americas</h3>
@@ -456,17 +470,17 @@
               <!-- Navigation Buttons (Desktop) -->
               <div class="bases-nav-buttons">
                 <button type="button" class="bases-nav-btn bases-nav-btn--prev" aria-label="Previous base">
-                  <img src="assets/images/chevron-right.svg" alt="" class="chevron-icon">
+                  <img src="assets/images/icon_chevron_right_blue.svg" alt="" class="chevron-icon">
                 </button>
                 <button type="button" class="bases-nav-btn bases-nav-btn--next" aria-label="Next base">
-                  <img src="assets/images/chevron-right.svg" alt="" class="chevron-icon">
+                  <img src="assets/images/icon_chevron_right_blue.svg" alt="" class="chevron-icon">
                 </button>
               </div>
               
               <!-- See All Button (Desktop) -->
               <a href="#" class="btn-map-bases btn-map-bases--desktop hover-card-effect animate-on-scroll reveal-tight delay-100">
                 <span>See All Group Companies</span>
-                <img src="assets/images/chevron-right.svg" alt="" class="chevron-right-icon">
+                <img src="assets/images/icon_chevron_right_blue.svg" alt="" class="chevron-right-icon">
               </a>
             </div>
 
@@ -572,7 +586,7 @@
             <!-- Card + Navigation (Mobile) -->
             <div class="bases-card-nav-container">
               <button type="button" class="bases-nav-btn bases-nav-btn--prev" aria-label="Previous base">
-                <img src="assets/images/chevron-right.svg" alt="" class="chevron-icon">
+                <img src="assets/images/icon_chevron_right_blue.svg" alt="" class="chevron-icon">
               </button>
               
               <!-- Card Container with Fixed Height for Mobile -->
@@ -580,7 +594,7 @@
                 <div class="bases-info-card-wrapper">
                   <a href="#" id="bases-info-card-mobile" class="bases-info-card is-visible hover-card-effect" aria-live="polite">
                     <div class="bases-info-card__media img-wrap">
-                      <img src="assets/images/card-japan.png" alt="" class="bases-info-card__image">
+                      <img src="assets/images/bases_region_japan.png" alt="" class="bases-info-card__image">
                     </div>
                     <div class="bases-info-card__body">
                       <h3 class="bases-info-card__title">Japan</h3>
@@ -593,7 +607,7 @@
                   </a>
                   <a href="#" id="bases-info-card-mobile-next" class="bases-info-card hover-card-effect" aria-live="polite">
                     <div class="bases-info-card__media img-wrap">
-                      <img src="assets/images/card-americas.png" alt="" class="bases-info-card__image">
+                      <img src="assets/images/bases_region_americas.png" alt="" class="bases-info-card__image">
                     </div>
                     <div class="bases-info-card__body">
                       <h3 class="bases-info-card__title">Americas</h3>
@@ -607,14 +621,14 @@
               </div>
               
               <button type="button" class="bases-nav-btn bases-nav-btn--next" aria-label="Next base">
-                <img src="assets/images/chevron-right.svg" alt="" class="chevron-icon">
+                <img src="assets/images/icon_chevron_right_blue.svg" alt="" class="chevron-icon">
               </button>
             </div>
 
             <!-- See All Button (Mobile) -->
             <a href="#" class="btn-map-bases btn-map-bases--mobile hover-card-effect animate-on-scroll reveal-tight delay-100">
               <span>See All Group Companies</span>
-              <img src="assets/images/chevron-right.svg" alt="" class="chevron-right-icon">
+              <img src="assets/images/icon_chevron_right_blue.svg" alt="" class="chevron-right-icon">
             </a>
           </div>
         </div>
@@ -628,7 +642,7 @@
     <!-- Value Report Section -->
     <section class="value-report-section">
       <div class="report-bg">
-        <img src="assets/images/Section-bg.png" alt="" class="report-bg-img" loading="lazy" decoding="async">
+        <img src="assets/images/home_report_background.png" alt="" class="report-bg-img" loading="lazy" decoding="async">
       </div>
       <div class="container">
         <div class="report-content">
@@ -638,7 +652,7 @@
           </div>
           <a href="#" class="btn-report hover-color-effect hover-lift animate-on-scroll reveal-tight delay-100" aria-label="View ULVAC Value Report">
             <span>View Report</span>
-       <img src="assets/images/chevron-right.svg" alt="" class="chevron-right-icon">
+       <img src="assets/images/icon_chevron_right_blue.svg" alt="" class="chevron-right-icon">
           </a>
         </div>
       </div>
@@ -650,31 +664,27 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand-block animate-on-scroll reveal-soft">
-          <img src="assets/images/mp3quxx8-izeqmh7.png" alt="ULVAC" class="footer-logo-img" loading="lazy" decoding="async">
+          <img src="assets/images/brand_logo_footer_white.png" alt="ULVAC" class="footer-logo-img" loading="lazy" decoding="async">
           <address class="footer-contact">
             <div class="footer-contact-row">
-              <img src="assets/images/mp3quxx6-gfqbb6v.svg" alt="" class="footer-contact-icon" loading="lazy" decoding="async">
+              <img src="assets/images/footer_icon_location.svg" alt="" class="footer-contact-icon" loading="lazy" decoding="async">
               <p>ULVAC, Inc.<br>2500 Hagisono, Chigasaki, Kanagawa 253-8543, Japan</p>
             </div>
-            <!-- <div class="footer-contact-row footer-phone-row">
-              <img src="assets/images/mp3quxx6-qxfyz5g.svg" alt="" class="footer-contact-icon" loading="lazy" decoding="async">
-              <p>+81-467-89-2033​</p>
-            </div> -->
           </address>
         </div>
         <div class="footer-nav-columns">
           <div class="footer-nav-group animate-on-scroll reveal-soft delay-100">
-         <p class="footer-nav-title hover-color-effect"> SITEMAP</p>
+            <a href="#" class="footer-nav-title hover-color-effect">SITEMAP</a>
             <ul>
-              <li><a href="#" class="hover-color-effect">Home</a></li>
-              <li><a href="#" class="hover-color-effect">About ULVAC</a></li>
-              <li><a href="#" class="hover-color-effect">News</a></li>
-              <li><a href="#" class="hover-color-effect">Investor Relations</a></li>
-              <li><a href="#" class="hover-color-effect">Contact</a></li>
+              <li><a href="index.html" class="hover-color-effect">Home</a></li>
+              <li><a href="about.html" class="hover-color-effect">About ULVAC</a></li>
+              <li><a href="news.html" class="hover-color-effect">News</a></li>
+              <li><a href="investor-relations.html" class="hover-color-effect">Investor Relations</a></li>
+              <li><a href="contact.html" class="hover-color-effect">Contact</a></li>
             </ul>
           </div>
           <div class="footer-nav-group footer-sites-group animate-on-scroll reveal-soft delay-200">
-            <p class="footer-nav-title hover-color-effect">ULVAC Sites</p>
+            <a href="#" class="footer-nav-title hover-color-effect">ULVAC Sites</a>
             <ul>
               <li><a href="https://www.ulvac.co.jp/en/" class="hover-color-effect">Corporate Site (EN)</a></li>
               <li><a href="https://www.ulvac.co.jp/" class="hover-color-effect">Corporate Site (JP)</a></li>
@@ -696,3 +706,5 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+
+

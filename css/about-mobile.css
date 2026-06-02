@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    ABOUT PAGE MOBILE STYLES
    ============================================ */
 
@@ -6,14 +6,14 @@
   display: none;
 }
 
-@media (max-width: 768px) {
-  body.is-mobile .about-header-tab {
+@media (max-width: 991px) {
+  body.is-nav-mobile .about-header-tab {
     display: none !important;
   }
 .tab-nav-item::before{
   display: none;
 }
-  body.is-mobile .about-mobile-tab {
+  body.is-nav-mobile .about-mobile-tab {
     position: sticky;
     top: 69px;
     z-index: 110;
@@ -24,7 +24,7 @@
     backdrop-filter: blur(10px);
   }
 
-  body.is-mobile .about-mobile-tab-inner {
+  body.is-nav-mobile .about-mobile-tab-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -34,7 +34,7 @@
     box-sizing: border-box;
   }
 
-  body.is-mobile .about-mobile-tab .tab-nav-item {
+  body.is-nav-mobile .about-mobile-tab .tab-nav-item {
     flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
@@ -49,17 +49,17 @@
     white-space: nowrap;
   }
 
-  body.is-mobile .about-mobile-tab .tab-nav-item > span {
+  body.is-nav-mobile .about-mobile-tab .tab-nav-item > span {
     font-weight: 400;
   }
 
-  body.is-mobile .about-mobile-tab .tab-nav-item.is-active,
-  body.is-mobile .about-mobile-tab .tab-nav-item[aria-current="page"] {
+  body.is-nav-mobile .about-mobile-tab .tab-nav-item.is-active,
+  body.is-nav-mobile .about-mobile-tab .tab-nav-item[aria-current="page"] {
     color: #1c7dcd;
   }
 
-  body.is-mobile .about-mobile-tab .tab-nav-item.is-active > span,
-  body.is-mobile .about-mobile-tab .tab-nav-item[aria-current="page"] > span {
+  body.is-nav-mobile .about-mobile-tab .tab-nav-item.is-active > span,
+  body.is-nav-mobile .about-mobile-tab .tab-nav-item[aria-current="page"] > span {
     font-weight: 700;
   }
 
@@ -152,7 +152,7 @@
     left: 0;
     width: 142px;
     height: 148px;
-    background-image: url('../assets/images/Dot Grid-1.png');
+    background-image: url('../assets/images/about_dot_grid_large.png');
     background-size: 142px 148px;
   }
 
@@ -163,7 +163,7 @@
     left: auto;
     width: 58px;
     height: 61px;
-    background-image: url('../assets/images/Dot Grid.png');
+    background-image: url('../assets/images/about_dot_grid_small.png');
     background-size: 58px 61px;
   }
 
@@ -207,7 +207,6 @@
   }
 
   body.is-mobile .top-message-body {
-    max-height: 96px;
     font-size: 16px;
     line-height: 24px;
   }
@@ -252,7 +251,7 @@
     right: 0;
     width: 200px;
     height: 120px;
-    background-image: url('../assets/images/Dot Grid_SP.png');
+    background-image: url('../assets/images/about_dot_grid_mobile_main.png');
     background-size: 200px 120px;
     background-position: top right;
     z-index: 0;
@@ -263,7 +262,7 @@
     left: 0;
     width: 100px;
     height: 100px;
-    background-image: url('../assets/images/Dot Grid_SP-left.png');
+    background-image: url('../assets/images/about_dot_grid_mobile_left.png');
     background-size: 100px 100px;
     background-position: top left;
     z-index: 1;
@@ -294,15 +293,15 @@
 
   body.is-mobile .who-we-are-dot-grid-2 {
     position: absolute;
-    top: 4px;
+    top: 12px;
     left: 8px;
     right: auto;
     bottom: auto;
     width: 100%;
-    height: 213px;
+    height: 100%;
     transform: none;
-    background-image: url('../assets/images/Dot Grid_SP-bottom.png');
-    background-size: 100% 213px;
+    background-image: url('../assets/images/about_dot_grid_mobile_bottom.png');
+    background-size: 100%;
     background-position: 0 0;
     z-index: 2;
   }

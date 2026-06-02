@@ -1,4 +1,4 @@
-// js/main.js
+﻿// js/main.js
 
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMode();
@@ -144,6 +144,26 @@ function initScrollAnimations() {
   }, observerOptions);
 
   animatedElements.forEach((element) => observer.observe(element));
+
+  const revealRemainingAtPageEnd = () => {
+    const scrollBottom = window.scrollY + window.innerHeight;
+    const documentHeight = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0
+    );
+
+    if (scrollBottom < documentHeight - 4) return;
+
+    animatedElements.forEach((element) => {
+      if (element.classList.contains('is-visible')) return;
+      markVisible(element);
+      observer.unobserve(element);
+    });
+  };
+
+  revealRemainingAtPageEnd();
+  window.addEventListener('scroll', revealRemainingAtPageEnd, { passive: true });
+  window.addEventListener('resize', revealRemainingAtPageEnd);
 }
 
 function initHeaderScrollState() {
@@ -168,7 +188,7 @@ function initHeaderScrollState() {
 var BASES_DOT_DATA = {
   1: {
     title: 'Europe',
-    image: 'assets/images/card-europe.png',
+    image: 'assets/images/bases_region_europe.png',
     stats: [
       { label: 'Sales & Service', value: '1' },
   
@@ -177,7 +197,7 @@ var BASES_DOT_DATA = {
   2: {
 	  
 	      title: 'China',
-    image: 'assets/images/card-china.png',
+    image: 'assets/images/bases_region_china.png',
     stats: [
       { label: 'Sales & Service', value: '15' },
       { label: 'R&D', value: '1' },
@@ -188,7 +208,7 @@ var BASES_DOT_DATA = {
   3: {
 	  
 	      title: 'Taiwan',
-    image: 'assets/images/card-taiwan.png',
+    image: 'assets/images/bases_region_taiwan.png',
     stats: [
       { label: 'Sales & Service', value: '3' },
       { label: 'R&D', value: '1' },
@@ -198,7 +218,7 @@ var BASES_DOT_DATA = {
   },
   4: {
     title: 'Southeast Asia',
-    image: 'assets/images/card-southeast-asia.png',
+    image: 'assets/images/bases_region_southeast_asia.png',
     stats: [
       { label: 'Sales & Service', value: '2' },
 
@@ -206,7 +226,7 @@ var BASES_DOT_DATA = {
   },
   5: {
 	      title: 'Americas',
-    image: 'assets/images/card-americas.png',
+    image: 'assets/images/bases_region_americas.png',
     stats: [
       { label: 'Sales & Service', value: '1' },
       { label: 'R&D', value: '1' },
@@ -216,7 +236,7 @@ var BASES_DOT_DATA = {
   },
   6: {
 	      title: 'Korea',
-    image: 'assets/images/card-korea.png',
+    image: 'assets/images/bases_region_korea.png',
     stats: [
       { label: 'Sales & Service', value: '8' },
       { label: 'R&D', value: '1' },
@@ -226,7 +246,7 @@ var BASES_DOT_DATA = {
   },
   7: {
    title: 'Japan',
-    image: 'assets/images/card-japan.png',
+    image: 'assets/images/bases_region_japan.png',
     stats: [
       { label: 'Sales & Service', value: '35' },
       { label: 'R&D', value: '4' },
@@ -885,7 +905,7 @@ function initBasesMapSwitcher() {
   }
 
   function activateDot(dotId, animate, direction) {
-    // 如果已经是当前点，就不执行
+    // 濡傛灉宸茬粡鏄綋鍓嶇偣锛屽氨涓嶆墽琛?
     if (dotId === activeDot) {
       // #region debug-point E:activate-skip-same
       debugReport('E', 'activate-skip-same', {
@@ -897,7 +917,7 @@ function initBasesMapSwitcher() {
       return;
     }
     
-    // 如果正在动画中，忽略点击
+    // 濡傛灉姝ｅ湪鍔ㄧ敾涓紝蹇界暐鐐瑰嚮
     if (isAnimating) {
       // #region debug-point E:activate-skip-animating
       debugReport('E', 'activate-skip-animating', {
@@ -912,7 +932,7 @@ function initBasesMapSwitcher() {
 
     direction = resolveDirection(activeDot, dotId, direction);
 
-    // 设置动画状态
+    // 璁剧疆鍔ㄧ敾鐘舵€?
     isAnimating = animate !== false;
     var transitionId = ++animationToken;
     // #region debug-point E:activate-commit
