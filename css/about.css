@@ -528,7 +528,7 @@
 }
 
 .company-profile-row--multiline {
-  align-items: flex-start;
+
 }
 
 .company-profile-label {
@@ -551,7 +551,6 @@
 }
 
 .company-profile-value {
-  padding: 16px 0;
   width: 100%;
   line-height: 24px;
   letter-spacing: 0;

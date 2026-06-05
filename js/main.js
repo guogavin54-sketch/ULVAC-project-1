@@ -187,70 +187,62 @@ function initHeaderScrollState() {
 
 var BASES_DOT_DATA = {
   1: {
-    title: 'Europe',
-    image: 'assets/images/bases_region_europe.png',
+    title: 'Japan',
+    image: 'assets/images/bases_region_japan.png',
     stats: [
-      { label: 'Sales & Service', value: '1' },
-  
+      { label: 'Sales & Service', value: '35' },
+      { label: 'R&D', value: '4' },
+      { label: 'Manufacturing', value: '11' }
     ]
   },
   2: {
-	  
-	      title: 'China',
+    title: 'China',
     image: 'assets/images/bases_region_china.png',
     stats: [
       { label: 'Sales & Service', value: '15' },
       { label: 'R&D', value: '1' },
       { label: 'Manufacturing', value: '9' }
-
     ]
   },
   3: {
-	  
-	      title: 'Taiwan',
+    title: 'Korea',
+    image: 'assets/images/bases_region_korea.png',
+    stats: [
+      { label: 'Sales & Service', value: '8' },
+      { label: 'R&D', value: '1' },
+      { label: 'Manufacturing', value: '2' }
+    ]
+  },
+  4: {
+    title: 'Taiwan',
     image: 'assets/images/bases_region_taiwan.png',
     stats: [
       { label: 'Sales & Service', value: '3' },
       { label: 'R&D', value: '1' },
       { label: 'Manufacturing', value: '3' }
     ]
-
-  },
-  4: {
-    title: 'Southeast Asia',
-    image: 'assets/images/bases_region_southeast_asia.png',
-    stats: [
-      { label: 'Sales & Service', value: '2' },
-
-    ]
   },
   5: {
-	      title: 'Americas',
+    title: 'Americas',
     image: 'assets/images/bases_region_americas.png',
     stats: [
       { label: 'Sales & Service', value: '1' },
       { label: 'R&D', value: '1' },
       { label: 'Manufacturing', value: '1' }
- 
     ]
   },
   6: {
-	      title: 'Korea',
-    image: 'assets/images/bases_region_korea.png',
+    title: 'Europe',
+    image: 'assets/images/bases_region_europe.png',
     stats: [
-      { label: 'Sales & Service', value: '8' },
-      { label: 'R&D', value: '1' },
-      { label: 'Manufacturing', value: '2' }
-
+      { label: 'Sales & Service', value: '1' }
     ]
   },
   7: {
-   title: 'Japan',
-    image: 'assets/images/bases_region_japan.png',
+    title: 'Southeast Asia',
+    image: 'assets/images/bases_region_southeast_asia.png',
     stats: [
-      { label: 'Sales & Service', value: '35' },
-      { label: 'R&D', value: '4' },
-      { label: 'Manufacturing', value: '11' }
+      { label: 'Sales & Service', value: '2' }
     ]
   }
 };

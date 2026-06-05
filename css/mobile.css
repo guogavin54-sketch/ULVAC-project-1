@@ -751,6 +751,11 @@ body.is-mobile .news-card.small .news-img-wrap{
     font-size: 16px;
     line-height: 24px;
     width: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   body.is-mobile .news-date {

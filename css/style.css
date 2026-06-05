@@ -551,7 +551,7 @@ h1, h2, h3, h4 {
   background: #ffffff;
   padding: 9px 19px 9px 23px;
   cursor: pointer;
-  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  
 }
 
 .btn-hero-white:hover {
@@ -638,7 +638,7 @@ h1, h2, h3, h4 {
   background: #1c7dcd;
   padding: 9px 19px 9px 23px;
   cursor: pointer;
-  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  
 }
 
 .btn-business:hover {
@@ -706,7 +706,7 @@ h1, h2, h3, h4 {
   border-radius: 8px;
   background: #ffffff;
   isolation: isolate;
-  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  
   overflow: hidden;
   text-decoration: none;
   color: inherit;
@@ -890,7 +890,7 @@ h1, h2, h3, h4 {
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  filter: brightness(0.9);
+  filter: brightness(0.65);
 }
 
 .profile-overlay {
@@ -1108,7 +1108,7 @@ h1, h2, h3, h4 {
   display: flex;
   box-sizing: border-box;
   overflow: hidden;
-  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  
   text-decoration: none;
   color: inherit;
 }
@@ -1242,22 +1242,30 @@ h1, h2, h3, h4 {
 
 .news-card.large h3 {
   font-family: Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
-
   font-size: var(--font-size-18-fluid);
   font-weight: 700;
   line-height: var(--line-height-18-fluid);
   margin: 0;
   color: #162333;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .news-card.small h3 {
   font-family: Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
- 
   font-size: var(--font-size-18-fluid);
   font-weight: 700;
   line-height: var(--line-height-18-fluid);
   margin: 0;
   color: #162333;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .news-tag {
@@ -1497,18 +1505,9 @@ h1, h2, h3, h4 {
   width: 100%;
 }
 
-.bases-section[data-bases-ready="false"] .bases-map-content,
-.bases-section[data-bases-ready="false"] .bases-map-content--mobile {
-  opacity: 0;
-  visibility: hidden;
-}
 
-.bases-section[data-bases-ready="true"] .bases-map-content,
-.bases-section[data-bases-ready="true"] .bases-map-content--mobile {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.18s ease;
-}
+
+
 
 .bases-container h2 {
   margin: 0;
@@ -1603,7 +1602,7 @@ h1, h2, h3, h4 {
   background: #ffffff;
   color: #1c7dcd;
   text-decoration: none;
-  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  
   width: fit-content;
 }
 
@@ -2074,7 +2073,7 @@ h1, h2, h3, h4 {
   background: #ffffff;
   padding: 9px 19px 9px 23px;
   cursor: pointer;
-  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  
   text-decoration: none;
 }
 
@@ -2631,3 +2630,6 @@ box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
 .footer-nav-group a:hover {
  color: #46b5ff;
 }
+
+
+
