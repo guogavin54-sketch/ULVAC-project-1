@@ -5,6 +5,7 @@
 @media (max-width: 991px) {
   body.is-mobile .rnd-page {
     background: #ffffff;
+    padding-top: 52px;
   }
 .rnd-container{
   padding-top: 0;

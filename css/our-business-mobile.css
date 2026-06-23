@@ -6,6 +6,7 @@
   body.is-mobile .our-business-page {
     overflow: hidden;
     background: #edf7ff;
+    padding-top: 52px;
   }
 
   body.is-mobile .our-business-page .container {

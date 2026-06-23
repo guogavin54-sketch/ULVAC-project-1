@@ -1,0 +1,160 @@
+/* ============================================
+   INVESTOR RELATIONS PAGE
+   ============================================ */
+
+.investor-relations-page {
+  background: #ffffff;
+}
+
+.ir-information-section {
+  padding: 48px 0 120px;
+}
+
+.ir-information-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 48px;
+}
+
+.ir-information-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  row-gap: 48px;
+}
+
+.ir-information-title {
+  margin: 0;
+  color: var(--color-neutral-opacity-gray-900);
+  font-family: "Dunbar Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-64-fluid);
+  font-weight: 700;
+  line-height: var(--line-height-64-fluid);
+  letter-spacing: -0.64px;
+}
+
+.ir-information-intro {
+  margin: 0;
+  color: var(--color-neutral-solid-gray-800);
+  font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-16-fluid);
+  font-weight: 400;
+  line-height: var(--line-height-16-fluid-base);
+}
+
+.ir-links-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 24px;
+  width: 100%;
+}
+
+.ir-info-card {
+  min-height: 76px;
+}
+
+.ir-info-card--light {
+  width: 100%;
+  border-color: transparent;
+  background-color: #b9d6ef;
+  background-image: linear-gradient(274.72deg, #75c2ff 0%, #a4d0f4 50%, #e1f1ff 100%);
+}
+
+.ir-info-card--light .more-info-card-title,
+.ir-info-card--light .more-info-card-link-text {
+  color: #1c7dcd;
+}
+
+.ir-info-card--light .more-info-card-link-icon {
+  filter: none;
+}
+
+.ir-info-card--light:hover {
+  border-color: #1c7dcd;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.ir-info-card--light:hover .more-info-card-title,
+.ir-info-card--light:hover .more-info-card-link-text {
+  color: #1c7dcd;
+}
+
+.ir-info-card--light:hover .more-info-card-link-icon {
+  filter: none;
+}
+
+@media (max-width: 1366px) {
+  .ir-information-section {
+    padding-top: 35px;
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 991px) {
+  .ir-information-section {
+    padding: 0;
+  }
+
+  .ir-information-container {
+    row-gap: 0;
+  }
+
+  .ir-information-title {
+    width: 100%;
+    padding: 48px 0 16px;
+    font-size: 34px;
+    line-height: 44px;
+    letter-spacing: -0.34px;
+  }
+
+  .ir-information-content {
+    padding: 48px 0 64px;
+    row-gap: 32px;
+  }
+
+  .ir-information-intro {
+    width: 100%;
+ 
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .ir-links-grid {
+    row-gap: 16px;
+  }
+
+  body.is-mobile .ir-info-card--light {
+    background-color: #b9d6ef;
+    background-image: linear-gradient(274.72deg, #75c2ff 0%, #a4d0f4 50%, #e1f1ff 100%);
+  }
+
+  body.is-mobile .ir-info-card--light .more-info-card-title,
+  body.is-mobile .ir-info-card--light .more-info-card-link-text {
+    color: #1c7dcd;
+  }
+
+  body.is-mobile .ir-info-card {
+    min-height: 0;
+  }
+
+  body.is-mobile .ir-info-card--light .more-info-card-link-icon,
+  body.is-mobile .ir-info-card--light:hover .more-info-card-link-icon {
+    filter: none;
+  }
+
+  body.is-mobile .ir-info-card--light:hover {
+    border: 0;
+    box-shadow: none;
+    background-color: #b9d6ef;
+    background-image: linear-gradient(274.72deg, #75c2ff 0%, #a4d0f4 50%, #e1f1ff 100%);
+  }
+
+  body.is-mobile .ir-info-card--light:hover .more-info-card-title,
+  body.is-mobile .ir-info-card--light:hover .more-info-card-link-text {
+    color: #1c7dcd;
+  }
+}

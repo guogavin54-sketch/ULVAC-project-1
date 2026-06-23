@@ -89,7 +89,7 @@
 
 @media (max-width: 1366px) {
   .ir-information-section {
-    padding-top: 80px;
+    padding-top: 91px;
     padding-bottom: 80px;
   }
 }
@@ -105,14 +105,14 @@
 
   .ir-information-title {
     width: 100%;
-    padding: 48px 16px 16px;
+    padding: 48px 0 16px;
     font-size: 34px;
     line-height: 44px;
     letter-spacing: -0.34px;
   }
 
   .ir-information-content {
-    padding: 48px 16px 64px;
+    padding: 48px 0 64px;
     row-gap: 32px;
   }
 

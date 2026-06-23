@@ -1,6 +1,7 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Business - ULVAC, Global Leader in Vacuum Technology</title>
@@ -36,7 +37,6 @@
   <link rel="stylesheet" href="css/our-business-mobile.css">
 </head>
 <body>
-
   <header class="global-header">
     <div class="container header-container">
       <div class="logo">
@@ -63,8 +63,8 @@
             <nav class="tab about-header-tab" aria-label="About secondary navigation">
               <div class="container">
                 <a href="about.html" class="tab-nav-item" data-text="Overview"><span>Overview</span></a>
-                <a href="our-business.html" class="tab-nav-item is-active" aria-current="page" data-text="Our Business"><span>Our Business</span></a>
-                <a href="r-and-d.html" class="tab-nav-item" data-text="R&amp;D"><span>R&amp;D</span></a>
+                <a href="business.html" class="tab-nav-item is-active" aria-current="page" data-text="Our Business"><span>Our Business</span></a>
+                <a href="research-development.html" class="tab-nav-item" data-text="R&amp;D"><span>R&amp;D</span></a>
                 <a href="group-companies.html" class="tab-nav-item" data-text="Group Companies"><span>Group Companies</span></a>
               </div>
             </nav>
@@ -123,8 +123,8 @@
   <nav class="about-mobile-tab" aria-label="About secondary navigation">
     <div class="about-mobile-tab-inner">
       <a href="about.html" class="tab-nav-item" data-text="Overview"><span>Overview</span></a>
-      <a href="our-business.html" class="tab-nav-item is-active" aria-current="page" data-text="Our Business"><span>Our Business</span></a>
-      <a href="r-and-d.html" class="tab-nav-item" data-text="R&amp;D"><span>R&amp;D</span></a>
+      <a href="business.html" class="tab-nav-item is-active" aria-current="page" data-text="Our Business"><span>Our Business</span></a>
+      <a href="research-development.html" class="tab-nav-item" data-text="R&amp;D"><span>R&amp;D</span></a>
       <a href="group-companies.html" class="tab-nav-item" data-text="Group Companies"><span>Group Companies</span></a>
     </div>
   </nav>
@@ -139,18 +139,18 @@
           </p>
 
           <div class="our-business-list">
-            <article class="our-business-card animate-on-scroll reveal-soft delay-100">
+            <article id="semiconductor" class="our-business-card animate-on-scroll reveal-soft delay-100">
               <div class="our-business-card-media">
                 <img src="assets/images/business_semiconductor_equipment.png" alt="Semiconductor and Electronic Device Production Equipment" loading="lazy" decoding="async">
               </div>
               <div class="our-business-card-body">
                 <div class="our-business-card-copy">
-                  <h2 class="our-business-card-title">Semiconductor and Electronic Device Production Equipment</h2>
+                  <h2 class="our-business-card-title">Semiconductor and Electronic Device Production Equipment </h2>
                   <p class="our-business-card-text">
-                    Higher integration and higher performance at lower cost are demanded for next-generation semiconductors and other high-performance devices. Based on its development of super-miniaturization technologies for such semiconductors and other electronic devices, ULVAC delivers a stream of new technologies and products to the world that underpin the progress of society.
+          We provide manufacturing equipment for memory, logic, power semiconductors, MEMS, communication devices, and optical devices, supporting advances in semiconductor and electronic devices that drive next-generation technologies such as generative AI, autonomous driving, and EVs. Through our global network, we deliver cutting-edge solutions that support technological innovation worldwide. 
                   </p>
                 </div>
-                <a href="#" class="our-business-button">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="our-business-button">
                   <span class="our-business-button-text">View Details</span>
                   <span class="our-business-button-icon-wrap">
                     <img src="assets/images/our_business_button_icon_blue.svg" alt="" class="our-business-button-icon our-business-button-icon--default">
@@ -160,18 +160,18 @@
               </div>
             </article>
 
-            <article class="our-business-card animate-on-scroll reveal-soft delay-200">
+            <article id="display" class="our-business-card animate-on-scroll reveal-soft delay-200">
               <div class="our-business-card-media">
                 <img src="assets/images/business_display_energy_equipment.png" alt="Display and Energy-Related Production Equipment" loading="lazy" decoding="async">
               </div>
               <div class="our-business-card-body">
                 <div class="our-business-card-copy">
-                  <h2 class="our-business-card-title">Display and Energy-Related Production Equipment</h2>
+                  <h2 class="our-business-card-title">Display and Energy-Related Production Equipment </h2>
                   <p class="our-business-card-text">
-                    Leveraging vacuum technology cultivated over many years in a wide range of fields such as displays, smart energy, and life sciences, ULVAC provides creative and innovative coating and processing solutions for various materials including glass substrates, plastics, and films.
+   Leveraging our vacuum technologies, we provide evaporation roll coaters for EV battery component production as well as deposition equipment for manufacturing displays used in smartphones, TVs, and other electronic devices. Our solutions contribute to lightweight design, resource conservation, and enhanced safety while addressing evolving social and environmental challenges. 
                   </p>
                 </div>
-                <a href="https://www.ulvac.co.jp/en/business/display_energy_production_equipment/" class="our-business-button">
+                <a href="https://www.ulvac.co.jp/en/business/display_energy_production_equipment/" target="_blank" rel="noopener noreferrer" class="our-business-button">
                   <span class="our-business-button-text">View Details</span>
                   <span class="our-business-button-icon-wrap">
                     <img src="assets/images/our_business_button_icon_blue.svg" alt="" class="our-business-button-icon our-business-button-icon--default">
@@ -181,7 +181,7 @@
               </div>
             </article>
 
-            <article class="our-business-card animate-on-scroll reveal-soft delay-300">
+            <article id="industrial" class="our-business-card animate-on-scroll reveal-soft delay-300">
               <div class="our-business-card-media">
                 <img src="assets/images/business_industrial_equipment.png" alt="Industrial Equipment" loading="lazy" decoding="async">
               </div>
@@ -189,10 +189,12 @@
                 <div class="our-business-card-copy">
                   <h2 class="our-business-card-title">Industrial Equipment</h2>
                   <p class="our-business-card-text">
-                    ULVAC has been involved in this business sector since the emergence of vacuum technology in the 1950s. Leveraging the fundamental technology it has developed so far, ULVAC currently provides various solutions across wide-ranging industries, including the automobile, pharmaceutical, and food industries.
+            We offer a wide range of industrial equipment, including vacuum melting furnaces, vacuum sintering furnaces, vacuum brazing furnaces, and leak test systems for industries such as metals, automotive, and consumer electronics. We also serve the life sciences sector with solutions such as lyophilizers for pharmaceutical applications, supporting diverse industrial needs worldwide. 
+ 
+
                   </p>
                 </div>
-                <a href="https://www.ulvac.co.jp/en/business/industrial_equipment/" class="our-business-button">
+                <a href="https://www.ulvac.co.jp/en/business/industrial_equipment/" target="_blank" rel="noopener noreferrer" class="our-business-button">
                   <span class="our-business-button-text">View Details</span>
                   <span class="our-business-button-icon-wrap">
                     <img src="assets/images/our_business_button_icon_blue.svg" alt="" class="our-business-button-icon our-business-button-icon--default">
@@ -202,7 +204,7 @@
               </div>
             </article>
 
-            <article class="our-business-card animate-on-scroll reveal-soft delay-400">
+            <article id="components" class="our-business-card animate-on-scroll reveal-soft delay-400">
               <div class="our-business-card-media">
                 <img src="assets/images/business_components.png" alt="Components" loading="lazy" decoding="async">
               </div>
@@ -210,10 +212,10 @@
                 <div class="our-business-card-copy">
                   <h2 class="our-business-card-title">Components</h2>
                   <p class="our-business-card-text">
-                    As a comprehensive vacuum product manufacturer, ULVAC is also dedicated to the development of components. ULVAC pursues cutting-edge vacuum technology while providing a wide range of product lines, extending from vacuum pumps and measurement and analysis equipment, to components, such as power generators for various types of deposition equipment and vacuum valves.
+     We supply a broad range of high-performance vacuum-related products, including vacuum pumps, vacuum gauges, process gas monitors, helium leak detectors, cryopumps, and cryogenic equipment. These value-added solutions support semiconductor and electronic device manufacturing and contribute to the efficiency and reliability of our customers’ production processes. 
                   </p>
                 </div>
-                <a href="https://www.ulvac.co.jp/en/business/components/" class="our-business-button">
+                <a href="https://www.ulvac.co.jp/en/business/components/" target="_blank" rel="noopener noreferrer" class="our-business-button">
                   <span class="our-business-button-text">View Details</span>
                   <span class="our-business-button-icon-wrap">
                     <img src="assets/images/our_business_button_icon_blue.svg" alt="" class="our-business-button-icon our-business-button-icon--default">
@@ -223,7 +225,7 @@
               </div>
             </article>
 
-            <article class="our-business-card animate-on-scroll reveal-soft delay-500">
+            <article id="materials" class="our-business-card animate-on-scroll reveal-soft delay-500">
               <div class="our-business-card-media">
                 <img src="assets/images/business_materials.png" alt="Materials" loading="lazy" decoding="async">
               </div>
@@ -231,10 +233,10 @@
                 <div class="our-business-card-copy">
                   <h2 class="our-business-card-title">Materials</h2>
                   <p class="our-business-card-text">
-                    ULVAC is a source of electric materials, such as sputtering targets, for diverse industries. In addition, in the high-performance materials sector, ULVAC is a source of integrated manufacturing and precision processing technologies for titanium, tantalum, zirconium, niobium, etc.
+    We develop and manufacture advanced materials, including sputtering targets used in thin-film deposition processes for semiconductors and electronic devices. We also provide high-melting-point reactive metal materials and fabricated components, such as tantalum and niobium, supporting the development and production of advanced devices across a wide range of industries. 
                   </p>
                 </div>
-                <a href="https://www.ulvac.co.jp/en/business/materials/" class="our-business-button">
+                <a href="https://www.ulvac.co.jp/en/business/materials/" target="_blank" rel="noopener noreferrer" class="our-business-button">
                   <span class="our-business-button-text">View Details</span>
                   <span class="our-business-button-icon-wrap">
                     <img src="assets/images/our_business_button_icon_blue.svg" alt="" class="our-business-button-icon our-business-button-icon--default">
@@ -244,7 +246,7 @@
               </div>
             </article>
 
-            <article class="our-business-card animate-on-scroll reveal-soft delay-600">
+            <article id="vacuum" class="our-business-card animate-on-scroll reveal-soft delay-600">
               <div class="our-business-card-media">
                 <img src="assets/images/business_vacuum_applications.png" alt="Vacuum Application Business (Surface analysis and Coating)" loading="lazy" decoding="async">
               </div>
@@ -252,19 +254,19 @@
                 <div class="our-business-card-copy">
                   <h2 class="our-business-card-title">Vacuum Application Business (Surface analysis and Coating)</h2>
                   <p class="our-business-card-text">
-                    Technology derived from vacuum-based production equipment for diverse industries.
+                 We develop and provide surface analysis instruments capable of highly precise analysis of surface and interface structures and compositions. Leveraging world-class analytical technologies such as XPS, AES, and SIMS, we support research and development, quality control, and failure analysis. We also supply mask blanks, an essential material for semiconductor and flat panel display manufacturing.
                   </p>
                 </div>
                 <div class="our-business-button-group">
-                  <a href="https://www.ulvac-phi.com/en/" class="our-business-button">
-                    <span class="our-business-button-text">View Surface analysis</span>
+                  <a href="https://www.ulvac-phi.com/en/" target="_blank" rel="noopener noreferrer" class="our-business-button">
+                    <span class="our-business-button-text">Surface analysis</span>
                     <span class="our-business-button-icon-wrap">
                       <img src="assets/images/our_business_button_icon_blue.svg" alt="" class="our-business-button-icon our-business-button-icon--default">
                       <img src="assets/images/icon_chevron_right_white.svg" alt="" class="our-business-button-icon our-business-button-icon--hover">
                     </span>
                   </a>
-                  <a href="https://www.ulcoat.co.jp/en/" class="our-business-button">
-                    <span class="our-business-button-text">View Coating</span>
+                  <a href="https://www.ulcoat.co.jp/en/" target="_blank" rel="noopener noreferrer" class="our-business-button">
+                    <span class="our-business-button-text"> Coating</span>
                     <span class="our-business-button-icon-wrap">
                       <img src="assets/images/our_business_button_icon_blue.svg" alt="" class="our-business-button-icon our-business-button-icon--default">
                       <img src="assets/images/icon_chevron_right_white.svg" alt="" class="our-business-button-icon our-business-button-icon--hover">
@@ -305,8 +307,8 @@
           <div class="footer-nav-group footer-sites-group animate-on-scroll reveal-soft delay-200">
             <a href="#" class="footer-nav-title hover-color-effect">ULVAC Sites</a>
             <ul>
-              <li><a href="https://www.ulvac.co.jp/en/" class="hover-color-effect">Corporate Site (EN)</a></li>
-              <li><a href="https://www.ulvac.co.jp/" class="hover-color-effect">Corporate Site (JP)</a></li>
+              <li><a href="https://www.ulvac.co.jp/en/" target="_blank" rel="noopener noreferrer" class="hover-color-effect">ULVAC, Inc. (EN)</a></li>
+              <li><a href="https://www.ulvac.co.jp/" target="_blank" rel="noopener noreferrer" class="hover-color-effect">ULVAC, Inc. (JP)</a></li>
             </ul>
           </div>
         </div>
@@ -314,15 +316,14 @@
       <div class="footer-bottom animate-on-scroll reveal-soft delay-300">
         <p>&copy; 2026 ULVAC, Inc. All Rights Reserved.</p>
         <div class="footer-legal">
-          <a href="https://www.ulvac.co.jp/en/privacy_policy/" class="hover-color-effect">Privacy Policy</a>
-          <a href="https://www.ulvac.co.jp/en/agreement/" class="hover-color-effect">Terms of Use</a>
+          <a href="https://www.ulvac.co.jp/en/privacy_policy/" target="_blank" rel="noopener noreferrer" class="hover-color-effect">Privacy Policy</a>
+          <a href="https://www.ulvac.co.jp/en/agreement/" target="_blank" rel="noopener noreferrer" class="hover-color-effect">Terms of Use</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="js/auth-check.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script> <script src="js/main.js"></script>
   <script src="js/about.js"></script>
 </body>
 </html>

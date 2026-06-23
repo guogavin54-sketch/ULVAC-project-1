@@ -1,0 +1,285 @@
+/* ============================================
+   CONTACT PAGE
+   ============================================ */
+
+.contact-page {
+  background: #ffffff;
+}
+
+.contact-section {
+  padding: 48px 0 120px;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 48px;
+}
+
+.contact-title {
+  margin: 0;
+  color: var(--color-neutral-opacity-gray-900);
+  font-family: "Dunbar Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-64-fluid);
+  font-weight: 700;
+  line-height: var(--line-height-64-fluid);
+  letter-spacing: -0.64px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  width: 100%;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 218px;
+  padding: 23px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #ffffff;
+  color: inherit;
+  row-gap: 32px;
+}
+
+.contact-card--highlight {
+  border-color: #9cc4e5;
+  background: #edf7ff;
+}
+
+.contact-card:not(.contact-card--highlight) {
+  border-color: #ccc;
+  background: #ffffff;
+}
+
+.contact-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  row-gap: 16px;
+}
+
+.contact-card__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.contact-card__eyebrow-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+}
+
+.contact-card__eyebrow-icon--investors {
+  color: #1c7dcd;
+}
+
+.contact-card__eyebrow-icon--general {
+  color: #777777;
+}
+
+.contact-card__eyebrow-text {
+  margin: 0;
+  font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-16-fluid);
+  font-weight: 700;
+  line-height: var(--line-height-16-fluid-base);
+  letter-spacing: 0;
+}
+
+.contact-card__eyebrow-text--investors {
+  color: #1c7dcd;
+}
+
+.contact-card__eyebrow-text--general {
+  color: #777777;
+}
+
+.contact-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  row-gap: 8px;
+}
+
+.contact-card__title {
+  margin: 0;
+  color: var(--color-neutral-solid-gray-900);
+  font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-22-fluid);
+  font-weight: 700;
+  line-height: var(--line-height-22-fluid);
+  letter-spacing: 0;
+}
+
+.contact-card__detail {
+  margin: 0;
+  color: var(--color-neutral-solid-gray-536);
+  font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-15-fluid);
+  font-weight: 400;
+  line-height: var(--line-height-15-fluid);
+  letter-spacing: 0;
+  max-width: 44ch;
+}
+
+.contact-card__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 9px 19px 9px 23px;
+  border: 1px solid #1c7dcd;
+  border-radius: 4px;
+  background: #1c7dcd;
+  text-decoration: none;
+  transition: background-color 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+}
+
+.contact-card__cta-text {
+  margin: 0;
+  color: #ffffff;
+  font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-16-fluid);
+  font-weight: 700;
+  line-height: var(--line-height-16-fluid-loose);
+  letter-spacing: 0;
+  transition: color 0.24s ease;
+}
+
+.contact-card__cta-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  filter: brightness(0) invert(1);
+  transition: filter 0.24s ease;
+}
+
+.contact-card__cta:hover,
+.contact-card__cta:focus-visible {
+  background: #ffffff;
+  border-color: #1c7dcd;
+  box-shadow: 0 8px 24px rgba(28, 125, 205, 0.18);
+}
+
+.contact-card__cta:hover .contact-card__cta-text,
+.contact-card__cta:focus-visible .contact-card__cta-text {
+  color: #1c7dcd;
+}
+
+.contact-card__cta:hover .contact-card__cta-icon,
+.contact-card__cta:focus-visible .contact-card__cta-icon {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(94%) saturate(2062%) hue-rotate(191deg) brightness(82%) contrast(91%);
+}
+
+@media (max-width: 1366px) {
+  .contact-section {
+    padding-top: 35px;
+    padding-bottom: 80px;
+  }
+
+  .contact-grid {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 991px) {
+  .contact-section {
+    padding: 0;
+  }
+
+  .contact-container {
+    row-gap: 0;
+  }
+
+  .contact-title {
+    width: 100%;
+    padding: 48px 0 16px;
+    font-size: 34px;
+    line-height: 44px;
+    letter-spacing: -0.34px;
+  }
+
+  .contact-grid {
+    padding: 48px 0 64px;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .contact-card {
+    min-height: 0;
+    padding: 23px;
+    row-gap: 32px;
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  .contact-card--highlight {
+    border-color: #9cc4e5;
+    background: #edf7ff;
+  }
+
+  .contact-card:not(.contact-card--highlight) {
+    border-color: #ccc;
+    background: #ffffff;
+  }
+
+  .contact-card__content {
+    row-gap: 16px;
+  }
+
+  .contact-card__title {
+    font-size: 22px;
+    line-height: 29px;
+  }
+
+  .contact-card__detail {
+    font-size: 15px;
+    line-height: 19px;
+    max-width: none;
+  }
+
+  .contact-card__eyebrow-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .contact-card__cta {
+    align-self: flex-start;
+    width: auto;
+    padding: 9px 19px 9px 23px;
+  }
+
+  .contact-card__cta-text {
+    font-size: 15px;
+    line-height: 23px;
+  }
+}
+
+@media (max-width: 768px) {
+  body.is-mobile .contact-card__cta:hover,
+  body.is-mobile .contact-card__cta:focus-visible {
+    background: #1c7dcd;
+    border-color: #1c7dcd;
+    box-shadow: none;
+  }
+
+  body.is-mobile .contact-card__cta:hover .contact-card__cta-text,
+  body.is-mobile .contact-card__cta:focus-visible .contact-card__cta-text {
+    color: #ffffff;
+  }
+
+  body.is-mobile .contact-card__cta:hover .contact-card__cta-icon,
+  body.is-mobile .contact-card__cta:focus-visible .contact-card__cta-icon {
+    filter: brightness(0) invert(1);
+  }
+}

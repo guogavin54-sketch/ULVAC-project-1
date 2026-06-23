@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    ABOUT PAGE STYLES
    ============================================ */
 
@@ -7,15 +7,15 @@
   position: relative;
 }
 
+/* Secondary navigation is hidden by default */
 .tab {
   position: fixed;
   top: 73px;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.84);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
   z-index: 99;
-  border-bottom: 1px solid rgba(221, 221, 221, 0.85);
   padding: 8px 0;
   opacity: 0;
   visibility: hidden;
@@ -24,12 +24,22 @@
   transition: opacity 0.24s ease, visibility 0.24s ease, transform 0.24s ease;
 }
 
-.about-nav-item:hover .tab,
-.about-nav-item:focus-within .tab {
+/* Show secondary navigation on About pages */
+.about-page .tab {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
+}
+
+/* Secondary navigation only shows on About pages, not on hover */
+
+/* Add padding-top to main content to account for fixed secondary nav */
+.pCAboutOverview,
+.our-business-page,
+.rnd-page,
+.group-companies-page {
+  padding-top: 56px;  /* Only the secondary nav height (8px + 40px + 8px) */
 }
 
 .tab .container {
@@ -45,17 +55,21 @@
   background: transparent;
   display: inline-grid;
   grid-template-areas: "stack";
+  align-items: center;
   font-size: var(--font-size-16-fluid);
   line-height: var(--line-height-16-fluid-base);
   letter-spacing: 0;
-  color: var(--color-neutral-solid-gray-400);
+  color: var(--color-neutral-solid-gray-400) !important;
   font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
-  font-weight: 400;
+  font-weight: 400 !important;
   text-decoration: none;
   white-space: nowrap;
-  padding: 8px 0;
+  min-height: 40px;
+  padding: 8px 10px;
+  margin: -8px -10px;
   transition: color 0.24s ease;
   cursor: pointer;
+  position: relative;
 }
 
 .tab-nav-item::before,
@@ -70,26 +84,51 @@
   pointer-events: none;
 }
 
+.tab-nav-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: #1c7dcd;
+  transform: scaleX(0) !important;
+  transform-origin: center;
+  transition: transform 0.28s ease;
+}
+
+/* No underline for any state - hover or active */
+.tab-nav-item.is-active::after,
+.tab-nav-item:hover::after,
+.tab-nav-item:focus-visible::after {
+  transform: scaleX(0) !important;
+}
+
 .tab-nav-item > span {
-  font-weight: 400;
+  font-weight: 400 !important;
   transition: color 0.24s ease;
 }
 
 .tab-nav-item:hover,
 .tab-nav-item:focus-visible {
-  color: #1c7dcd;
+  color: #1c7dcd !important;
+}
+
+.tab-nav-item:hover::after,
+.tab-nav-item:focus-visible::after {
+  transform: scaleX(1);
 }
 
 .tab-nav-item.is-active,
 .tab-nav-item[aria-current="page"] {
-  color: #1c7dcd;
+  color: #1c7dcd !important;
 }
 
 .tab-nav-item:hover > span,
 .tab-nav-item:focus-visible > span,
 .tab-nav-item.is-active > span,
 .tab-nav-item[aria-current="page"] > span {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 /* Page Title */
@@ -191,7 +230,7 @@
   width: 100%;
   line-height: var(--line-height-18-fluid);
   letter-spacing: 0;
-  color: var(--color-neutral-solid-gray-900);
+  color: #1A1A1A;
   font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
   font-size: var(--font-size-18-fluid);
   font-weight: 700;
@@ -202,7 +241,7 @@
   flex-shrink: 0;
   line-height: var(--line-height-15-fluid);
   letter-spacing: 0;
-  color: var(--color-neutral-solid-gray-600);
+  color: #666;
   font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
   font-size: var(--font-size-15-fluid);
   margin: 0;
@@ -522,7 +561,7 @@
 .company-profile-row {
   display: flex;
   flex-shrink: 0;
-  align-items: center;
+     align-items: baseline;
   align-self: stretch;
   column-gap: 24px;
 }
@@ -569,8 +608,8 @@
 
 /* Company History Section */
 .section5 {
-  padding: 80px 0;
-      background: #F2F3F4;
+  padding: 120px 0;
+  background: #edf7ff;
 }
 
 .companyHistory {
@@ -585,90 +624,406 @@
   margin: 0;
 }
 
-.contents2 {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 48px;
-  margin-top: 48px;
-}
-
-.pic {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.list2 {
+.company-history-container {
   display: flex;
   flex-direction: column;
-  row-gap: 0;
-  position: relative;
+  align-items: flex-start;
+  row-gap: 48px;
 }
 
-.item2,
-.item3,
-.item4,
-.item5 {
+.company-history-intro {
+  width: 100%;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: var(--color-neutral-solid-gray-800);
+  font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-16-fluid);
+  margin: 0;
+}
+
+.timeline-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  backface-visibility: hidden;
+  will-change: transform;
+  background-color: #ffffff;
+}
+
+.timeline-img[src*="ulvac-logo.png"] {
+  object-fit: contain;
+
+}
+
+.timeline-img--overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.timeline-img.is-switching-in {
+  transform: translate3d(0, 100%, 0);
+}
+
+.timeline-img.is-switching-in.is-active {
+  transform: translate3d(0, 0, 0);
+}
+
+.timeline-img--overlay.is-switching-out {
+  transform: translate3d(0, -100%, 0);
+}
+
+.company-history-desktop {
   display: flex;
-  column-gap: 24px;
-  padding-bottom: 32px;
-  position: relative;
+  align-items: center;
+  min-height: 478px;
+  width: 100%;
 }
 
-.barVertical,
-.barVertical2 {
+.company-history-image-column {
+  display: flex;
+  align-items: center;
+  flex: 0 0 clamp(360px, 34.375vw, 495px);
+  margin-right: -5px;
+  position: relative;
+  z-index: 1;
+}
+
+.company-history-image-frame {
+  position: relative;
+  width: clamp(320px, 31.181vw, 449px);
+  aspect-ratio: 449 / 253;
+  border-radius: 8px;
+  overflow: hidden;
+  background: transparent;
+  isolation: isolate;
+  flex-shrink: 0;
+}
+
+.company-history-image-year {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 999px;
+  background: rgba(19, 38, 58, 0.42);
+  backdrop-filter: blur(6px);
+  color: rgba(255, 255, 255, 0.92);
+  font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+}
+
+.company-history-image-status {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 999px;
+  background: rgba(19, 38, 58, 0.42);
+  backdrop-filter: blur(6px);
+  color: rgba(255, 255, 255, 0.92);
+  font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+}
+
+.company-history-connector {
+  width: 46px;
+  height: 2px;
+  flex-shrink: 0;
+}
+
+.company-history-connector svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.timeline-list,
+.company-history-timeline-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  height: 478px;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.company-history-timeline-column {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.company-history-timeline-column::before,
+.company-history-timeline-column::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  height: 24px;
+  pointer-events: none;
+}
+
+.company-history-timeline-column::before {
+  top: 34px;
+  background: linear-gradient(180deg, #edf7ff 0%, rgba(237, 247, 255, 0) 100%);
+}
+
+.company-history-timeline-column::after {
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(237, 247, 255, 0) 0%, #edf7ff 100%);
+}
+
+.company-history-scroll-hint {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-end;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: #1c7dcd;
+  font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.company-history-scroll-hint-icon {
+  position: relative;
+  width: 12px;
+  height: 18px;
+}
+
+.company-history-scroll-hint-icon::before,
+.company-history-scroll-hint-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateX(-50%) rotate(45deg);
+  animation: companyHistoryHintPulse 1.8s ease-in-out infinite;
+}
+
+.company-history-scroll-hint-icon::before {
+  top: 1px;
+}
+
+.company-history-scroll-hint-icon::after {
+  top: 7px;
+  animation-delay: 0.18s;
+}
+
+@keyframes companyHistoryHintPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -2px) rotate(45deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, 2px) rotate(45deg);
+  }
+}
+
+.timeline-list::-webkit-scrollbar,
+.company-history-timeline-list::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline-item,
+.company-history-timeline-item {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  min-height: 120px;
+  width: 100%;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.28s ease, opacity 0.28s ease;
+}
+
+.bar-vertical,
+.company-history-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-self: stretch;
+  width: 14px;
   flex-shrink: 0;
-  width: 20px;
 }
 
-.ellipse6,
-.ellipse7 {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #1c7dcd;
-  flex-shrink: 0;
-  z-index: 2;
-}
-
-.rectangle,
-.rectangle2,
-.rectangle3 {
+.bar-line,
+.company-history-bar-line {
   width: 2px;
-  background: #e0e0e0;
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 1px;
+  background: #daecfa;
 }
 
-.text9,
-.text10,
-.text11,
-.text12 {
-  flex: 1;
+.bar-line.no-line,
+.company-history-bar-line.no-line {
+  background: transparent;
 }
 
-.date {
-  font-size: var(--font-size-14-fluid);
-  line-height: calc(var(--font-size-14-fluid) * 1.5714);
-  letter-spacing: 0;
-  color: #1c7dcd;
+.bar-dot,
+.company-history-dot {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.bar-dot svg,
+.company-history-dot svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.item-text,
+.company-history-item-text {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding-bottom: 16px;
+}
+
+.item-year,
+.company-history-year {
+  margin: 0;
+  color: #949494;
   font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
   font-weight: 700;
-  margin: 0 0 8px;
+  font-size: var(--font-size-16-fluid);
+  line-height: 24px;
+  transition: color 0.3s ease;
 }
 
-.content4,
-.content5 {
-  font-size: var(--font-size-13-fluid);
-  line-height: calc(var(--font-size-13-fluid) * 1.6154);
-  letter-spacing: 0;
-  color: var(--color-neutral-solid-gray-700);
-  font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
-  font-weight: 400;
+.item-desc,
+.company-history-desc {
   margin: 0;
+  color: #949494;
+  font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-16-fluid);
+  line-height: 24px;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.timeline-item.active .item-year,
+.company-history-timeline-item.active .item-year {
+  color: #1a1a1a;
+}
+
+.timeline-item.active .item-desc,
+.company-history-timeline-item.active .item-desc {
+  color: #666666;
+}
+
+.timeline-item.active,
+.company-history-timeline-item.active {
+  transform: translate3d(0, 0, 0);
+}
+
+.company-history-mobile {
+  display: none;
+}
+
+.company-history-mobile-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: transparent;
+  isolation: isolate;
+}
+
+.mobile-list,
+.company-history-mobile-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 650px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.mobile-list::-webkit-scrollbar,
+.company-history-mobile-list::-webkit-scrollbar {
+  display: none;
+}
+
+.company-history-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 20px 10px 24px;
+  border: 1px solid #1c7dcd;
+  border-radius: 4px;
+  background: #1c7dcd;
+  color: #ffffff;
+  font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-16-fluid);
+  line-height: var(--line-height-16-fluid-base);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.company-history-button:hover,
+.company-history-button:focus-visible {
+  background: #ffffff;
+  border-color: #1c7dcd;
+  color: #1c7dcd;
+  transform: translate3d(0, -4px, 0);
+  box-shadow: 0 12px 32px rgba(28, 125, 205, 0.2);
+}
+
+.company-history-button-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  transition: filter 0.3s ease;
+  filter: brightness(0) invert(1);
+}
+
+.company-history-button:hover .company-history-button-icon,
+.company-history-button:focus-visible .company-history-button-icon {
+  filter: brightness(0) saturate(100%) invert(42%) sepia(88%) saturate(1330%) hue-rotate(184deg) brightness(95%) contrast(88%);
 }
 
 /* More Information Section */
@@ -794,12 +1149,7 @@
 }
 
 /* Active Navigation State */
-.main-nav ul li a.active {
-  color: #1c7dcd;
-  font-weight: 700;
-  box-shadow: 0 2px #1c7dcd;
-  padding: 0 12px 24px;
-}
+
 
 /* ============================================
    RESPONSIVE STYLES
@@ -852,9 +1202,7 @@
 }
 
 @media (max-width: 1024px) {
-  .tab {
-    display: none;
-  }
+
 
   .tab .container {
     column-gap: 32px;

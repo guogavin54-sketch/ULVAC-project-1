@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    ABOUT PAGE MOBILE STYLES
    ============================================ */
 
@@ -7,21 +7,22 @@
 }
 
 @media (max-width: 991px) {
+ 
   body.is-nav-mobile .about-header-tab {
     display: none !important;
   }
-.tab-nav-item::before{
-  display: none;
-}
+  body.is-nav-mobile .tab-nav-item::before {
+    display: none;
+  }
   body.is-nav-mobile .about-mobile-tab {
-    position: sticky;
+    position: fixed;
     top: 69px;
+    left: 0;
+    width: 100%;
     z-index: 110;
     display: block;
-    width: 100%;
     background: rgba(255, 255, 255, 0.84);
-    border-bottom: 1px solid rgba(221, 221, 221, 0.85);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(0.5px);
   }
 
   body.is-nav-mobile .about-mobile-tab-inner {
@@ -31,6 +32,7 @@
     gap: 12px;
     padding: 8px 16px;
     width: 100%;
+    min-height: 56px;
     box-sizing: border-box;
   }
 
@@ -39,7 +41,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: flex-start;
+    min-height: 40px;
     padding: 8px 0;
+    margin: 0;
     color: #888888;
     font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
     font-size: 15px;
@@ -47,6 +51,12 @@
     line-height: 19px;
     text-align: left;
     white-space: nowrap;
+  }
+
+  body.is-nav-mobile .about-mobile-tab .tab-nav-item:first-child,
+  body.is-nav-mobile .about-mobile-tab .tab-nav-item:last-child {
+    font-size: 16px;
+    line-height: 24px;
   }
 
   body.is-nav-mobile .about-mobile-tab .tab-nav-item > span {
@@ -66,6 +76,7 @@
   body.is-mobile .pCAboutOverview {
     overflow: hidden;
     background: #ffffff;
+    padding-top: 52px;
   }
 
   body.is-mobile .pCAboutOverview .container {
@@ -399,37 +410,14 @@
     position: relative;
     padding: 64px 0;
     background: #edf7ff;
-    overflow: hidden;
+    overflow: visible;
   }
 
   body.is-mobile .section-company-history > .container {
     position: relative;
     z-index: 1;
-    opacity: 0.16;
-    filter: grayscale(1);
-  }
-
-  body.is-mobile .section-company-history::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(243, 243, 243, 0.9);
-    z-index: 2;
-  }
-
-  body.is-mobile .section-company-history::after {
-    content: "In Progress";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 3;
-    transform: translate(-50%, -50%);
-    color: #000000;
-    font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
-    font-size: 58px;
-    font-weight: 700;
-    line-height: 87px;
-    white-space: nowrap;
+    opacity: 1;
+    filter: none;
   }
 
   body.is-mobile .section-company-history .container {
@@ -457,21 +445,123 @@
     margin-top: 0;
   }
 
+  body.is-mobile .company-history-intro {
+    width: 100%;
+    margin: 0;
+    color: #333333;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  body.is-mobile .company-history-desktop {
+    display: none;
+  }
+
+  body.is-mobile .company-history-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    align-self: stretch;
+  }
+
+  body.is-mobile .company-history-mobile-image,
   body.is-mobile .history-image,
   body.is-mobile .pic {
+    display: block;
+    flex: 0 0 100%;
+    align-self: stretch;
+    position: sticky;
+    top: 136px;
+    z-index: 10;
     width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     max-height: none;
-    height: auto;
-    aspect-ratio: 358 / 202;
+    height: 200px;
+    aspect-ratio: auto;
     border-radius: 8px;
+    overflow: hidden;
     object-fit: cover;
+    background: transparent;
+  }
+
+  body.is-mobile .company-history-image-year {
+    top: 12px;
+    left: 12px;
+    min-height: 24px;
+    padding: 3px 10px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  body.is-mobile .company-history-image-status {
+    top: 12px;
+    left: 12px;
+    min-height: 24px;
+    padding: 3px 10px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  body.is-mobile .company-history-mobile-image .timeline-img,
+  body.is-mobile .company-history-mobile-image .timeline-img--overlay,
+  body.is-mobile .history-image .timeline-img,
+  body.is-mobile .pic .timeline-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #ffffff;
+  }
+
+  body.is-mobile .company-history-mobile-image .timeline-img[src*="ulvac-logo.png"],
+  body.is-mobile .history-image .timeline-img[src*="ulvac-logo.png"],
+  body.is-mobile .pic .timeline-img[src*="ulvac-logo.png"] {
+    object-fit: contain;
+  
+  }
+
+  body.is-mobile .company-history-timeline-column {
+    width: 100%;
+  }
+
+  body.is-mobile .company-history-timeline-column::before {
+    top: 30px;
+  }
+
+  body.is-mobile .company-history-scroll-hint {
+    align-self: flex-start;
+    margin-bottom: 8px;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.06em;
   }
 
   body.is-mobile .timeline-list,
-  body.is-mobile .list2 {
+  body.is-mobile .list2,
+  body.is-mobile .mobile-list,
+  body.is-mobile .company-history-mobile-list {
     display: flex;
     flex-direction: column;
     gap: 0;
+    height: min(700px, calc(100vh - 320px));
+    min-height: 520px;
+    padding-bottom: 48px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  body.is-mobile .timeline-list::-webkit-scrollbar,
+  body.is-mobile .mobile-list::-webkit-scrollbar,
+  body.is-mobile .company-history-mobile-list::-webkit-scrollbar {
+    display: none;
   }
 
   body.is-mobile .timeline-item,
@@ -479,33 +569,37 @@
   body.is-mobile .item2,
   body.is-mobile .item3,
   body.is-mobile .item4,
-  body.is-mobile .item5 {
+  body.is-mobile .item5,
+  body.is-mobile .company-history-timeline-item {
     display: flex;
     align-items: stretch;
     column-gap: 24px;
-    padding-bottom: 16px;
+    min-height: auto;
+    cursor: pointer;
   }
 
   body.is-mobile .barVertical,
-  body.is-mobile .barVertical2 {
+  body.is-mobile .barVertical2,
+  body.is-mobile .bar-vertical,
+  body.is-mobile .company-history-bar {
     width: 14px;
     align-items: center;
   }
 
   body.is-mobile .ellipse5,
   body.is-mobile .ellipse6,
-  body.is-mobile .ellipse7 {
+  body.is-mobile .ellipse7,
+  body.is-mobile .bar-dot,
+  body.is-mobile .company-history-dot {
     width: 14px;
     height: 14px;
-    border: 3px solid #1c7dcd;
-    border-radius: 50%;
-    background: #ffffff;
-    box-sizing: border-box;
   }
 
   body.is-mobile .rectangle,
   body.is-mobile .rectangle2,
-  body.is-mobile .rectangle3 {
+  body.is-mobile .rectangle3,
+  body.is-mobile .bar-line,
+  body.is-mobile .company-history-bar-line {
     width: 2px;
     background: #daecfa;
     flex: 1 1 auto;
@@ -516,11 +610,15 @@
   body.is-mobile .text9,
   body.is-mobile .text10,
   body.is-mobile .text11,
-  body.is-mobile .text12 {
+  body.is-mobile .text12,
+  body.is-mobile .item-text,
+  body.is-mobile .company-history-item-text {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     gap: 4px;
+    padding: 16px 0;
+    padding-bottom: 16px;
   }
 
   body.is-mobile .section-company-history .date {
@@ -537,6 +635,37 @@
     color: #666666;
     font-size: 16px;
     line-height: 24px;
+  }
+
+  body.is-mobile .item-year,
+  body.is-mobile .company-history-year {
+    margin: 0;
+    color: #949494;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+
+  body.is-mobile .item-desc,
+  body.is-mobile .company-history-desc {
+    margin: 0;
+    color: #949494;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  body.is-mobile .timeline-item.active .item-year,
+  body.is-mobile .company-history-timeline-item.active .item-year {
+    color: #1a1a1a;
+  }
+
+  body.is-mobile .timeline-item.active .item-desc,
+  body.is-mobile .company-history-timeline-item.active .item-desc {
+    color: #666666;
+  }
+
+  body.is-mobile .company-history-button {
+    width: 100%;
   }
 
   body.is-mobile .section-more-info {

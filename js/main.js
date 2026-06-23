@@ -1,4 +1,4 @@
-﻿// js/main.js
+// js/main.js
 
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMode();
@@ -10,10 +10,86 @@ document.addEventListener('DOMContentLoaded', () => {
   initLangSelector();
   initMobileLangSelector();
   initStatCounter();
+  initSmoothHashScroll();
   
   // Wait for video to load before initializing banner animations
   initAnimationsAfterVideoLoad();
+  
+  // Run initActiveNav after all other scripts have run to ensure it takes precedence
+  setTimeout(initActiveNav, 100);
 });
+
+function initSmoothHashScroll() {
+  const ANCHOR_FINE_TUNE = 24;
+  const GROUP_REGION_NAV_EXTRA_OFFSET = -60;
+
+  const getFixedTopOffset = () => {
+    const header = document.querySelector('.global-header');
+    const headerHeight = header ? header.offsetHeight : 0;
+    const secondaryNav = document.querySelector('.about-mobile-tab, .group-companies-page .tab');
+    const secondaryNavHeight = secondaryNav && window.getComputedStyle(secondaryNav).display !== 'none'
+      ? secondaryNav.offsetHeight
+      : 0;
+
+    return headerHeight + secondaryNavHeight;
+  };
+
+  const scrollToHashTarget = (targetElement, behavior) => {
+    if (targetElement.id === 'group-company-regions') {
+      const groupRegionNav = document.querySelector('.group-region-nav');
+
+      if (groupRegionNav && window.getComputedStyle(groupRegionNav).display !== 'none') {
+        const navTargetPosition = groupRegionNav.getBoundingClientRect().top + window.pageYOffset - getFixedTopOffset() + GROUP_REGION_NAV_EXTRA_OFFSET;
+
+        window.scrollTo({
+          top: navTargetPosition,
+          behavior
+        });
+        return;
+      }
+    }
+
+    const computedStyle = window.getComputedStyle(targetElement);
+    const scrollMarginTop = parseFloat(computedStyle.scrollMarginTop) || 0;
+    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - (scrollMarginTop + ANCHOR_FINE_TUNE);
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior
+    });
+  };
+
+  if (window.location.hash) {
+    const targetId = window.location.hash.substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      setTimeout(() => {
+        scrollToHashTarget(targetElement, 'auto');
+      }, 120);
+    }
+  }
+
+  // Handle click on hash links within the same page
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#') {
+        e.preventDefault();
+        return;
+      }
+      
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        e.preventDefault();
+        scrollToHashTarget(targetElement, 'smooth');
+        history.pushState(null, null, href);
+      }
+    });
+  });
+}
 
 function initAnimationsAfterVideoLoad() {
   const heroVideo = document.querySelector('.hero-video');
@@ -185,10 +261,14 @@ function initHeaderScrollState() {
   window.addEventListener('scroll', requestSync, { passive: true });
 }
 
+var ASSETS_PATH = window.location.pathname.includes('/jp/') ? '../assets/images/' : 'assets/images/';
+
 var BASES_DOT_DATA = {
   1: {
     title: 'Japan',
-    image: 'assets/images/bases_region_japan.png',
+    dotId: 7,
+    image: ASSETS_PATH + 'bases_region_japan.png',
+    anchor: 'group-japan',
     stats: [
       { label: 'Sales & Service', value: '35' },
       { label: 'R&D', value: '4' },
@@ -197,7 +277,9 @@ var BASES_DOT_DATA = {
   },
   2: {
     title: 'China',
-    image: 'assets/images/bases_region_china.png',
+    dotId: 2,
+    image: ASSETS_PATH + 'bases_region_china.png',
+    anchor: 'group-china',
     stats: [
       { label: 'Sales & Service', value: '15' },
       { label: 'R&D', value: '1' },
@@ -206,7 +288,9 @@ var BASES_DOT_DATA = {
   },
   3: {
     title: 'Korea',
-    image: 'assets/images/bases_region_korea.png',
+    dotId: 6,
+    image: ASSETS_PATH + 'bases_region_korea.png',
+    anchor: 'group-korea',
     stats: [
       { label: 'Sales & Service', value: '8' },
       { label: 'R&D', value: '1' },
@@ -215,7 +299,9 @@ var BASES_DOT_DATA = {
   },
   4: {
     title: 'Taiwan',
-    image: 'assets/images/bases_region_taiwan.png',
+    dotId: 3,
+    image: ASSETS_PATH + 'bases_region_taiwan.png',
+    anchor: 'group-taiwan',
     stats: [
       { label: 'Sales & Service', value: '3' },
       { label: 'R&D', value: '1' },
@@ -223,8 +309,10 @@ var BASES_DOT_DATA = {
     ]
   },
   5: {
-    title: 'Americas',
-    image: 'assets/images/bases_region_americas.png',
+    title: 'USA',
+    dotId: 5,
+    image: ASSETS_PATH + 'bases_region_americas.png',
+    anchor: 'group-usa',
     stats: [
       { label: 'Sales & Service', value: '1' },
       { label: 'R&D', value: '1' },
@@ -233,14 +321,18 @@ var BASES_DOT_DATA = {
   },
   6: {
     title: 'Europe',
-    image: 'assets/images/bases_region_europe.png',
+    dotId: 1,
+    image: ASSETS_PATH + 'bases_region_europe.png',
+    anchor: 'group-europe',
     stats: [
       { label: 'Sales & Service', value: '1' }
     ]
   },
   7: {
     title: 'Southeast Asia',
-    image: 'assets/images/bases_region_southeast_asia.png',
+    dotId: 4,
+    image: ASSETS_PATH + 'bases_region_southeast_asia.png',
+    anchor: 'group-southeast-asia',
     stats: [
       { label: 'Sales & Service', value: '2' }
     ]
@@ -405,10 +497,7 @@ function initBasesMapSwitcher() {
   cardNext.style.pointerEvents = 'none';
   if (cardMobileNext) cardMobileNext.style.pointerEvents = 'none';
 
-  var activeDotEl = dots.find(function(dot) {
-    return dot.classList.contains('is-active');
-  });
-  var activeDot = activeDotEl ? Number(activeDotEl.dataset.dot) : 1;
+  var activeDot = 1;
   var totalDots = Array.from(new Set(dots.map(function(dot) {
     return Number(dot.dataset.dot);
   }))).length;
@@ -416,8 +505,8 @@ function initBasesMapSwitcher() {
   var transitionDurationMs = 580;
   var transitionTiming = 'cubic-bezier(0.22, 0.61, 0.36, 1)';
   var mobileModeQuery = window.matchMedia('(max-width: 991px)');
-  var viewportSyncTimer = 0;
-  // #region debug-point A:init-state
+    var viewportSyncTimer = 0;
+    // #region debug-point A:init-state
   debugReport('A', 'initial-state', {
     activeDot: activeDot,
     totalDots: totalDots,
@@ -689,7 +778,7 @@ function initBasesMapSwitcher() {
       }).join('');
     }
 
-    function fillCard(titleEl, imageEl, statsEl, d) {
+    function fillCard(cardEl, titleEl, imageEl, statsEl, d) {
       // #region debug-point F:image-assign
       debugReport('F', 'image-assign', {
         targetTitle: d.title,
@@ -702,6 +791,9 @@ function initBasesMapSwitcher() {
       titleEl.textContent = d.title;
       imageEl.src = d.image;
       statsEl.innerHTML = buildStatsHtml(d);
+      if (cardEl && d.anchor) {
+        cardEl.href = 'group-companies.html#' + d.anchor;
+      }
     }
 
     function slidePair(pair, gap, pairAnimate) {
@@ -728,8 +820,8 @@ function initBasesMapSwitcher() {
       // #endregion
 
       if (!pairAnimate) {
-        fillCard(t1, i1, s1, data);
-        fillCard(t2, i2, s2, stagedData);
+        fillCard(card1, t1, i1, s1, data);
+        fillCard(card2, t2, i2, s2, stagedData);
         card1.style.transition = '';
         card1.style.transform = '';
         card2.style.transition = 'none';
@@ -750,7 +842,7 @@ function initBasesMapSwitcher() {
         return Promise.resolve();
       }
 
-      fillCard(t2, i2, s2, data);
+      fillCard(card2, t2, i2, s2, data);
       card1.style.transition = 'none';
       card2.style.transition = 'none';
       card1.style.zIndex = '1';
@@ -793,7 +885,7 @@ function initBasesMapSwitcher() {
           card1.style.transition = 'transform ' + (transitionDurationMs / 1000) + 's ' + transitionTiming;
           card2.style.transition = 'transform ' + (transitionDurationMs / 1000) + 's ' + transitionTiming;
           card1.style.transform = getExitTransform(dir, gap);
-          card2.style.transform = 'translateX(0)';
+            card2.style.transform = 'translateX(0)';
 
           if (dir === 'right') {
             // #region debug-point C:right-after-raf
@@ -823,7 +915,7 @@ function initBasesMapSwitcher() {
             pair.currentCardEl.style.transition = '';
             pair.currentCardEl.style.transform = '';
 
-            fillCard(pair.bufferTitleEl, pair.bufferImageEl, pair.bufferStatsEl, stagedData);
+            fillCard(pair.bufferCardEl, pair.bufferTitleEl, pair.bufferImageEl, pair.bufferStatsEl, stagedData);
             pair.bufferCardEl.style.transition = 'none';
             pair.bufferCardEl.style.transform = 'translateX(calc(100% + ' + gap + 'px))';
             syncPairWrapperHeight(pair, getPairStageHeight(pair, measureCardHeight(pair.currentCardEl)), false);
@@ -890,8 +982,10 @@ function initBasesMapSwitcher() {
   }
 
   function setActiveDot(dotId) {
+    var data = BASES_DOT_DATA[dotId];
+    var activeLocationId = data && data.dotId ? data.dotId : dotId;
     dots.forEach(function (dot) {
-      var isActive = Number(dot.dataset.dot) === dotId;
+      var isActive = Number(dot.dataset.dot) === activeLocationId;
       dot.classList.toggle('is-active', isActive);
     });
   }
@@ -966,7 +1060,10 @@ function initBasesMapSwitcher() {
 
   dots.forEach(function (dot) {
     dot.addEventListener('click', function () {
-      var dotId = Number(dot.dataset.dot);
+      var locationId = Number(dot.dataset.dot);
+      var dotId = Number(Object.keys(BASES_DOT_DATA).find(function(key) {
+        return BASES_DOT_DATA[key].dotId === locationId;
+      })) || locationId;
       // #region debug-point E:dot-click
       debugReport('E', 'dot-click', {
         trigger: 'dot',
@@ -1019,6 +1116,19 @@ function initLangSelector() {
   
   if (!selector || !dropdown || !options.length || !currentLangEl) return;
 
+  const currentLang = typeof getCurrentLang === 'function' ? getCurrentLang() : 'en';
+  
+  const langLabels = {
+    en: 'English',
+    ja: 'Japanese'
+  };
+  
+  currentLangEl.textContent = langLabels[currentLang] || 'English';
+  
+  options.forEach(opt => {
+    opt.classList.toggle('active-lang', opt.dataset.lang === currentLang);
+  });
+
   const toggleDropdown = () => {
     const isOpen = selector.classList.contains('active');
     
@@ -1051,6 +1161,10 @@ function initLangSelector() {
     closeDropdown();
     
     selector.focus();
+    
+    if (typeof setLang === 'function') {
+      setLang(langCode);
+    }
   };
 
   selector.addEventListener('click', toggleDropdown);
@@ -1146,6 +1260,136 @@ function initStatCounter() {
 
   statValues.forEach(value => {
     observer.observe(value);
+  });
+}
+
+function initGdprBanner() {
+  const banner = document.getElementById('gdpr-banner');
+  const acceptBtn = document.querySelector('.gdpr-btn-accept');
+  const declineBtn = document.querySelector('.gdpr-btn-decline');
+  
+  if (!banner) return;
+
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  };
+
+  const setCookie = (name, value, days) => {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = `expires=${date.toUTCString()}`;
+    document.cookie = `${name}=${value}; ${expires}; path=/`;
+  };
+
+  const hideBanner = () => {
+    banner.classList.remove('is-visible');
+    banner.style.display = 'none';
+  };
+
+  const handleAccept = () => {
+    setCookie('gdpr_consent', 'accepted', 365);
+    hideBanner();
+  };
+
+  const handleDecline = () => {
+    setCookie('gdpr_consent', 'declined', 365);
+    hideBanner();
+  };
+
+  const consent = getCookie('gdpr_consent');
+  
+  if (!consent) {
+    setTimeout(() => {
+      banner.classList.add('is-visible');
+    }, 500);
+  } else {
+    hideBanner();
+  }
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', handleAccept);
+  }
+
+  if (declineBtn) {
+    declineBtn.addEventListener('click', handleDecline);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', initGdprBanner);
+
+function initActiveNav() {
+  const currentPath = window.location.pathname;
+  let currentPage = currentPath.split('/').pop() || 'index.html';
+  
+  // Handle root path (homepage)
+  if (currentPage === '' || currentPage === '/') {
+    currentPage = 'index.html';
+  }
+  
+  // Remove .html extension for comparison
+  const currentPageWithoutExt = currentPage.replace(/\.html$/, '');
+  
+  // List of About-related pages
+  const aboutPages = ['about', 'business', 'research-development', 'group-companies'];
+  
+  // Add about-page class to body for About-related pages
+  if (aboutPages.includes(currentPageWithoutExt)) {
+    document.body.classList.add('about-page');
+  }
+  
+  // Handle main navigation
+  const navLinks = document.querySelectorAll('.main-nav a');
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href) {
+      const linkPage = href.split('/').pop().replace(/\.html$/, '');
+      
+      // Check if it's the exact match
+      if (linkPage === currentPageWithoutExt) {
+        link.classList.add('active');
+      }
+      
+      // Special case: About ULVAC should be active for all About-related pages
+      if (linkPage === 'about' && aboutPages.includes(currentPageWithoutExt)) {
+        link.classList.add('active');
+      }
+    }
+  });
+  
+  // Handle About secondary navigation
+  const tabNavLinks = document.querySelectorAll('.tab-nav-item');
+  tabNavLinks.forEach(link => {
+    // Remove is-active class and reset styles
+    link.classList.remove('is-active');
+    link.removeAttribute('aria-current');
+    
+    // Reset styles to default
+    link.style.color = '';
+    const span = link.querySelector('span');
+    if (span) {
+      span.style.fontWeight = '';
+    }
+    // Hide underline
+    link.style.setProperty('--underline-display', 'none');
+    
+    const href = link.getAttribute('href');
+    if (href) {
+      const linkPage = href.split('/').pop().replace(/\.html$/, '');
+      
+      // Secondary menu item is active only if it matches the current page
+      if (linkPage === currentPageWithoutExt) {
+        link.classList.add('is-active');
+        link.setAttribute('aria-current', 'page');
+        
+        // Force styles
+        link.style.color = '#1c7dcd';
+        if (span) {
+          span.style.fontWeight = '700';
+        }
+      }
+    }
   });
 }
 
@@ -1157,6 +1401,19 @@ function initMobileLangSelector() {
   
   if (!selector || !dropdown || !options.length || !currentLangEl) return;
 
+  const currentLang = typeof getCurrentLang === 'function' ? getCurrentLang() : 'en';
+  
+  const langLabels = {
+    en: 'English',
+    ja: 'Japanese'
+  };
+  
+  currentLangEl.textContent = langLabels[currentLang] || 'English';
+  
+  options.forEach(opt => {
+    opt.classList.toggle('active-lang', opt.dataset.lang === currentLang);
+  });
+
   const toggleDropdown = () => {
     const isOpen = selector.classList.contains('active');
     
@@ -1189,6 +1446,10 @@ function initMobileLangSelector() {
     closeDropdown();
     
     selector.focus();
+    
+    if (typeof setLang === 'function') {
+      setLang(langCode);
+    }
   };
 
   selector.addEventListener('click', toggleDropdown);
@@ -1286,3 +1547,60 @@ function initStatCounter() {
     observer.observe(value);
   });
 }
+
+function initGdprBanner() {
+  const banner = document.getElementById('gdpr-banner');
+  const acceptBtn = document.querySelector('.gdpr-btn-accept');
+  const declineBtn = document.querySelector('.gdpr-btn-decline');
+  
+  if (!banner) return;
+
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  };
+
+  const setCookie = (name, value, days) => {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = `expires=${date.toUTCString()}`;
+    document.cookie = `${name}=${value}; ${expires}; path=/`;
+  };
+
+  const hideBanner = () => {
+    banner.classList.remove('is-visible');
+    banner.style.display = 'none';
+  };
+
+  const handleAccept = () => {
+    setCookie('gdpr_consent', 'accepted', 365);
+    hideBanner();
+  };
+
+  const handleDecline = () => {
+    setCookie('gdpr_consent', 'declined', 365);
+    hideBanner();
+  };
+
+  const consent = getCookie('gdpr_consent');
+  
+  if (!consent) {
+    setTimeout(() => {
+      banner.classList.add('is-visible');
+    }, 500);
+  } else {
+    hideBanner();
+  }
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', handleAccept);
+  }
+
+  if (declineBtn) {
+    declineBtn.addEventListener('click', handleDecline);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', initGdprBanner);
+

@@ -183,7 +183,7 @@
 
 @media (max-width: 1366px) {
   .contact-section {
-    padding-top: 80px;
+    padding-top: 91px;
     padding-bottom: 80px;
   }
 
@@ -203,14 +203,14 @@
 
   .contact-title {
     width: 100%;
-    padding: 48px 16px 16px;
+    padding: 48px 0 16px;
     font-size: 34px;
     line-height: 44px;
     letter-spacing: -0.34px;
   }
 
   .contact-grid {
-    padding: 48px 16px 64px;
+    padding: 48px 0 64px;
     grid-template-columns: 1fr;
     gap: 48px;
   }

@@ -3,7 +3,7 @@
 }
 
 .group-companies-hero {
-  padding: 80px 0;
+  padding: 48px 0 80px;
 }
 
 .group-companies-title {
@@ -45,7 +45,9 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 8px 0;
+  min-height: 36px;
+  padding: 8px 10px;
+  margin: -8px -10px;
   color: var(--color-neutral-solid-gray-900);
   font-family: Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
   font-size: var(--font-size-16-fluid);
@@ -141,10 +143,26 @@
   width: 100%;
   padding: 0 0 7px;
   border-bottom: 1px solid #dddddd;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-bottom-color 0.2s ease;
+}
+
+.group-company-row:hover {
+  border-bottom-color: #1c7dcd;
 }
 
 .group-company-row--highlight {
   border-bottom-color: #1c7dcd;
+}
+
+.group-company-row--disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.group-company-row--disabled .group-company-name {
+  color: #333333;
 }
 
 .group-company-name {
@@ -155,8 +173,10 @@
   font-size: var(--font-size-16-fluid);
   font-weight: 700;
   line-height: var(--line-height-16-fluid-loose);
+  transition: color 0.2s ease;
 }
 
+.group-company-row:hover .group-company-name,
 .group-company-row--highlight .group-company-name {
   color: #1c7dcd;
 }
@@ -173,6 +193,10 @@
 }
 
 @media (max-width: 1366px) {
+  .group-companies-hero {
+    padding-top: 35px;
+  }
+
   .group-company-regions {
     padding-top: 60px;
     padding-bottom: 80px;
@@ -184,19 +208,23 @@
     display: none;
   }
 
+  .group-companies-page {
+    padding-top: 56px;
+  }
+
   body.is-nav-mobile .about-header-tab {
     display: none !important;
   }
 
   body.is-nav-mobile .about-mobile-tab {
-    position: sticky;
+    position: fixed;
     top: 69px;
+    left: 0;
     z-index: 110;
     display: block;
     width: 100%;
     background: rgba(255, 255, 255, 0.84);
-    border-bottom: 1px solid rgba(221, 221, 221, 0.85);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(0.5px);
   }
 
   body.is-nav-mobile .about-mobile-tab-inner {
@@ -375,12 +403,23 @@
     line-height: 1.15;
     letter-spacing: -0.4px;
   }
-.group-company-name{
-  font-size: 16px;
-}
-.group-company-location{
-  font-size: 13px;
-}
+
+  .group-companies-page {
+    padding-top: 56px;
+  }
+
+  body.is-bases-mobile .bases-section {
+    padding-top: 48px;
+  }
+
+  .group-company-name {
+    font-size: 16px;
+  }
+
+  .group-company-location {
+    font-size: 13px;
+  }
+
   .group-company-regions {
     padding-bottom: 64px;
   }
