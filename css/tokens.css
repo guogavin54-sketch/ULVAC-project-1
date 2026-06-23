@@ -7,6 +7,19 @@
   --color-bg-light: #f5f7fa;
   --color-bg-white: #ffffff;
   
+  /* Neutral Solid Gray Colors */
+  --color-neutral-solid-gray-900: #1A1A1A;
+  --color-neutral-solid-gray-800: #333333;
+  --color-neutral-solid-gray-600: #666666;
+  --color-neutral-solid-gray-536: #767676;
+  --color-neutral-solid-gray-500: #7F7F7F;
+  --color-neutral-solid-gray-400: #999999;
+  --color-neutral-solid-gray-200: #CCCCCC;
+  --color-neutral-solid-gray-100: #E6E6E6;
+  
+  /* Neutral Opacity Gray Colors */
+  --color-neutral-opacity-gray-900: #000000;
+  
   --color-text-main: #222222;
   --color-text-muted: #555555;
   --color-text-light: #999999;
