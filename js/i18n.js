@@ -88,9 +88,9 @@ const i18n = {
   },
   ja: {
     header: {
-      about: 'ULVACについて',
+      about: 'アルバックを知る',
       news: 'ニュース',
-      investorRelations: '投資家情報',
+      investorRelations: '株主・投資家情報',
       contact: 'お問い合わせ',
       language: '日本語'
     },
@@ -136,38 +136,38 @@ const i18n = {
       sustainability: '持続可能性'
     },
     bases: {
-      title: 'ULVAC 主要拠点',
-      seeAll: 'グループ会社一覧',
+      title: 'アルバックの主要拠点',
+      seeAll: 'グループ会社一覧を見る',
       japan: '日本',
       china: '中国',
       korea: '韓国',
       taiwan: '台湾',
       americas: 'アメリカ',
-      europe: '欧州',
+      europe: 'ヨーロッパ',
       southeastAsia: '東南アジア',
       salesService: '営業・サービス',
       rd: '研究開発',
-      manufacturing: '製造'
+      manufacturing: '生産'
     },
     report: {
       title: 'ULVAC VALUE REPORT 2025',
-      description: '持続的成長と長期的な価値創造への取り組み',
-      viewReport: 'レポートを見る'
+      description: '持続的成長と企業価値向上に向けた取り組み',
+      viewReport: '統合レポートを見る'
     },
     footer: {
       sitemap: 'サイトマップ',
-      home: 'ホーム',
-      ulvacSites: 'ULVACサイト',
-      corporateEn: '本社サイト（英語）',
-      corporateJp: '本社サイト（日本語）',
-      privacy: 'プライバシーポリシー',
-      terms: '利用規約',
+      home: 'トップ',
+      ulvacSites: 'ULVACウェブサイト',
+      corporateEn: 'ULVAC, Inc.（英語）',
+      corporateJp: 'ULVAC, Inc.（日本語）',
+      privacy: '個人情報保護方針',
+      terms: 'ご利用規約',
       copyright: '&copy; 2026 ULVAC, Inc. All rights reserved.'
     },
     about: {
-      overview: '会社概要',
-      ourBusiness: '事業内容',
-      rd: '研究開発',
+      overview: '概要',
+      ourBusiness: '事業領域',
+      rd: '研究・開発',
       groupCompanies: 'グループ会社'
     }
   }

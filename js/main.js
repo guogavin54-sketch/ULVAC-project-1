@@ -263,78 +263,86 @@ function initHeaderScrollState() {
 
 var ASSETS_PATH = window.location.pathname.includes('/jp/') ? '../assets/images/' : 'assets/images/';
 
+var BASES_LANG = typeof getCurrentLang === 'function' ? getCurrentLang() : (window.location.pathname.includes('/jp/') ? 'ja' : 'en');
+var getBasesText = function(key, fallback) {
+  if (typeof getLangText !== 'function') return fallback;
+  var value = getLangText(key);
+  if (!value || value === key) return fallback;
+  return value;
+};
+
 var BASES_DOT_DATA = {
   1: {
-    title: 'Japan',
+    title: getBasesText('bases.japan', 'Japan'),
     dotId: 7,
     image: ASSETS_PATH + 'bases_region_japan.png',
     anchor: 'group-japan',
     stats: [
-      { label: 'Sales & Service', value: '35' },
-      { label: 'R&D', value: '4' },
-      { label: 'Manufacturing', value: '11' }
+      { label: getBasesText('bases.salesService', 'Sales & Service'), value: '35' },
+      { label: getBasesText('bases.rd', 'R&D'), value: '4' },
+      { label: getBasesText('bases.manufacturing', 'Manufacturing'), value: '11' }
     ]
   },
   2: {
-    title: 'China',
+    title: getBasesText('bases.china', 'China'),
     dotId: 2,
     image: ASSETS_PATH + 'bases_region_china.png',
     anchor: 'group-china',
     stats: [
-      { label: 'Sales & Service', value: '15' },
-      { label: 'R&D', value: '1' },
-      { label: 'Manufacturing', value: '9' }
+      { label: getBasesText('bases.salesService', 'Sales & Service'), value: '15' },
+      { label: getBasesText('bases.rd', 'R&D'), value: '1' },
+      { label: getBasesText('bases.manufacturing', 'Manufacturing'), value: '9' }
     ]
   },
   3: {
-    title: 'Korea',
+    title: getBasesText('bases.korea', 'Korea'),
     dotId: 6,
     image: ASSETS_PATH + 'bases_region_korea.png',
     anchor: 'group-korea',
     stats: [
-      { label: 'Sales & Service', value: '8' },
-      { label: 'R&D', value: '1' },
-      { label: 'Manufacturing', value: '2' }
+      { label: getBasesText('bases.salesService', 'Sales & Service'), value: '8' },
+      { label: getBasesText('bases.rd', 'R&D'), value: '1' },
+      { label: getBasesText('bases.manufacturing', 'Manufacturing'), value: '2' }
     ]
   },
   4: {
-    title: 'Taiwan',
+    title: getBasesText('bases.taiwan', 'Taiwan'),
     dotId: 3,
     image: ASSETS_PATH + 'bases_region_taiwan.png',
     anchor: 'group-taiwan',
     stats: [
-      { label: 'Sales & Service', value: '3' },
-      { label: 'R&D', value: '1' },
-      { label: 'Manufacturing', value: '3' }
+      { label: getBasesText('bases.salesService', 'Sales & Service'), value: '3' },
+      { label: getBasesText('bases.rd', 'R&D'), value: '1' },
+      { label: getBasesText('bases.manufacturing', 'Manufacturing'), value: '3' }
     ]
   },
   5: {
-    title: 'USA',
+    title: getBasesText('bases.americas', 'USA'),
     dotId: 5,
     image: ASSETS_PATH + 'bases_region_americas.png',
     anchor: 'group-usa',
     stats: [
-      { label: 'Sales & Service', value: '1' },
-      { label: 'R&D', value: '1' },
-      { label: 'Manufacturing', value: '1' }
+      { label: getBasesText('bases.salesService', 'Sales & Service'), value: '1' },
+      { label: getBasesText('bases.rd', 'R&D'), value: '1' },
+      { label: getBasesText('bases.manufacturing', 'Manufacturing'), value: '1' }
     ]
   },
   6: {
-    title: 'Europe',
+    title: getBasesText('bases.europe', 'Europe'),
     dotId: 1,
     image: ASSETS_PATH + 'bases_region_europe.png',
     anchor: 'group-europe',
     stats: [
-      { label: 'Sales & Service', value: '1' }
+      { label: getBasesText('bases.salesService', 'Sales & Service'), value: '1' }
     ]
   },
   7: {
-    title: 'Southeast Asia',
+    title: getBasesText('bases.southeastAsia', 'Southeast Asia'),
     dotId: 4,
     image: ASSETS_PATH + 'bases_region_southeast_asia.png',
     anchor: 'group-southeast-asia',
     stats: [
-      { label: 'Sales & Service', value: '2' }
+      { label: getBasesText('bases.salesService', 'Sales & Service'), value: '2' }
     ]
   }
 };
@@ -1120,7 +1128,7 @@ function initLangSelector() {
   
   const langLabels = {
     en: 'English',
-    ja: 'Japanese'
+    ja: '日本語'
   };
   
   currentLangEl.textContent = langLabels[currentLang] || 'English';
@@ -1405,7 +1413,7 @@ function initMobileLangSelector() {
   
   const langLabels = {
     en: 'English',
-    ja: 'Japanese'
+    ja: '日本語'
   };
   
   currentLangEl.textContent = langLabels[currentLang] || 'English';

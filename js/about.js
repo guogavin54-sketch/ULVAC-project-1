@@ -22,6 +22,10 @@
     
     if (!showMoreBtn || !textEl) return;
 
+    var currentLang = typeof getCurrentLang === 'function' ? getCurrentLang() : (window.location.pathname.includes('/jp/') ? 'ja' : 'en');
+    var moreLabel = currentLang === 'ja' ? '続きを読む' : 'Show More';
+    var lessLabel = currentLang === 'ja' ? '閉じる' : 'Show Less';
+
     var collapsedText = textEl.getAttribute('data-collapsed-text') || textEl.textContent.trim();
     var expandedHtml = expandedSource ? expandedSource.innerHTML : '';
 
@@ -32,7 +36,7 @@
         expandIcon.classList.remove('rotated');
       }
       if (text2) {
-        text2.textContent = 'Show More';
+        text2.textContent = moreLabel;
       }
     };
 
@@ -45,7 +49,7 @@
         expandIcon.classList.add('rotated');
       }
       if (text2) {
-        text2.textContent = 'Show Less';
+        text2.textContent = lessLabel;
       }
     };
 
@@ -201,6 +205,10 @@
     if (!desktopList || !mobileList || !desktopImg || !mobileImg || !historySection || !mobileHistory) return;
 
     var ASSETS_PATH = window.location.pathname.includes('/jp/') ? '../assets/images/' : 'assets/images/';
+    var isJa = window.location.pathname.includes('/jp/');
+    var tr = function(enText, jaText) {
+      return isJa ? jaText : enText;
+    };
 
     var IMAGES = {
       img1952: ASSETS_PATH + '1952.jpg',
@@ -213,37 +221,40 @@
       img2004b: ASSETS_PATH + '2004_2.png',
       img2011: ASSETS_PATH + '2011.png',
       img2024: ASSETS_PATH + '2024.png',
-      imgFallback: ASSETS_PATH + 'ulvac-logo.png'
+      imgFallback: ASSETS_PATH + 'ulvac-logo-1.png'
     };
 
     var timelineData = [
-      { year: '1952', text: 'Founded Japan Vacuum Engineering Co., Ltd.', image: IMAGES.img1952, hasDedicatedImage: true },
-      { year: '1952', text: 'Received first order for vacuum evaporation equipment for coating automobile parts from ICHIKOH INDUSTRIES (formerly HAKKOSHA).', image: IMAGES.img1952, hasDedicatedImage: true },
-      { year: '1955', text: 'Opened the Omori Plant in Tokyo to start manufacturing equipment in Japan.', image: IMAGES.img1955, hasDedicatedImage: true },
-      { year: '1959', text: 'Opened the Yokohama Plant.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '1960', text: 'Developed large-scale vacuum equipment for heavy industries, such as vacuum melting furnaces and vacuum distillation equipment.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '1964', text: 'Established the first overseas subsidiary in Hong Kong.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '1968', text: 'Head Office/Plant completed in Chigasaki, Kanagawa Prefecture.', image: IMAGES.img1968, hasDedicatedImage: true },
-      { year: '1972', text: "Opened the Institute for Super Materials as ULVAC's first research facility.", image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '1975', text: 'Established a subsidiary in North America as a base for exports to the U.S.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '1975', text: 'Received order from IBM for "SYSTEM 731," the world\'s first computer-controlled, fully automatic vacuum evaporation equipment.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '1982', text: 'Established a subsidiary in Taiwan.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '1983', text: 'Opened the Beijing Office in China.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '1986', text: 'Launched "MCH Series," the world\'s first multi-chamber sputtering system, gaining high acclaim from many semiconductor manufacturers.', image: IMAGES.img1986, hasDedicatedImage: true },
-      { year: '1987', text: 'Established ULVAC GmbH in West Germany to enhance services in Europe.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '1988', text: 'Introduced "SHD Series" sputtering system for manufacturing hard disks which became a global success.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '1990', text: 'Opened the Fuji Susono Plant in Shizuoka Prefecture, as a plant dedicated to semiconductor production equipment.', image: IMAGES.img1990, hasDedicatedImage: true },
-      { year: '1992', text: 'Launched "SMD Series" deposition system for LCD production, laying the foundation for the Flat Panel Display (FPD) business.', image: IMAGES.img1992, hasDedicatedImage: true },
-      { year: '1995', text: 'Established a vacuum pump production base in China and a sales/service base in South Korea.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '2001', text: 'Changed the company name to ULVAC, Inc.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '2003', text: 'Established a full-scale production and service base in China.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '2004', text: 'Listed stock on the First Section of the Tokyo Stock Exchange.', image: IMAGES.img2004, hasDedicatedImage: true },
-      { year: '2004', text: 'Established a production base for full-scale vacuum equipment in Suzhou, China.', image: IMAGES.img2004b, hasDedicatedImage: true },
-      { year: '2011', text: 'Established the Korea Institute for Super Materials in South Korea.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '2018', text: 'Opened the Joint Research Laboratory for Future Technology at The University of Osaka.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '2021', text: 'Opened the ULVAC Advanced Technology Collaborative Research Cluster at Tokyo Institute of Technology (currently Institute of Science Tokyo).', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '2022', text: 'Transitioned to the Prime Market of The Tokyo Stock Exchange following market restructuring.', image: IMAGES.imgFallback, hasDedicatedImage: false },
-      { year: '2024', text: 'Established Technology Center PYEONGTAEK in South Korea.', image: IMAGES.img2024, hasDedicatedImage: true }
+      { year: '1952', text: tr('Founded Japan Vacuum Engineering Co., Ltd.', '日本真空技術株式会社設立'), image: IMAGES.img1952, hasDedicatedImage: true },
+      { year: '1952', text: tr('Received first order for vacuum evaporation equipment for coating automobile parts from HAKKOSHA (currently ICHIKOH INDUSTRIES).', '白光舎（現 市光工業（株））から自動車部品のメッキ用真空蒸着装置を初受注'), image: IMAGES.img1952, hasDedicatedImage: true },
+      { year: '1955', text: tr('Opened the Omori Plant in Tokyo to start manufacturing equipment in Japan.', '東京都に大森工場を開設、国産装置の製造に着手'), image: IMAGES.img1955, hasDedicatedImage: true },
+      { year: '1959', text: tr('Opened the Yokohama Plant.', '横浜工場開設'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '1960', text: tr('Developed large-scale vacuum equipment for heavy industries, such as vacuum melting furnaces and vacuum distillation equipment.', '真空溶解炉や真空蒸留装置など重厚長大産業向け大型真空装置を次々と開発'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '1963', text: tr('Adopted “ULVAC” as the official trademark.', 'ULVACを商標として制定'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '1964', text: tr('Established the first overseas subsidiary in Hong Kong.', '初の海外法人を香港に設立'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '1968', text: tr('Head Office/Plant completed in Chigasaki, Kanagawa Prefecture.', '神奈川県茅ヶ崎市に本社・工場竣工'), image: IMAGES.img1968, hasDedicatedImage: true },
+      { year: '1969', text: tr('Changed the English corporate name to ULVAC CORPORATION.', '英文社名をULVAC CORPORATIONに改称'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '1972', text: tr('Opened the Institute for Super Materials as ULVAC’s first research facility.', 'アルバック初の研究機関として超材料研究所を開設'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '1973', text: tr('Developed the world’s first transparent conductive film deposition equipment for LCD calculator displays.', '世界初となる液晶表示電卓用液晶ディスプレイ透明導電膜成膜装置を開発'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '1975', text: tr('Established a subsidiary in North America as a base for exports to the U.S.', '対米輸出の拠点として北米に現地法人を設立'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '1975', text: tr('Received order from IBM for “SYSTEM 731,” the world’s first computer-controlled, fully automatic vacuum evaporation equipment.', 'IBMより世界初全自動真空蒸着装置「システム731」受注'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '1982', text: tr('Established a subsidiary in Taiwan.', '台湾に現地法人を設立'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '1983', text: tr('Opened the Beijing Office in China.', '中国に北京事務所を開設'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '1986', text: tr('Launched “MCH Series,” the world’s first multi-chamber sputtering system, gaining high acclaim from many semiconductor manufacturers.', '世界初のマルチチャンバ型スパッタリング装置「MCHシリーズ」が多くの半導体メーカーから好評を博す'), image: IMAGES.img1986, hasDedicatedImage: true },
+      { year: '1987', text: tr('Established ULVAC GmbH in West Germany to enhance services in Europe.', '欧州地区のサービス体制強化のため、西独にULVAC GmbHを設立'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '1988', text: tr('Introduced “SHD Series” sputtering system for manufacturing hard disks which became a global success.', 'ハードディスク向け製造装置「SHDシリーズ」が世界的にヒット'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '1990', text: tr('Opened the Fuji Susono Plant in Shizuoka Prefecture, as a plant dedicated to semiconductor production equipment.', '半導体製造装置の専門工場として静岡県に富士裾野工場を開設'), image: IMAGES.img1990, hasDedicatedImage: true },
+      { year: '1992', text: tr('Launched “SMD Series” deposition system for LCD production, laying the foundation for the Flat Panel Display (FPD) business.', 'FPD事業の礎を築いたLCD用枚葉式成膜装置「SMDシリーズ」をリリース'), image: IMAGES.img1992, hasDedicatedImage: true },
+      { year: '1995', text: tr('Established a vacuum pump production base in China and a sales/service base in South Korea.', '中国に真空ポンプの生産拠点、韓国に販売・サービス拠点を設立'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '2001', text: tr('Changed the company name to ULVAC, Inc.', '社名を株式会社アルバック（英文名：ULVAC, Inc.）に変更'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '2003', text: tr('Established a full-scale production and service base in China.', '中国における本格的生産とサービス拠点を設立'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '2004', text: tr('Listed stock on the First Section of the Tokyo Stock Exchange.', '東京証券取引所市場第一部上場'), image: IMAGES.img2004, hasDedicatedImage: true },
+      { year: '2004', text: tr('Established a production base for full-scale vacuum equipment in Suzhou, China.', '中国蘇州に本格的な真空装置の生産拠点を設立'), image: IMAGES.img2004b, hasDedicatedImage: true },
+      { year: '2011', text: tr('Established the Korea Institute for Super Materials in South Korea.', '韓国に韓国超材料研究所を設立'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '2018', text: tr('Opened the Joint Research Laboratory for Future Technology at The University of Osaka.', '大阪大学内にアルバック未来技術協働研究所を開設'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '2021', text: tr('Opened the ULVAC Advanced Technology Collaborative Research Cluster at Tokyo Institute of Technology (currently Institute of Science Tokyo).', '東京工業大学（現 東京科学大学）にアルバック先進技術協働研究拠点を開設'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '2022', text: tr('Transitioned to the Prime Market of The Tokyo Stock Exchange following market restructuring.', '東京証券取引所の市場第一部からプライム市場に移行'), image: IMAGES.imgFallback, hasDedicatedImage: false },
+      { year: '2024', text: tr('Established Technology Center PYEONGTAEK in South Korea.', '韓国にTechnology Center PYEONGTAEKを設立'), image: IMAGES.img2024, hasDedicatedImage: true }
     ];
     var mobileLockEndIndex = (function() {
       for (var i = timelineData.length - 1; i >= 0; i -= 1) {

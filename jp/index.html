@@ -1,10 +1,12 @@
-﻿﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ja">
 <head>
+  <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ULVAC Global | Vacuum Technology</title>
-  
+  <title>真空技術をコアに社会課題に挑む | ULVAC Global</title>
+  <meta name="description" content="真空技術をコアに、先端半導体や量子コンピューティングの最先端分野からレアアース磁石、バッテリー等の社会基盤分野まで、革新的な製造ソリューションを提供します。">
+
   <!-- Preconnect and Google Fonts (Inter, Roboto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +22,9 @@
     body.auth-complete {
       opacity: 1;
       visibility: visible;
+    }
+    .gdpr-link{
+      margin-left: 0 !important;
     }
   </style>
   
@@ -74,24 +79,24 @@
       <nav class="main-nav">
         <ul>
           <li class="about-nav-item">
-            <a href="about.html" class="hover-color-effect" data-text="About ULVAC"><span>About ULVAC</span></a>
+            <a href="about.html" class="hover-color-effect" data-text="アルバックを知る"><span>アルバックを知る</span></a>
             <nav class="tab about-header-tab" aria-label="About secondary navigation">
               <div class="container">
-                <a href="about.html" class="tab-nav-item" data-text="Overview"><span>Overview</span></a>
-                <a href="business.html" class="tab-nav-item" data-text="Our Business"><span>Our Business</span></a>
-                <a href="research-development.html" class="tab-nav-item" data-text="R&amp;D"><span>R&amp;D</span></a>
-                <a href="group-companies.html" class="tab-nav-item" data-text="Group Companies"><span>Group Companies</span></a>
+                <a href="about.html" class="tab-nav-item" data-text="概要"><span>概要</span></a>
+                <a href="business.html" class="tab-nav-item" data-text="事業領域"><span>事業領域</span></a>
+                <a href="research-development.html" class="tab-nav-item" data-text="研究・開発"><span>研究・開発</span></a>
+                <a href="group-companies.html" class="tab-nav-item" data-text="グループ会社"><span>グループ会社</span></a>
               </div>
             </nav>
           </li>
-          <li><a href="news.html" class="hover-color-effect" data-text="News"><span>News</span></a></li>
-          <li><a href="investor-relations.html" class="hover-color-effect" data-text="Investor Relations"><span>Investor Relations</span></a></li>
-          <li><a href="contact.html" class="hover-color-effect" data-text="Contact"><span>Contact</span></a></li>
+          <li><a href="news.html" class="hover-color-effect" data-text="ニュース"><span>ニュース</span></a></li>
+          <li><a href="investor-relations.html" class="hover-color-effect" data-text="株主・投資家情報"><span>株主・投資家情報</span></a></li>
+          <li><a href="contact.html" class="hover-color-effect" data-text="お問い合わせ"><span>お問い合わせ</span></a></li>
         </ul>
       </nav>
       <div class="lang-selector" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="lang-dropdown">
         <img src="../assets/images/icon_language_globe.png" alt="Language" class="lang-icon">
-        <span class="current-lang">English</span>
+        <span class="current-lang">日本語</span>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lang-arrow">
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
@@ -100,7 +105,7 @@
             <button role="menuitem" class="lang-option" data-lang="en">English</button>
           </li>
           <li role="none">
-            <button role="menuitem" class="lang-option" data-lang="ja">Japanese</button>
+            <button role="menuitem" class="lang-option" data-lang="ja">日本語</button>
           </li>
         </ul>
       </div>
@@ -117,16 +122,16 @@
       </div>
       <nav class="mobile-nav-menu" aria-label="Mobile Navigation">
         <ul class="mobile-nav-list">
-          <li><a href="about.html" class="hover-color-effect">About ULVAC</a></li>
-          <li><a href="news.html" class="hover-color-effect">News</a></li>
-          <li><a href="investor-relations.html" class="hover-color-effect">Investor Relations</a></li>
-          <li><a href="contact.html" class="hover-color-effect">Contact</a></li>
+          <li><a href="about.html" class="hover-color-effect">アルバックを知る</a></li>
+          <li><a href="news.html" class="hover-color-effect">ニュース</a></li>
+          <li><a href="investor-relations.html" class="hover-color-effect">株主・投資家情報</a></li>
+          <li><a href="contact.html" class="hover-color-effect">お問い合わせ</a></li>
         </ul>
       </nav>
       <div class="mobile-lang-selector" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-lang-dropdown">
         <div class="mobile-lang-title">
           <img src="../assets/images/icon_language_globe.png" alt="Language" class="mobile-lang-icon">
-          <span class="mobile-lang-text">English</span>
+          <span class="mobile-lang-text">日本語</span>
         </div>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mobile-lang-arrow">
           <polyline points="6 9 12 15 18 9"></polyline>
@@ -136,7 +141,7 @@
             <button role="menuitem" class="mobile-lang-option" data-lang="en">English</button>
           </li>
           <li role="none">
-            <button role="menuitem" class="mobile-lang-option" data-lang="ja">Japanese</button>
+            <button role="menuitem" class="mobile-lang-option" data-lang="ja">日本語</button>
           </li>
         </ul>
       </div>
@@ -165,10 +170,10 @@
         <div class="scanner-line"></div>
       </div>
       <div class="container hero-content">
-        <h1 class="animate-on-scroll reveal-pop text-spotlight">ULVAC, Global Leader in Vacuum<span class="desktop-br"></span> Technology for Over 70 Years</h1>
-        <p class="hero-description animate-on-scroll reveal-soft delay-100 text-readable">Our advanced technologies support industrial manufacturers with solutions centered around our proprietary vacuum technology, playing an important role in areas of global strategic significance, including advanced semiconductor electronics, rare earth magnet manufacturing, and extreme cooling technologies for quantum computing.</p>
+        <h1 class="animate-on-scroll reveal-pop text-spotlight">真空技術をコアに社会課題に挑む―ULVAC</h1>
+        <p class="hero-description animate-on-scroll reveal-soft delay-100 text-readable">当社は真空技術をコアとして、先端半導体や量子コンピューティングなどの最先端分野から、レアアース磁石やバッテリーなど社会基盤分野に至るまで、製造ソリューションを提供しています。</p>
         <a href="about.html" class="btn-hero-white hover-lift animate-on-scroll reveal-tight delay-200">
-          <span>Learn More About ULVAC</span>
+          <span>アルバックをもっと知る</span>
        <img src="../assets/images/icon_chevron_right_blue.svg" alt="" class="chevron-right-icon">
           </svg>
         </a>
@@ -179,9 +184,9 @@
     <section class="business-section">
       <div class="container business-container">
         <div class="business-header">
-          <h2 class="animate-on-scroll reveal-pop text-spotlight">ULVAC Operates Businesses in Six Areas</h2>
+          <h2 class="animate-on-scroll reveal-pop text-spotlight">アルバックの<span class="desktop-br"></span>6つの事業領域</h2>
           <a href="business.html" class="btn-business hover-lift animate-on-scroll reveal-tight delay-100">
-            <span>See Business Overview</span>
+            <span>事業内容を見る</span>
        <img src="../assets/images/icon_chevron_right_white.svg" alt="" class="chevron-right-icon">
           </a>
         </div>
@@ -189,129 +194,129 @@
           <div class="business-card-container">
             <a href="business.html#semiconductor" class="business-card hover-card-effect animate-on-scroll delay-100">
               <div class="img-wrap">
-                <img src="../assets/images/business_semiconductor_equipment.png" alt="Semiconductor and Electronic Device Production Equipment" loading="lazy" decoding="async">
+                <img src="../assets/images/business_semiconductor_equipment.png" alt="半導体及び電子部品製造装置" loading="lazy" decoding="async">
               </div>
               <div class="card-content">
-                <h3 class="title-semiconductor text-glow-effect">Semiconductor and Electronic Device Production Equipment</h3>
-                <p>Super-miniaturization technologies delivering products that support societal progress through high-performance devices</p>
+                <h3 class="title-semiconductor text-glow-effect">半導体及び電子部品製造装置</h3>
+                <p>次世代デバイスの高性能化に不可欠な微細化の進展を支える技術・装置</p>
               </div>
             </a>
             <a href="business.html#display" class="business-card hover-card-effect animate-on-scroll delay-200">
               <div class="img-wrap">
-                <img src="../assets/images/business_display_energy_equipment.png" alt="Industrial Equipment" loading="lazy" decoding="async">
+                <img src="../assets/images/business_display_energy_equipment.png" alt="一般産業用装置" loading="lazy" decoding="async">
               </div>
               <div class="card-content">
-                <h3 class="text-glow-effect">Display and Energy-Related Production Equipment</h3>
-                <p>Coating and processing solutions for various materials including glass substrates, plastics, and films</p>
+                <h3 class="text-glow-effect">ディスプレイ・エネルギー関連製造装置</h3>
+                <p>ガラス基板、プラスチック、フィルムなど多様な材料に対応する成膜・加工ソリューション</p>
               </div>
             </a>
             <a href="business.html#industrial" class="business-card hover-card-effect animate-on-scroll delay-300">
               <div class="img-wrap">
-                <img src="../assets/images/business_industrial_equipment.png" alt="Display and Energy-Related Production Equipment" loading="lazy" decoding="async">
+                <img src="../assets/images/business_industrial_equipment.png" alt="ディスプレイ・エネルギー関連製造装置" loading="lazy" decoding="async">
               </div>
               <div class="card-content">
-                <h3 class="title-display text-glow-effect">Industrial Equipment</h3>
-                <p>Solutions across wide-ranging industries, including automobile, pharmaceutical, and food</p>
+                <h3 class="title-display text-glow-effect">一般産業用装置</h3>
+                <p>多様な産業向け熱処理・凍結乾燥ソリューション</p>
               </div>
             </a>
           </div>
           <div class="business-card-container">
             <a href="business.html#components" class="business-card hover-card-effect animate-on-scroll delay-400">
               <div class="img-wrap">
-                <img src="../assets/images/business_components.png" alt="Components" loading="lazy" decoding="async">
+                <img src="../assets/images/business_components.png" alt="コンポーネント" loading="lazy" decoding="async">
               </div>
               <div class="card-content">
-                <h3 class="text-glow-effect">Components</h3>
-                <p>Vacuum pumps, measurement and analysis equipment, power generators, and vacuum valves</p>
+                <h3 class="text-glow-effect">コンポーネント</h3>
+                <p>真空ポンプ、計測・分析機器、電源装置、真空バルブなど</p>
               </div>
             </a>
             <a href="business.html#materials" class="business-card hover-card-effect animate-on-scroll delay-500">
               <div class="img-wrap">
-                <img src="../assets/images/business_materials.png" alt="Materials" loading="lazy" decoding="async">
+                <img src="../assets/images/business_materials.png" alt="材料" loading="lazy" decoding="async">
               </div>
               <div class="card-content">
-                <h3 class="text-glow-effect">Materials</h3>
-                <p>Electric materials, such as sputtering targets, and precision-processed metals for diverse applications</p>
+                <h3 class="text-glow-effect">材料</h3>
+                <p>スパッタリングターゲットや機能材料など、高機能・高品質の材料</p>
               </div>
             </a>
             <a href="business.html#vacuum" class="business-card hover-card-effect animate-on-scroll delay-600">
               <div class="img-wrap">
-                <img src="../assets/images/business_vacuum_applications.png" alt="Vacuum Application Business" loading="lazy" decoding="async">
+                <img src="../assets/images/business_vacuum_applications.png" alt="表面分析・コーティング" loading="lazy" decoding="async">
               </div>
               <div class="card-content">
-                <h3 class="title-vacuum text-glow-effect">Vacuum Application Business (Surface analysis and Coating)</h3>
-                <p>Technology derived from vacuum-based production equipment for diverse industries</p>
+                <h3 class="title-vacuum text-glow-effect">表面分析・コーティング</h3>
+                <p>顧客ニーズに応える先進的な表面分析装置、コーティング技術</p>
               </div>
             </a>
           </div>
         </div>
       </div>
       <div class="business-mobile">
-        <h2 class="business-mobile-title">ULVAC Operates Businesses in Six Areas</h2>
+        <h2 class="business-mobile-title">アルバックの6つの事業領域</h2>
         <div class="business-accordion-list">
           <article class="business-accordion-item">
             <button class="business-accordion-trigger" type="button" aria-expanded="false" aria-controls="business-panel-1">
-              <span class="business-accordion-label">Semiconductor and Electronic Device Production Equipment</span>
+              <span class="business-accordion-label">半導体及び電子部品製造装置</span>
               <img src="../assets/images/home_business_accordion_toggle.svg" alt="" class="business-accordion-icon">
             </button>
             <div id="business-panel-1" class="business-accordion-panel">
-              <p>Super-miniaturization technologies delivering products that support societal progress through high-performance devices</p>
-              <a href="business.html#semiconductor" class="business-accordion-link"><img src="../assets/images/business_semiconductor_equipment.png" alt="Semiconductor and Electronic Device Production Equipment" loading="lazy" decoding="async"></a>
+              <p>次世代デバイスの高性能化に不可欠な微細化の進展を支える技術・装置</p>
+              <a href="business.html#semiconductor" class="business-accordion-link"><img src="../assets/images/business_semiconductor_equipment.png" alt="半導体及び電子部品製造装置" loading="lazy" decoding="async"></a>
             </div>
           </article>
           <article class="business-accordion-item">
             <button class="business-accordion-trigger" type="button" aria-expanded="false" aria-controls="business-panel-2">
-              <span class="business-accordion-label">Display and Energy-Related Production Equipment</span>
+              <span class="business-accordion-label">ディスプレイ・エネルギー関連製造装置</span>
               <img src="../assets/images/home_business_accordion_toggle.svg" alt="" class="business-accordion-icon">
             </button>
             <div id="business-panel-2" class="business-accordion-panel">
-              <p>Coating and processing solutions for various materials including glass substrates, plastics, and films</p>
-              <a href="business.html#display" class="business-accordion-link"><img src="../assets/images/business_display_energy_equipment.png" alt="Display and Energy-Related Production Equipment" loading="lazy" decoding="async"></a>
+              <p>ガラス基板、プラスチック、フィルムなど多様な材料に対応する成膜・加工ソリューション</p>
+              <a href="business.html#display" class="business-accordion-link"><img src="../assets/images/business_display_energy_equipment.png" alt="ディスプレイ・エネルギー関連製造装置" loading="lazy" decoding="async"></a>
             </div>
           </article>
           <article class="business-accordion-item">
             <button class="business-accordion-trigger" type="button" aria-expanded="false" aria-controls="business-panel-3">
-              <span class="business-accordion-label">Industrial Equipment</span>
+              <span class="business-accordion-label">一般産業用装置</span>
               <img src="../assets/images/home_business_accordion_toggle.svg" alt="" class="business-accordion-icon">
             </button>
             <div id="business-panel-3" class="business-accordion-panel">
-              <p>Solutions across wide-ranging industries, including automobile, pharmaceutical, and food</p>
-              <a href="business.html#industrial" class="business-accordion-link"><img src="../assets/images/business_industrial_equipment.png" alt="Industrial Equipment" loading="lazy" decoding="async"></a>
+              <p>多様な産業向け熱処理・凍結乾燥ソリューション</p>
+              <a href="business.html#industrial" class="business-accordion-link"><img src="../assets/images/business_industrial_equipment.png" alt="一般産業用装置" loading="lazy" decoding="async"></a>
             </div>
           </article>
           <article class="business-accordion-item">
             <button class="business-accordion-trigger" type="button" aria-expanded="false" aria-controls="business-panel-4">
-              <span class="business-accordion-label">Components</span>
+              <span class="business-accordion-label">コンポーネント</span>
               <img src="../assets/images/home_business_accordion_toggle.svg" alt="" class="business-accordion-icon">
             </button>
             <div id="business-panel-4" class="business-accordion-panel">
-              <p>Vacuum pumps, measurement and analysis equipment, power generators, and vacuum valves</p>
-              <a href="business.html#components" class="business-accordion-link"><img src="../assets/images/business_components.png" alt="Components" loading="lazy" decoding="async"></a>
+              <p>真空ポンプ、計測・分析機器、電源装置、真空バルブなど</p>
+              <a href="business.html#components" class="business-accordion-link"><img src="../assets/images/business_components.png" alt="コンポーネント" loading="lazy" decoding="async"></a>
             </div>
           </article>
           <article class="business-accordion-item">
             <button class="business-accordion-trigger" type="button" aria-expanded="false" aria-controls="business-panel-5">
-              <span class="business-accordion-label">Materials</span>
+              <span class="business-accordion-label">材料</span>
               <img src="../assets/images/home_business_accordion_toggle.svg" alt="" class="business-accordion-icon">
             </button>
             <div id="business-panel-5" class="business-accordion-panel">
-              <p>Electric materials, such as sputtering targets, and precision-processed metals for diverse applications</p>
-              <a href="business.html#materials" class="business-accordion-link"><img src="../assets/images/business_materials.png" alt="Materials" loading="lazy" decoding="async"></a>
+              <p>スパッタリングターゲットや機能材料など、高機能・高品質の材料</p>
+              <a href="business.html#materials" class="business-accordion-link"><img src="../assets/images/business_materials.png" alt="材料" loading="lazy" decoding="async"></a>
             </div>
           </article>
           <article class="business-accordion-item">
             <button class="business-accordion-trigger" type="button" aria-expanded="false" aria-controls="business-panel-6">
-              <span class="business-accordion-label">Vacuum Application Business (Surface analysis and Coating)</span>
+              <span class="business-accordion-label">表面分析・コーティング</span>
               <img src="../assets/images/home_business_accordion_toggle.svg" alt="" class="business-accordion-icon">
             </button>
             <div id="business-panel-6" class="business-accordion-panel">
-              <p>Technology derived from vacuum-based production equipment for diverse industries</p>
-              <a href="business.html#vacuum" class="business-accordion-link"><img src="../assets/images/business_vacuum_applications.png" alt="Vacuum Application Business" loading="lazy" decoding="async"></a>
+              <p>顧客ニーズに応える先進的な表面分析装置、コーティング技術</p>
+              <a href="business.html#vacuum" class="business-accordion-link"><img src="../assets/images/business_vacuum_applications.png" alt="表面分析・コーティング" loading="lazy" decoding="async"></a>
             </div>
           </article>
         </div>
         <a href="business.html" class="btn-business-mobile">
-          <span>See Business Overview</span>
+          <span>事業内容を見る</span>
           <img src="../assets/images/icon_chevron_right_white.svg" alt="">
         </a>
       </div>
@@ -324,98 +329,111 @@
         <div class="profile-overlay"></div>
       </div>
       <div class="container profile-container">
-        <h2 class="animate-on-scroll reveal-pop text-spotlight">Company Profile</h2>
+        <h2 class="animate-on-scroll reveal-pop text-spotlight">数字でみるアルバック</h2>
         <div class="profile-stats-block">
           <div class="profile-stats">
             <div class="stat-card stat-card-sales  animate-on-scroll delay-100">
               <div class="stat-icon"><img src="../assets/images/home_stat_net_sales.png" alt="Net sales" loading="lazy" decoding="async"></div>
               <div class="stat-title">
                 <div class="stat-value-row">
-                  <span class="stat-currency">¥</span>
-                  <span class="stat-value">251.2B</span>
+                 
+                  <span class="stat-value">2,512</span>
+                   <span class="stat-currency">億円</span>
                 </div>
-                <div class="stat-label">net sales</div>
+                <div class="stat-label">売上高</div>
               </div>
             </div>
             <div class="stat-card stat-card-employees  animate-on-scroll delay-200">
               <div class="stat-icon"><img src="../assets/images/home_stat_group_employees.png" alt="Group employees worldwide" loading="lazy" decoding="async"></div>
               <div class="stat-title">
-                <span class="stat-value">6,132</span>
-                <div class="stat-label">group employees worldwide</div>
+ <div class="stat-value-row">
+                 
+                  <span class="stat-value">6,132</span>
+                   <span class="stat-currency">人</span>
+                </div>
+
+               
+                <div class="stat-label">従業員数 (連結)</div>
               </div>
             </div>
             <div class="stat-card stat-card-companies  animate-on-scroll delay-300">
               <div class="stat-icon"><img src="../assets/images/home_stat_group_companies.png" alt="Group companies" loading="lazy" decoding="async"></div>
               <div class="stat-title">
-                <span class="stat-value">41</span>
-                <div class="stat-label">group companies</div>
+<div class="stat-value-row">
+                 
+                  <span class="stat-value">41</span>
+                   <span class="stat-currency">社</span>
+                </div>
+               
+                <div class="stat-label">グループ会社数</div>
               </div>
             </div>
             <div class="stat-card stat-card-rnd  animate-on-scroll delay-400">
               <div class="stat-icon"><img src="../assets/images/home_stat_rnd_investment.png" alt="R&amp;D capital expenditure" loading="lazy" decoding="async"></div>
               <div class="stat-title">
                 <div class="stat-value-row">
-                  <span class="stat-currency">¥ </span>
-                  <span class="stat-value">22.8B</span>
+                  
+                  <span class="stat-value">228</span>
+                  <span class="stat-currency">億円</span>
                 </div>
                 <div class="stat-label">R&D capital expenditure</div>
               </div>
             </div>
           </div>
-          <p class="profile-stats-note animate-on-scroll delay-500">*As of FY2025 (ended June 30, 2025)</p>
+          <p class="profile-stats-note animate-on-scroll delay-500">※2025年6月30日現在</p>
         </div>
       </div>
     </section>
 
-    <!-- Featured News Section -->
+    <!-- ニュース Section -->
     <section class="news-section">
       <div class="container news-container">
-        <h2 class="animate-on-scroll reveal-pop text-spotlight">Featured News</h2>
+        <h2 class="animate-on-scroll reveal-pop text-spotlight">ニュース</h2>
         <div class="news-grid">
             <!-- Large News Item -->
-            <a href="https://www.ulvac.co.jp/en/news/20251218a/" target="_blank" rel="noopener noreferrer" class="news-card large animate-on-scroll reveal-soft delay-100 hover-card-effect">
+            <a href="https://www.ulvac.co.jp/news/20251218a/" target="_blank" rel="noopener noreferrer" class="news-card large animate-on-scroll reveal-soft delay-100 hover-card-effect">
             <div class="news-img-wrap">
               <img src="../assets/images/news_feature_tsmc_desktop.png" alt="News Image" class="news-image-large" loading="lazy" decoding="async">
             </div>
             <div class="news-content">
               <span class="news-date ">2025.12.25</span>
-              <h3 class="text-glow-effect">ULVAC Receives the "2025 TSMC Excellent Performance Award."</h3>
-              <span class="news-tag tag-corporate">Corporate</span>
+              <h3 class="text-glow-effect">TSMCより「2025 TSMC Excellent Performance Award」を受賞しました</h3>
+              <span class="news-tag tag-corporate">コーポレート</span>
             </div>
           </a>
           <!-- Small News Column -->
           <div class="news-column">
-              <a href="https://www.ulvac.co.jp/en/news/20251121a/" target="_blank" rel="noopener noreferrer" class="news-card small animate-on-scroll reveal-soft delay-300 hover-card-effect">
+              <a href="https://www.ulvac.co.jp/news/20251121a/" target="_blank" rel="noopener noreferrer" class="news-card small animate-on-scroll reveal-soft delay-300 hover-card-effect">
               <div class="news-img-wrap">
                 <picture>
-                  <source media="(max-width: 767px)" srcset="assets/images/image_skhynix_mb.png">
+                  <source media="(max-width: 767px)" srcset="../assets/images/image_skhynix_mb.png">
                   <img src="../assets/images/image_skhynix.png" alt="SK Hynix" class="news-image-sk" loading="lazy" decoding="async">
                 </picture>
               </div>
               <div class="news-content">
                 <span class="news-date ">2025.11.21</span>
-                <h3 class="text-glow-effect">ULVAC Receives "Best Partner Award" from SK hynix</h3>
-                <span class="news-tag tag-corporate">Corporate</span>
+                <h3 class="text-glow-effect">SK hynixより「Best Partner Award」を受賞〜技術力と品質への継続的な挑戦が高評価〜</h3>
+                <span class="news-tag tag-corporate">コーポレート</span>
               </div>
               </a>
-              <a href="https://www.ulvac.co.jp/en/news/20250331a/" target="_blank" rel="noopener noreferrer" class="news-card small animate-on-scroll reveal-soft delay-500 hover-card-effect">
+              <a href="https://www.ulvac.co.jp/news/20250331a/" target="_blank" rel="noopener noreferrer" class="news-card small animate-on-scroll reveal-soft delay-500 hover-card-effect">
               <div class="news-img-wrap">
                 <picture>
-                  <source media="(max-width: 767px)" srcset="assets/images/news_feature_cdp_mobile.png">
+                  <source media="(max-width: 767px)" srcset="../assets/images/news_feature_cdp_mobile.png">
                   <img src="../assets/images/news_feature_cdp_desktop.png" alt="CDP" class="news-image-cdp" loading="lazy" decoding="async">
                 </picture>
               </div>
               <div class="news-content">
                 <span class="news-date ">2025.04.01</span>
-                <h3 class="text-glow-effect">ULVAC Recognized with CDP "Climate Change 2024" and "Water Security 2024" B Score </h3>
-                <span class="news-tag tag-sustainability">Sustainability</span>
+                <h3 class="text-glow-effect">CDP「気候変動2024」「水セキュリティ2024」で「B」スコアに認定されました</h3>
+                <span class="news-tag tag-sustainability">サステナビリティ</span>
               </div>
             </a>
           </div>
         </div>
         <div class="news-footer animate-on-scroll delay-400">
             <a href="news.html" class="btn-business hover-lift">
-            <span>See All News</span>
+            <span>ニュース一覧を見る</span>
         <img src="../assets/images/icon_chevron_right_white.svg" alt="" class="chevron-right-icon">
           </a>
         </div>
@@ -427,7 +445,7 @@
       <div class="bases-container container">
         <div class="bases-map-shell">
           <div class="bases-map-header">
-            <h2 class="animate-on-scroll reveal-pop text-spotlight">ULVAC Main Bases</h2>
+            <h2 class="animate-on-scroll reveal-pop text-spotlight">アルバックの主要拠点</h2>
           </div>
 
           <div class="bases-map-content animate-on-scroll reveal-soft delay-100">
@@ -476,7 +494,7 @@
               
               <!-- See All Button (Desktop) -->
               <a href="group-companies.html#group-company-regions" class="btn-map-bases btn-map-bases--desktop hover-card-effect animate-on-scroll reveal-tight delay-100">
-                <span>See All Group Companies</span>
+                <span>グループ会社一覧を見る</span>
                 <img src="../assets/images/icon_chevron_right_blue.svg" alt="" class="chevron-right-icon">
               </a>
             </div>
@@ -624,7 +642,7 @@
 
             <!-- See All Button (Mobile) -->
             <a href="group-companies.html#group-company-regions" class="btn-map-bases btn-map-bases--mobile hover-card-effect animate-on-scroll reveal-tight delay-100">
-              <span>See All Group Companies</span>
+              <span>グループ会社一覧を見る</span>
               <img src="../assets/images/icon_chevron_right_blue.svg" alt="" class="chevron-right-icon">
             </a>
           </div>
@@ -645,10 +663,10 @@
         <div class="report-content">
           <div class="report-text animate-on-scroll reveal-pop">
             <h2 class="text-spotlight">ULVAC VALUE REPORT 2025</h2>
-            <p class="text-readable">Our approach to sustainable growth and long-term value creation</p>
+            <p class="text-readable">持続的成長と企業価値向上に向けた取り組み</p>
           </div>
-          <a href="https://www.ulvac.co.jp/en/sustainability/report/" target="_blank" rel="noopener noreferrer" class="btn-report hover-color-effect hover-lift animate-on-scroll reveal-tight delay-100" aria-label="View ULVAC Value Report">
-            <span>View Report</span>
+          <a href="https://www.ulvac.co.jp/sustainability/report/" target="_blank" rel="noopener noreferrer" class="btn-report hover-color-effect hover-lift animate-on-scroll reveal-tight delay-100" aria-label="View ULVAC Value Report">
+            <span>統合レポートを見る</span>
        <img src="../assets/images/icon_chevron_right_blue.svg" alt="" class="chevron-right-icon">
           </a>
         </div>
@@ -665,26 +683,26 @@
           <address class="footer-contact">
             <div class="footer-contact-row">
               <img src="../assets/images/footer_icon_location.svg" alt="" class="footer-contact-icon" loading="lazy" decoding="async">
-              <p>ULVAC, Inc.<br>2500 Hagisono, Chigasaki, Kanagawa 253-8543, Japan</p>
+              <p>株式会社アルバック<br>〒253-8543 神奈川県茅ヶ崎市萩園2500番地</p>
             </div>
           </address>
         </div>
         <div class="footer-nav-columns">
           <div class="footer-nav-group animate-on-scroll reveal-soft delay-100">
-            <a href="#" class="footer-nav-title hover-color-effect">SITEMAP</a>
+            <a href="#" class="footer-nav-title hover-color-effect">サイトマップ</a>
             <ul>
-              <li><a href="index.html" class="hover-color-effect">Home</a></li>
-              <li><a href="about.html" class="hover-color-effect">About ULVAC</a></li>
-              <li><a href="news.html" class="hover-color-effect">News</a></li>
-              <li><a href="investor-relations.html" class="hover-color-effect">Investor Relations</a></li>
-              <li><a href="contact.html" class="hover-color-effect">Contact</a></li>
+              <li><a href="index.html" class="hover-color-effect">トップ</a></li>
+              <li><a href="about.html" class="hover-color-effect">アルバックを知る</a></li>
+              <li><a href="news.html" class="hover-color-effect">ニュース</a></li>
+              <li><a href="investor-relations.html" class="hover-color-effect">株主・投資家情報</a></li>
+              <li><a href="contact.html" class="hover-color-effect">お問い合わせ</a></li>
             </ul>
           </div>
           <div class="footer-nav-group footer-sites-group animate-on-scroll reveal-soft delay-200">
-            <a href="#" class="footer-nav-title hover-color-effect">ULVAC Sites</a>
+            <a href="#" class="footer-nav-title hover-color-effect">ULVACウェブサイト</a>
             <ul>
-              <li><a href="https://www.ulvac.co.jp/en/" target="_blank" rel="noopener noreferrer" class="hover-color-effect">ULVAC, Inc. (EN)</a></li>
-              <li><a href="https://www.ulvac.co.jp/" target="_blank" rel="noopener noreferrer" class="hover-color-effect">ULVAC, Inc. (JP)</a></li>
+              <li><a href="https://www.ulvac.co.jp/en/" target="_blank" rel="noopener noreferrer" class="hover-color-effect">ULVAC, Inc.（英語）</a></li>
+              <li><a href="https://www.ulvac.co.jp/" target="_blank" rel="noopener noreferrer" class="hover-color-effect">ULVAC, Inc.（日本語）</a></li>
             </ul>
           </div>
         </div>
@@ -692,8 +710,8 @@
       <div class="footer-bottom animate-on-scroll reveal-soft delay-300">
         <p>&copy; 2026 ULVAC, Inc. All Rights Reserved.</p>
         <div class="footer-legal">
-          <a href="https://www.ulvac.co.jp/en/privacy_policy/" target="_blank" rel="noopener noreferrer" class="hover-color-effect">Privacy Policy</a>
-          <a href="https://www.ulvac.co.jp/en/agreement/" target="_blank" rel="noopener noreferrer" class="hover-color-effect">Terms of Use</a>
+          <a href="https://www.ulvac.co.jp/privacy_policy/" target="_blank" rel="noopener noreferrer" class="hover-color-effect">個人情報保護方針</a>
+          <a href="https://www.ulvac.co.jp/agreement/" target="_blank" rel="noopener noreferrer" class="hover-color-effect">ご利用規約</a>
         </div>
       </div>
     </div>
@@ -702,6 +720,19 @@
   <!-- JS -->
   <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
+
+  <!-- GDPR Banner -->
+  <div class="gdpr-banner" id="gdpr-banner">
+    <div class="gdpr-container">
+      <p class="gdpr-text">
+        このサイトでは、お客様の利便性や利用状況の把握などのためにCookieを使用してアクセスデータを取得・利用しています。Cookieの使用に同意する場合は、「同意しました」をクリックしてください。「<a href="https://www.ulvac.co.jp/privacy_policy/index.html" class="gdpr-link" onclick="return false;">個人情報保護方針</a>」「<a href="https://www.ulvac.co.jp/en/cookie_policy.html" class="gdpr-link" onclick="return false;">Cookie Policy</a>」をご確認ください。
+      </p>
+      <div class="gdpr-buttons">
+        <button class="gdpr-btn gdpr-btn-accept" id="gdpr-accept">許可する</button>
+        <button class="gdpr-btn gdpr-btn-decline" id="gdpr-decline">許可しない</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
 
