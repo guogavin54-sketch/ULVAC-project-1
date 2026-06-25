@@ -487,6 +487,16 @@
     background: transparent;
   }
 
+  body.is-mobile .company-history-mobile-image-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    overflow: hidden;
+    background: transparent;
+    isolation: isolate;
+  }
+
   body.is-mobile .company-history-image-year {
     top: 12px;
     left: 12px;
@@ -527,8 +537,8 @@
     width: 100%;
   }
 
-  body.is-mobile .company-history-timeline-column::before {
-    top: 30px;
+  body.is-mobile .company-history-mobile-list {
+    position: relative;
   }
 
   body.is-mobile .company-history-scroll-hint {

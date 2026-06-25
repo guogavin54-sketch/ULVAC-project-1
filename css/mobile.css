@@ -470,6 +470,7 @@ width: 100%;
     flex-direction: column;
     gap: 32px;
     padding: 0 16px;
+    width: 100%;
   }
 
   body.is-mobile .business-section .business-mobile-title {

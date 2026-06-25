@@ -57,7 +57,7 @@ const i18n = {
       china: 'China',
       korea: 'Korea',
       taiwan: 'Taiwan',
-      americas: 'Americas',
+      americas: 'USA',
       europe: 'Europe',
       southeastAsia: 'Southeast Asia',
       salesService: 'Sales & Service',
